@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>czerwin — Freelance Web Developer</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
+<style>
+  :root {
+    --accent: #0d6efd;
+    --accent-dark: #0a58ca;
+    --dark: #0f172a;
+    --muted: #64748b;
+  }
+
+  * { scroll-behavior: smooth; }
+  body { font-family: 'Segoe UI', sans-serif; color: var(--dark); }
+
+  /* NAV */
+  .navbar { background: rgba(255,255,255,.95); backdrop-filter: blur(8px); border-bottom: 1px solid #e2e8f0; }
+  .navbar-brand { font-weight: 800; font-size: 1.2rem; color: var(--accent) !important; letter-spacing: -0.5px; }
+
+  /* HERO */
+  .hero {
+    min-height: 92vh;
+    display: flex;
+    align-items: center;
+    background: var(--dark);
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(13,110,253,.25) 0%, transparent 70%);
+    top: -100px; right: -100px;
+    border-radius: 50%;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(124,58,237,.15) 0%, transparent 70%);
+    bottom: -50px; left: -50px;
+    border-radius: 50%;
+  }
+  .hero-content { position: relative; z-index: 1; }
+  .hero-tag {
+    display: inline-block;
+    background: rgba(13,110,253,.2);
+    border: 1px solid rgba(13,110,253,.4);
+    color: #93c5fd;
+    font-size: .75rem;
+    font-weight: 600;
+    padding: 5px 14px;
+    border-radius: 50px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 1.2rem;
+  }
+  .hero h1 {
+    font-size: clamp(2.4rem, 6vw, 3.8rem);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -1px;
+  }
+  .hero h1 span { color: #60a5fa; }
+  .hero .lead { font-size: 1.05rem; color: #94a3b8; max-width: 500px; line-height: 1.7; }
+  .btn-primary-hero {
+    background: var(--accent);
+    border: none;
+    color: #fff;
+    padding: 12px 28px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: .95rem;
+    text-decoration: none;
+    display: inline-block;
+    transition: background .2s, transform .15s;
+  }
+  .btn-primary-hero:hover { background: var(--accent-dark); color: #fff; transform: translateY(-1px); }
+  .btn-ghost-hero {
+    background: rgba(255,255,255,.08);
+    border: 1px solid rgba(255,255,255,.2);
+    color: #fff;
+    padding: 12px 28px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: .95rem;
+    text-decoration: none;
+    display: inline-block;
+    transition: background .2s;
+  }
+  .btn-ghost-hero:hover { background: rgba(255,255,255,.15); color: #fff; }
+  .hero-avatar {
+    width: 160px; height: 160px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #1e3a5f, #1d4ed8);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: #fff;
+    border: 4px solid rgba(255,255,255,.1);
+    margin: 0 auto 1.5rem;
+  }
+  .stat-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255,255,255,.07);
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: 50px;
+    padding: 6px 16px;
+    font-size: .8rem;
+    color: #cbd5e1;
+    margin: 4px;
+  }
+  .stat-pill i { color: #60a5fa; }
+
+  /* SERVICES */
+  .services-section { padding: 80px 0; background: #f8faff; }
+  .service-card {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 28px 24px;
+    height: 100%;
+    transition: box-shadow .2s, transform .2s, border-color .2s;
+  }
+  .service-card:hover {
+    box-shadow: 0 12px 32px rgba(13,110,253,.1);
+    transform: translateY(-3px);
+    border-color: #bfdbfe;
+  }
+  .service-icon {
+    width: 52px; height: 52px;
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.4rem;
+    margin-bottom: 16px;
+  }
+  .service-card h5 { font-weight: 700; font-size: 1rem; margin-bottom: 8px; }
+  .service-card p { font-size: .85rem; color: var(--muted); margin: 0; line-height: 1.6; }
+  .price-tag {
+    display: inline-block;
+    margin-top: 12px;
+    font-size: .78rem;
+    font-weight: 700;
+    color: var(--accent);
+    background: #eff6ff;
+    padding: 3px 10px;
+    border-radius: 50px;
+  }
+
+  /* HOW IT WORKS */
+  .how-section { padding: 80px 0; background: #fff; }
+  .step-num {
+    width: 40px; height: 40px;
+    background: var(--accent);
+    color: #fff;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800;
+    font-size: .9rem;
+    flex-shrink: 0;
+  }
+  .step-line {
+    width: 2px;
+    background: #e2e8f0;
+    flex: 1;
+    min-height: 32px;
+    margin: 4px auto;
+  }
+
+  /* WHY ME */
+  .why-section { padding: 80px 0; background: var(--dark); color: #fff; }
+  .why-item {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(255,255,255,.07);
+  }
+  .why-item:last-child { border-bottom: none; }
+  .why-icon {
+    width: 44px; height: 44px;
+    background: rgba(13,110,253,.2);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.1rem;
+    color: #60a5fa;
+    flex-shrink: 0;
+  }
+  .why-item h6 { font-weight: 700; color: #f1f5f9; margin-bottom: 4px; }
+  .why-item p { font-size: .85rem; color: #94a3b8; margin: 0; }
+
+  /* CONTACT */
+  .contact-section { padding: 80px 0; background: #f8faff; }
+  .contact-card {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 40px;
+    text-align: center;
+    max-width: 540px;
+    margin: 0 auto;
+  }
+  .contact-card h3 { font-weight: 800; font-size: 1.6rem; margin-bottom: .5rem; }
+  .contact-card p { color: var(--muted); font-size: .9rem; margin-bottom: 2rem; }
+  .btn-contact-email {
+    display: flex; align-items: center; justify-content: center; gap: 10px;
+    background: var(--accent);
+    color: #fff;
+    border-radius: 10px;
+    padding: 14px 24px;
+    font-weight: 600;
+    text-decoration: none;
+    margin-bottom: 12px;
+    transition: background .2s;
+  }
+  .btn-contact-email:hover { background: var(--accent-dark); color: #fff; }
+  .btn-contact-fb {
+    display: flex; align-items: center; justify-content: center; gap: 10px;
+    background: #1877f2;
+    color: #fff;
+    border-radius: 10px;
+    padding: 14px 24px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background .2s;
+  }
+  .btn-contact-fb:hover { background: #1565d8; color: #fff; }
+  .divider-text {
+    position: relative;
+    text-align: center;
+    margin: 12px 0;
+    color: #94a3b8;
+    font-size: .8rem;
+  }
+  .divider-text::before, .divider-text::after {
+    content: '';
+    position: absolute;
+    top: 50%; width: 42%;
+    height: 1px;
+    background: #e2e8f0;
+  }
+  .divider-text::before { left: 0; }
+  .divider-text::after { right: 0; }
+
+  /* SECTION HEADS */
+  .section-eyebrow {
+    font-size: .72rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+  .section-title { font-size: 1.9rem; font-weight: 800; margin-bottom: .5rem; }
+  .section-sub { color: var(--muted); font-size: .95rem; max-width: 520px; margin: 0 auto; }
+
+  /* FOOTER */
+  footer { background: #0a0f1e; color: #475569; padding: 24px 0; font-size: .82rem; text-align: center; }
+  footer a { color: #60a5fa; text-decoration: none; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="navbar navbar-expand-lg sticky-top">
+  <div class="container">
+    <a class="navbar-brand" href="#">czerwin</a>
+    <div class="ms-auto d-flex gap-2">
+      <a href="#services" class="btn btn-sm btn-outline-secondary d-none d-md-inline-block">Services</a>
+      <a href="#contact" class="btn btn-sm btn-primary px-3">Hire me</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="row align-items-center gy-5">
+      <div class="col-lg-7 hero-content">
+        <div class="hero-tag"><i class="bi bi-lightning-charge-fill me-1"></i>Available for projects</div>
+        <h1>I build websites<br>that <span>actually sell.</span></h1>
+        <p class="lead mt-3">
+          Freelance web developer based in the Philippines.
+          I help small businesses move from Facebook DMs to a real online store —
+          fast, affordable, and built to last.
+        </p>
+        <div class="mt-3 mb-4">
+          <span class="stat-pill"><i class="bi bi-check2-circle"></i>E-commerce specialist</span>
+          <span class="stat-pill"><i class="bi bi-check2-circle"></i>Philippine payments (GCash, Maya, COD)</span>
+          <span class="stat-pill"><i class="bi bi-check2-circle"></i>No monthly fees</span>
+        </div>
+        <div class="d-flex gap-3 flex-wrap">
+          <a href="#contact" class="btn-primary-hero"><i class="bi bi-chat-dots me-2"></i>Get a free quote</a>
+          <a href="#services" class="btn-ghost-hero">See what I offer <i class="bi bi-arrow-down ms-1"></i></a>
+        </div>
+      </div>
+      <div class="col-lg-5 text-center hero-content">
+        <div class="hero-avatar">CZ</div>
+        <div style="color:#cbd5e1;font-size:1.1rem;font-weight:700">czerwin</div>
+        <div style="color:#64748b;font-size:.85rem;margin-top:4px">Freelance Web Developer</div>
+        <div style="color:#64748b;font-size:.8rem;margin-top:2px"><i class="bi bi-geo-alt me-1"></i>Philippines</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services-section" id="services">
+  <div class="container">
+    <div class="text-center mb-5">
+      <div class="section-eyebrow">What I do</div>
+      <h2 class="section-title">Services</h2>
+      <p class="section-sub">Focused on what Filipino small businesses actually need.</p>
+    </div>
+    <div class="row g-4">
+
+      <div class="col-sm-6 col-lg-4">
+        <div class="service-card">
+          <div class="service-icon" style="background:#eff6ff;color:#1d4ed8"><i class="bi bi-shop"></i></div>
+          <h5>Online Store Setup</h5>
+          <p>Full e-commerce store with products, cart, checkout, payments, and order management. Ready to sell from day one.</p>
+          <a href="#contact" class="price-tag">Get a free quote →</a>
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-lg-4">
+        <div class="service-card">
+          <div class="service-icon" style="background:#f0fdf4;color:#15803d"><i class="bi bi-facebook"></i></div>
+          <h5>Facebook Shop Migration</h5>
+          <p>Tired of managing orders in Facebook DMs? I'll move your entire shop to a proper website with real order tracking.</p>
+          <a href="#contact" class="price-tag">Get a free quote →</a>
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-lg-4">
+        <div class="service-card">
+          <div class="service-icon" style="background:#fdf4ff;color:#7e22ce"><i class="bi bi-credit-card"></i></div>
+          <h5>Payment Integration</h5>
+          <p>GCash, Maya, GrabPay, bank transfer, and COD — set up properly so customers can pay the way they prefer.</p>
+          <a href="#contact" class="price-tag">Get a free quote →</a>
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-lg-4">
+        <div class="service-card">
+          <div class="service-icon" style="background:#fff7ed;color:#c2410c"><i class="bi bi-globe"></i></div>
+          <h5>Business Website</h5>
+          <p>Clean, fast, mobile-friendly landing page or company profile website. Great for service businesses and professionals.</p>
+          <a href="#contact" class="price-tag">Get a free quote →</a>
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-lg-4">
+        <div class="service-card">
+          <div class="service-icon" style="background:#f0f9ff;color:#0369a1"><i class="bi bi-tools"></i></div>
+          <h5>Website Maintenance</h5>
+          <p>Monthly support to keep your site updated — add products, fix issues, update content, and monitor performance.</p>
+          <a href="#contact" class="price-tag">Get a free quote →</a>
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-lg-4">
+        <div class="service-card">
+          <div class="service-icon" style="background:#fff1f2;color:#be123c"><i class="bi bi-shield-check"></i></div>
+          <h5>Security & Hosting Setup</h5>
+          <p>VPS setup, SSL certificate, domain configuration, backups. Your site secure and running 24/7 without you touching a server.</p>
+          <a href="#contact" class="price-tag">Get a free quote →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how-section" id="how">
+  <div class="container">
+    <div class="row gy-4 align-items-center">
+      <div class="col-md-5">
+        <div class="section-eyebrow">The process</div>
+        <h2 class="section-title">How it works</h2>
+        <p style="color:var(--muted);font-size:.9rem;line-height:1.7">
+          Simple, transparent, and fast.
+          Most projects are done in 3–7 days from first message to live site.
+        </p>
+      </div>
+      <div class="col-md-7">
+        <div style="max-width:420px">
+
+          <div class="d-flex gap-3 align-items-flex-start">
+            <div class="d-flex flex-column align-items-center">
+              <div class="step-num">1</div>
+              <div class="step-line"></div>
+            </div>
+            <div style="padding-bottom:24px">
+              <div style="font-weight:700;margin-bottom:4px">Tell me what you need</div>
+              <div style="font-size:.85rem;color:var(--muted)">Message me on Messenger or email. Describe your business and what you want. Free consultation, no commitment.</div>
+            </div>
+          </div>
+
+          <div class="d-flex gap-3 align-items-flex-start">
+            <div class="d-flex flex-column align-items-center">
+              <div class="step-num">2</div>
+              <div class="step-line"></div>
+            </div>
+            <div style="padding-bottom:24px">
+              <div style="font-weight:700;margin-bottom:4px">I send you a quote</div>
+              <div style="font-size:.85rem;color:var(--muted)">Fixed price, no surprises. You'll know exactly what you're getting and how much it costs before any work starts.</div>
+            </div>
+          </div>
+
+          <div class="d-flex gap-3 align-items-flex-start">
+            <div class="d-flex flex-column align-items-center">
+              <div class="step-num">3</div>
+              <div class="step-line"></div>
+            </div>
+            <div style="padding-bottom:24px">
+              <div style="font-weight:700;margin-bottom:4px">I build it</div>
+              <div style="font-size:.85rem;color:var(--muted)">You get a private demo link to review before anything goes live. Request changes — I won't stop until you're happy.</div>
+            </div>
+          </div>
+
+          <div class="d-flex gap-3 align-items-flex-start">
+            <div class="d-flex flex-column align-items-center">
+              <div class="step-num">4</div>
+            </div>
+            <div>
+              <div style="font-weight:700;margin-bottom:4px">Your site goes live</div>
+              <div style="font-size:.85rem;color:var(--muted)">I handle domain setup, hosting, and SSL. You get the keys and start selling the same day.</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY ME -->
+<section class="why-section" id="why">
+  <div class="container">
+    <div class="row gy-4 align-items-start">
+      <div class="col-md-4">
+        <div class="section-eyebrow" style="color:#60a5fa">Why hire me</div>
+        <h2 class="section-title" style="color:#f1f5f9">Built for<br>Philippine sellers.</h2>
+        <p style="color:#64748b;font-size:.9rem;line-height:1.7">
+          I know the local market — GCash, COD, LBC, J&T, Facebook buyers.
+          Your store won't feel like it was built for a US audience.
+        </p>
+      </div>
+      <div class="col-md-8">
+        <div class="why-item">
+          <div class="why-icon"><i class="bi bi-currency-exchange"></i></div>
+          <div>
+            <h6>No Shopee/Lazada commissions</h6>
+            <p>Your store, your rules. Keep 100% of every sale instead of paying 2–5% per transaction to a marketplace.</p>
+          </div>
+        </div>
+        <div class="why-item">
+          <div class="why-icon"><i class="bi bi-phone"></i></div>
+          <div>
+            <h6>Mobile-first, always</h6>
+            <p>Over 90% of Filipino online shoppers use their phone. Every site I build looks and works perfectly on mobile.</p>
+          </div>
+        </div>
+        <div class="why-item">
+          <div class="why-icon"><i class="bi bi-translate"></i></div>
+          <div>
+            <h6>You can actually talk to me</h6>
+            <p>No support tickets, no bots. Direct communication via Messenger or email. I respond fast.</p>
+          </div>
+        </div>
+        <div class="why-item">
+          <div class="why-icon"><i class="bi bi-graph-up-arrow"></i></div>
+          <div>
+            <h6>Grows with your business</h6>
+            <p>Start small, add features later — loyalty points, SMS notifications, returns system, multiple staff accounts.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="container">
+    <div class="text-center mb-5">
+      <div class="section-eyebrow">Get in touch</div>
+      <h2 class="section-title">Ready to get started?</h2>
+      <p class="section-sub">Free consultation. No pressure. Let's talk about your business.</p>
+    </div>
+    <div class="contact-card">
+      <h3>Hire czerwin</h3>
+      <p>Tell me about your project and I'll get back to you within 24 hours.</p>
+      <a href="mailto:cezar.manzanilla@gmail.com" class="btn-contact-email">
+        <i class="bi bi-envelope-fill" style="font-size:1.1rem"></i>
+        cezar.manzanilla@gmail.com
+      </a>
+      <div class="divider-text">or</div>
+      <a href="https://www.facebook.com/czerwinm" target="_blank" rel="noopener" class="btn-contact-fb">
+        <i class="bi bi-messenger" style="font-size:1.1rem"></i>
+        Message on Messenger
+      </a>
+      <div class="mt-4 pt-3 border-top" style="color:#94a3b8;font-size:.8rem">
+        <i class="bi bi-clock me-1"></i>Usually responds within a few hours &nbsp;·&nbsp;
+        <i class="bi bi-geo-alt me-1"></i>Philippines
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div style="font-weight:700;color:#94a3b8;margin-bottom:6px">czerwin</div>
+    <div>Freelance Web Developer · Philippines</div>
+    <div class="mt-2">
+      <a href="mailto:cezar.manzanilla@gmail.com">cezar.manzanilla@gmail.com</a>
+      &nbsp;·&nbsp;
+      <a href="https://www.facebook.com/czerwinm" target="_blank" rel="noopener">facebook.com/czerwinm</a>
+    </div>
+    <div class="mt-2" style="font-size:.75rem">© 2026 czerwin. All rights reserved.</div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
