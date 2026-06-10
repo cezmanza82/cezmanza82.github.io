@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MyShop PH — E-Commerce Platform for Filipino Sellers</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
+<style>
+  :root {
+    --brand: #0d6efd;
+    --brand-dark: #0a58ca;
+    --brand-light: #e7f1ff;
+    --pro: #7c3aed;
+    --pro-light: #f3eeff;
+    --ent: #0f766e;
+    --ent-light: #ecfdf5;
+  }
+  body { font-family: 'Segoe UI', sans-serif; color: #1a1a2e; }
+
+  .navbar { background: #fff; border-bottom: 1px solid #e9ecef; }
+  .navbar-brand { font-weight: 700; font-size: 1.3rem; color: var(--brand) !important; }
+  .back-link { font-size:.8rem; color:#6c757d; text-decoration:none; }
+  .back-link:hover { color:var(--brand); }
+
+  .hero {
+    background: linear-gradient(135deg, #0d6efd 0%, #0a58ca 50%, #084298 100%);
+    padding: 90px 0 80px;
+    color: #fff;
+  }
+  .hero h1 { font-size: 2.8rem; font-weight: 800; line-height: 1.2; }
+  .hero .lead { font-size: 1.2rem; opacity: .9; max-width: 580px; }
+  .hero .badge-strip { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 1.5rem; }
+  .hero .badge-strip span {
+    background: rgba(255,255,255,.15);
+    border: 1px solid rgba(255,255,255,.3);
+    color: #fff; padding: 4px 14px;
+    border-radius: 50px; font-size: .8rem;
+  }
+  .btn-hero-primary {
+    background: #fff; color: var(--brand); border: none;
+    font-weight: 600; padding: 12px 28px; border-radius: 8px;
+    font-size: 1rem; text-decoration: none; display: inline-block; transition: background .2s;
+  }
+  .btn-hero-primary:hover { background: #f0f6ff; color: var(--brand); }
+  .btn-hero-outline {
+    background: transparent; color: #fff;
+    border: 2px solid rgba(255,255,255,.6);
+    font-weight: 600; padding: 12px 28px; border-radius: 8px;
+    font-size: 1rem; text-decoration: none; display: inline-block; transition: border-color .2s;
+  }
+  .btn-hero-outline:hover { border-color: #fff; color: #fff; }
+
+  .screen-wrap { background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.3); border-radius: 12px; padding: 8px; max-width: 520px; }
+  .screen-bar { background: rgba(255,255,255,.2); border-radius: 6px 6px 0 0; padding: 6px 12px; display: flex; align-items: center; gap: 6px; }
+  .dot { width: 10px; height: 10px; border-radius: 50%; }
+  .screen-body { background: #f8f9fa; border-radius: 0 0 6px 6px; overflow: hidden; }
+  .screen-sidebar { width: 56px; background: #1a1a2e; min-height: 180px; padding: 12px 0; display: flex; flex-direction: column; align-items: center; gap: 16px; }
+  .s-icon { width: 32px; height: 32px; background: rgba(255,255,255,.1); border-radius: 6px; display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,.7); font-size: 14px; }
+  .s-icon.active { background: var(--brand); color: #fff; }
+  .screen-content { padding: 12px; flex: 1; }
+  .s-stat { background: #fff; border: 1px solid #e9ecef; border-radius: 6px; padding: 8px 10px; text-align: center; flex: 1; }
+  .s-stat .num { font-size: 1.1rem; font-weight: 700; color: var(--brand); }
+  .s-stat .lbl { font-size: .65rem; color: #6c757d; }
+  .s-order { background: #fff; border: 1px solid #e9ecef; border-radius: 6px; padding: 6px 10px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; font-size: .7rem; }
+  .s-badge { padding: 2px 8px; border-radius: 50px; font-size: .6rem; font-weight: 600; }
+  .s-badge.paid { background: #d1fae5; color: #065f46; }
+  .s-badge.pend { background: #fef3c7; color: #92400e; }
+
+  .problem-section { background: #fff; padding: 70px 0; }
+  .problem-card { background: #fff4f4; border: 1px solid #fecaca; border-radius: 12px; padding: 24px; }
+  .solution-card { background: var(--brand-light); border: 1px solid #bfdbfe; border-radius: 12px; padding: 24px; }
+  .problem-card h5, .solution-card h5 { font-weight: 700; margin-bottom: 1rem; }
+  .problem-card h5 { color: #dc2626; }
+  .solution-card h5 { color: var(--brand-dark); }
+  .check-list { list-style: none; padding: 0; margin: 0; }
+  .check-list li { padding: 5px 0; font-size: .9rem; }
+  .check-list li i { margin-right: 8px; }
+
+  .features-section { background: #f8f9ff; padding: 70px 0; }
+  .feat-card { background: #fff; border: 1px solid #e9ecef; border-radius: 12px; padding: 24px 20px; height: 100%; transition: box-shadow .2s, transform .2s; }
+  .feat-card:hover { box-shadow: 0 8px 24px rgba(13,110,253,.1); transform: translateY(-2px); }
+  .feat-icon { width: 48px; height: 48px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; margin-bottom: 14px; }
+  .feat-card h6 { font-weight: 700; margin-bottom: 6px; }
+  .feat-card p { font-size: .85rem; color: #6c757d; margin: 0; line-height: 1.5; }
+  .pro-badge { font-size: .65rem; background: var(--pro-light); color: var(--pro); padding: 2px 8px; border-radius: 50px; font-weight: 600; margin-left: 6px; vertical-align: middle; }
+
+  .security-section { background: #0d1117; padding: 70px 0; color: #fff; }
+  .sec-card { background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.1); border-radius: 12px; padding: 24px; height: 100%; }
+  .sec-icon { width: 44px; height: 44px; background: rgba(13,110,253,.2); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; color: #93c5fd; margin-bottom: 12px; }
+  .sec-card h6 { font-weight: 700; color: #f1f5f9; margin-bottom: 6px; }
+  .sec-card p { font-size: .85rem; color: #94a3b8; margin: 0; line-height: 1.5; }
+
+  .roadmap-section { background: #f8f9ff; padding: 70px 0; }
+  .road-item { display: flex; align-items: flex-start; gap: 14px; padding: 12px 0; border-bottom: 1px solid #e9ecef; }
+  .road-item:last-child { border-bottom: none; }
+  .road-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; margin-top: 6px; }
+  .road-dot.near { background: var(--brand); }
+  .road-dot.mid { background: var(--pro); }
+  .road-dot.long { background: var(--ent); }
+
+  .cta-section { background: linear-gradient(135deg, #0d6efd 0%, #7c3aed 100%); padding: 80px 0; text-align: center; color: #fff; }
+  .cta-section h2 { font-size: 2rem; font-weight: 800; margin-bottom: 1rem; }
+  .cta-section p { font-size: 1.1rem; opacity: .9; margin-bottom: 2rem; }
+
+  footer { background: #1a1a2e; color: #94a3b8; padding: 32px 0; font-size: .85rem; }
+  footer a { color: #93c5fd; text-decoration: none; }
+
+  .section-tag { font-size: .75rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--brand); margin-bottom: 8px; }
+  .section-title { font-size: 2rem; font-weight: 800; margin-bottom: .5rem; }
+  .section-sub { color: #6c757d; font-size: 1rem; max-width: 560px; margin: 0 auto; }
+</style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg sticky-top">
+  <div class="container">
+    <a class="navbar-brand" href="#"><i class="bi bi-shop me-2"></i>MyShop PH</a>
+    <div class="ms-auto d-flex align-items-center gap-3">
+      <a href="index.html" class="back-link d-none d-md-inline"><i class="bi bi-arrow-left me-1"></i>Back to czerwin.net</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav"><span class="navbar-toggler-icon"></span></button>
+      <div class="collapse navbar-collapse" id="nav">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+          <li class="nav-item"><a class="nav-link" href="#features">Features</a></li>
+          <li class="nav-item"><a class="nav-link" href="#roadmap">Roadmap</a></li>
+          <li class="nav-item"><a class="btn btn-outline-primary btn-sm px-3" href="#demo">View Demo</a></li>
+          <li class="nav-item"><a class="btn btn-primary btn-sm px-3" href="#contact">Get Started</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="container">
+    <div class="row align-items-center gy-5">
+      <div class="col-lg-6">
+        <h1>Your own online store.<br>No monthly marketplace fees.</h1>
+        <p class="lead mt-3">MyShop PH is a complete e-commerce platform built for Filipino sellers. Own your store, keep your customers, and stop paying Shopee's commission on every sale.</p>
+        <div class="badge-strip">
+          <span><i class="bi bi-check2 me-1"></i>Self-hosted</span>
+          <span><i class="bi bi-check2 me-1"></i>No transaction fees</span>
+          <span><i class="bi bi-check2 me-1"></i>GCash &amp; Maya ready</span>
+          <span><i class="bi bi-check2 me-1"></i>COD support</span>
+        </div>
+        <div class="d-flex gap-3 mt-4 flex-wrap">
+          <a href="#demo" class="btn-hero-primary"><i class="bi bi-play-circle me-2"></i>View Live Demo</a>
+          <a href="#contact" class="btn-hero-outline">Ask for pricing <i class="bi bi-arrow-right ms-1"></i></a>
+        </div>
+      </div>
+      <div class="col-lg-6 d-flex justify-content-center">
+        <div class="screen-wrap w-100">
+          <div class="screen-bar">
+            <div class="dot" style="background:#ff5f57"></div>
+            <div class="dot" style="background:#febc2e"></div>
+            <div class="dot" style="background:#28c840"></div>
+            <span style="font-size:.7rem;color:rgba(255,255,255,.6);margin-left:8px">admin.myshopph.com</span>
+          </div>
+          <div class="screen-body d-flex">
+            <div class="screen-sidebar">
+              <div class="s-icon active"><i class="bi bi-grid-1x2-fill"></i></div>
+              <div class="s-icon"><i class="bi bi-cart3"></i></div>
+              <div class="s-icon"><i class="bi bi-box-seam"></i></div>
+              <div class="s-icon"><i class="bi bi-people"></i></div>
+              <div class="s-icon"><i class="bi bi-bar-chart"></i></div>
+            </div>
+            <div class="screen-content">
+              <div style="font-size:.7rem;font-weight:700;color:#1a1a2e;margin-bottom:8px">Dashboard</div>
+              <div class="d-flex gap-2 mb-3">
+                <div class="s-stat"><div class="num">₱48,200</div><div class="lbl">Revenue</div></div>
+                <div class="s-stat"><div class="num">23</div><div class="lbl">Orders</div></div>
+                <div class="s-stat"><div class="num">147</div><div class="lbl">Customers</div></div>
+              </div>
+              <div style="font-size:.65rem;color:#6c757d;margin-bottom:6px">Recent orders</div>
+              <div class="s-order"><span style="color:#1a1a2e">ORD-0023 · Juan D.</span><span class="s-badge paid">Paid</span></div>
+              <div class="s-order"><span style="color:#1a1a2e">ORD-0022 · Maria C.</span><span class="s-badge pend">Pending</span></div>
+              <div class="s-order"><span style="color:#1a1a2e">ORD-0021 · Pedro R.</span><span class="s-badge paid">Paid</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div style="background:#f8f9fa;border-bottom:1px solid #e9ecef;padding:20px 0;">
+  <div class="container">
+    <div class="row text-center gy-2">
+      <div class="col-6 col-md-3"><div style="font-size:1.6rem;font-weight:800;color:var(--brand)">100%</div><div style="font-size:.8rem;color:#6c757d">Yours to own</div></div>
+      <div class="col-6 col-md-3"><div style="font-size:1.6rem;font-weight:800;color:var(--brand)">₱0</div><div style="font-size:.8rem;color:#6c757d">Monthly marketplace fee</div></div>
+      <div class="col-6 col-md-3"><div style="font-size:1.6rem;font-weight:800;color:var(--brand)">5 min</div><div style="font-size:.8rem;color:#6c757d">Setup time</div></div>
+      <div class="col-6 col-md-3"><div style="font-size:1.6rem;font-weight:800;color:var(--brand)">24/7</div><div style="font-size:.8rem;color:#6c757d">Always online</div></div>
+    </div>
+  </div>
+</div>
+
+<section class="problem-section" id="why">
+  <div class="container">
+    <div class="row gy-4 align-items-start">
+      <div class="col-md-6">
+        <div class="problem-card">
+          <h5><i class="bi bi-x-circle-fill me-2"></i>The marketplace problem</h5>
+          <ul class="check-list">
+            <li><i class="bi bi-x-circle text-danger"></i>Shopee/Lazada takes 2–5% on every sale</li>
+            <li><i class="bi bi-x-circle text-danger"></i>Your brand lives on their platform, not yours</li>
+            <li><i class="bi bi-x-circle text-danger"></i>No control over how your store looks</li>
+            <li><i class="bi bi-x-circle text-danger"></i>Customers see your competitors' ads on your page</li>
+            <li><i class="bi bi-x-circle text-danger"></i>Account can be suspended without warning</li>
+            <li><i class="bi bi-x-circle text-danger"></i>Facebook orders managed via DM — no system</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="solution-card">
+          <h5><i class="bi bi-check-circle-fill me-2"></i>The MyShop PH way</h5>
+          <ul class="check-list">
+            <li><i class="bi bi-check-circle-fill text-success"></i>Zero commission. Keep 100% of every sale.</li>
+            <li><i class="bi bi-check-circle-fill text-success"></i>Your domain, your brand, your store</li>
+            <li><i class="bi bi-check-circle-fill text-success"></i>Choose from marketplace-style templates</li>
+            <li><i class="bi bi-check-circle-fill text-success"></i>No competitor ads — ever</li>
+            <li><i class="bi bi-check-circle-fill text-success"></i>You own the server and the data</li>
+            <li><i class="bi bi-check-circle-fill text-success"></i>Full order management, tracking, notifications</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="features-section" id="features">
+  <div class="container">
+    <div class="text-center mb-5">
+      <div class="section-tag">What's included</div>
+      <h2 class="section-title">Everything a real store needs</h2>
+      <p class="section-sub">No plugins to buy. No extensions to configure. It all ships in one install.</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-sm-6 col-lg-4">
+        <div class="feat-card">
+          <div class="feat-icon" style="background:#e7f1ff;color:var(--brand)"><i class="bi bi-box-seam-fill"></i></div>
+          <h6>Product Management</h6>
+          <p>Add products with variants (size, color, caliber), pricing tiers, SKUs, stock tracking, and bulk import. Auto cost + markup pricing built in.</p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-4">
+        <div class="feat-card">
+          <div class="feat-icon" style="background:#f0fdf4;color:#16a34a"><i class="bi bi-cart-check-fill"></i></div>
+          <h6>Order Management</h6>
+          <p>Full order lifecycle from checkout to delivered. Status updates, tracking numbers, payment proof upload, and printable receipts.</p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-4">
+        <div class="feat-card">
+          <div class="feat-icon" style="background:#fdf4ff;color:var(--pro)"><i class="bi bi-credit-card-2-front-fill"></i></div>
+          <h6>Philippine Payments</h6>
+          <p>Accept GCash, Maya, GrabPay, bank transfer, and COD. PayMongo integration for card payments. Manual payment proof upload.</p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-4">
+        <div class="feat-card">
+          <div class="feat-icon" style="background:#fff7ed;color:#ea580c"><i class="bi bi-truck"></i></div>
+          <h6>Delivery Options</h6>
+          <p>Configure multiple couriers with base fees, per-kg rates, and coverage areas. J&amp;T, LBC, Grab Express — add any provider you use.</p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-4">
+        <div class="feat-card">
+          <div class="feat-icon" style="background:#f0fdf4;color:#0f766e"><i class="bi bi-people-fill"></i></div>
+          <h6>Customer Accounts</h6>
+          <p>Registration with email verification, order history, wishlist, address book. ID verification system included for regulated products.</p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-4">
+        <div class="feat-card">
+          <div class="feat-icon" style="background:#fef2f2;color:#dc2626"><i class="bi bi-speedometer2"></i></div>
+          <h6>Admin Dashboard</h6>
+          <p>Revenue overview, recent orders, inventory alerts, customer list, coupon management, banners, and full audit log with geo-IP tracking.</p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-4">
+        <div class="feat-card">
+          <div class="feat-icon" style="background:#fff1f2;color:#be123c"><i class="bi bi-shield-lock-fill"></i></div>
+          <h6>Age Gate <span class="pro-badge">PRO</span></h6>
+          <p>Built-in age verification gate for airsoft, vaping, alcohol, or any age-restricted shop. Fully configurable, remember-me support.</p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-4">
+        <div class="feat-card">
+          <div class="feat-icon" style="background:#eff6ff;color:var(--brand)"><i class="bi bi-layout-text-window-reverse"></i></div>
+          <h6>3 Marketplace Templates <span class="pro-badge">PRO</span></h6>
+          <p>FlashMart (Shopee-style), BazaarPro (Lazada-style), DealZone (Amazon-style). Customers feel right at home.</p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-4">
+        <div class="feat-card">
+          <div class="feat-icon" style="background:#f5f3ff;color:var(--pro)"><i class="bi bi-bell-fill"></i></div>
+          <h6>Smart Notifications</h6>
+          <p>Email alerts for new orders, low stock, failed logins, brute-force attacks, and new login locations. All configurable per event.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="security-section" id="security">
+  <div class="container">
+    <div class="text-center mb-5">
+      <div class="section-tag" style="color:#93c5fd">Security built in</div>
+      <h2 class="section-title">Not an afterthought</h2>
+      <p class="section-sub" style="color:#94a3b8">Enterprise-grade protection included on every plan.</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-sm-6 col-lg-3">
+        <div class="sec-card">
+          <div class="sec-icon"><i class="bi bi-geo-alt-fill"></i></div>
+          <h6>Geo-IP Audit Log</h6>
+          <p>Every login shows city + country. Know immediately if a foreign IP accesses your store.</p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3">
+        <div class="sec-card">
+          <div class="sec-icon"><i class="bi bi-shield-x"></i></div>
+          <h6>Brute-Force Lockout</h6>
+          <p>5 failed login attempts = 15-minute IP block. Email alert fires to admin immediately.</p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3">
+        <div class="sec-card">
+          <div class="sec-icon"><i class="bi bi-exclamation-triangle-fill"></i></div>
+          <h6>New Location Alert</h6>
+          <p>Login from an unrecognized IP? Instant email alert to admin. Flag before damage is done.</p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3">
+        <div class="sec-card">
+          <div class="sec-icon"><i class="bi bi-phone"></i></div>
+          <h6>2FA / OTP Login</h6>
+          <p>Optional two-factor authentication. OTP sent by email before access is granted.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="background:#f8f9fa;padding:70px 0" id="demo">
+  <div class="container">
+    <div class="row align-items-center gy-4">
+      <div class="col-md-6">
+        <div class="section-tag">Live demo</div>
+        <h2 class="section-title">See it in action</h2>
+        <p style="color:#6c757d;font-size:.95rem;line-height:1.7">Browse a fully working airsoft store demo — products, cart, checkout, payment proof upload, and customer account features all enabled.</p>
+        <ul class="list-unstyled mt-3" style="font-size:.9rem">
+          <li class="mb-2"><i class="bi bi-person-circle text-primary me-2"></i>Customer: <code>demo@myshopph.com</code> / <code>Demo1234!</code></li>
+          <li class="mb-2"><i class="bi bi-shield-fill text-success me-2"></i>Admin: contact us for admin credentials</li>
+        </ul>
+        <a href="#contact" class="btn btn-primary mt-3"><i class="bi bi-box-arrow-up-right me-2"></i>Request demo access</a>
+      </div>
+      <div class="col-md-6">
+        <div style="background:#fff;border:1px solid #e9ecef;border-radius:12px;padding:24px">
+          <div style="font-size:.8rem;font-weight:700;color:#6c757d;margin-bottom:12px;text-transform:uppercase;letter-spacing:1px">Demo store features</div>
+          <div class="row g-2">
+            <div class="col-6"><div style="background:#f0fdf4;border-radius:8px;padding:10px 12px;font-size:.8rem"><i class="bi bi-check2 text-success me-2"></i>Product catalog</div></div>
+            <div class="col-6"><div style="background:#f0fdf4;border-radius:8px;padding:10px 12px;font-size:.8rem"><i class="bi bi-check2 text-success me-2"></i>Shopping cart</div></div>
+            <div class="col-6"><div style="background:#f0fdf4;border-radius:8px;padding:10px 12px;font-size:.8rem"><i class="bi bi-check2 text-success me-2"></i>Checkout flow</div></div>
+            <div class="col-6"><div style="background:#f0fdf4;border-radius:8px;padding:10px 12px;font-size:.8rem"><i class="bi bi-check2 text-success me-2"></i>GCash / Maya</div></div>
+            <div class="col-6"><div style="background:#f0fdf4;border-radius:8px;padding:10px 12px;font-size:.8rem"><i class="bi bi-check2 text-success me-2"></i>Order tracking</div></div>
+            <div class="col-6"><div style="background:#f0fdf4;border-radius:8px;padding:10px 12px;font-size:.8rem"><i class="bi bi-check2 text-success me-2"></i>Age gate (18+)</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="roadmap-section" id="roadmap">
+  <div class="container">
+    <div class="row gy-4">
+      <div class="col-md-4">
+        <div class="section-tag">What's coming</div>
+        <h2 class="section-title">Roadmap</h2>
+        <p style="color:#6c757d;font-size:.9rem">MyShop PH is actively developed. Features ship based on customer feedback. Pro &amp; Enterprise customers get early access.</p>
+      </div>
+      <div class="col-md-8">
+        <div style="background:#fff;border:1px solid #e9ecef;border-radius:12px;padding:24px">
+          <div style="font-size:.75rem;font-weight:700;color:var(--brand);letter-spacing:1px;text-transform:uppercase;margin-bottom:10px">Near-term (next 1–2 months)</div>
+          <div class="road-item"><div class="road-dot near"></div><div><div style="font-size:.85rem;font-weight:600">Customer Login Activity page</div><div style="font-size:.78rem;color:#6c757d">Admins see IP history per customer — Pro+</div></div></div>
+          <div class="road-item"><div class="road-dot near"></div><div><div style="font-size:.85rem;font-weight:600">SMS notifications via Semaphore</div><div style="font-size:.78rem;color:#6c757d">Order confirmations and OTP via Philippine SMS</div></div></div>
+          <div class="road-item"><div class="road-dot near"></div><div><div style="font-size:.85rem;font-weight:600">Returns &amp; refund management</div><div style="font-size:.78rem;color:#6c757d">Return request flow with admin approval</div></div></div>
+          <div style="font-size:.75rem;font-weight:700;color:var(--pro);letter-spacing:1px;text-transform:uppercase;margin:18px 0 10px">Mid-term (3–6 months)</div>
+          <div class="road-item"><div class="road-dot mid"></div><div><div style="font-size:.85rem;font-weight:600">Loyalty points system</div><div style="font-size:.78rem;color:#6c757d">Earn and redeem points on orders</div></div></div>
+          <div class="road-item"><div class="road-dot mid"></div><div><div style="font-size:.85rem;font-weight:600">Facebook catalog sync</div><div style="font-size:.78rem;color:#6c757d">Auto-push products to Facebook Shop</div></div></div>
+          <div class="road-item"><div class="road-dot mid"></div><div><div style="font-size:.85rem;font-weight:600">Mobile admin app (PWA)</div><div style="font-size:.78rem;color:#6c757d">Manage orders from your phone</div></div></div>
+          <div style="font-size:.75rem;font-weight:700;color:var(--ent);letter-spacing:1px;text-transform:uppercase;margin:18px 0 10px">Long-term (6+ months)</div>
+          <div class="road-item"><div class="road-dot long"></div><div><div style="font-size:.85rem;font-weight:600">Multi-vendor marketplace mode</div><div style="font-size:.78rem;color:#6c757d">Run your own mini Shopee — Enterprise</div></div></div>
+          <div class="road-item" style="border-bottom:none"><div class="road-dot long"></div><div><div style="font-size:.85rem;font-weight:600">AI product description writer</div><div style="font-size:.78rem;color:#6c757d">Auto-generate SEO-optimized listings</div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section" id="contact">
+  <div class="container">
+    <h2>Ready to own your store?</h2>
+    <p>Set up takes less than 5 minutes. No coding required.</p>
+    <div class="d-flex justify-content-center gap-3 flex-wrap">
+      <a href="mailto:cezar.manzanilla@gmail.com" class="btn-hero-primary"><i class="bi bi-envelope-fill me-2"></i>Email to get started</a>
+      <a href="https://www.facebook.com/czerwinm" target="_blank" rel="noopener" class="btn-hero-outline"><i class="bi bi-messenger me-2"></i>Message on Messenger</a>
+    </div>
+    <p class="mt-4" style="opacity:.7;font-size:.85rem">Built and maintained by <strong>czerwin</strong> · <a href="index.html" style="color:rgba(255,255,255,.8)">czerwin.net</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="row gy-3 align-items-center">
+      <div class="col-md-6">
+        <div style="font-size:1rem;font-weight:700;color:#f1f5f9;margin-bottom:4px"><i class="bi bi-shop me-2 text-primary"></i>MyShop PH</div>
+        <div>E-Commerce Platform for Filipino Sellers</div>
+      </div>
+      <div class="col-md-6 text-md-end">
+        <div><a href="#features" class="me-3">Features</a><a href="#roadmap" class="me-3">Roadmap</a><a href="#contact">Contact</a></div>
+        <div class="mt-2" style="font-size:.75rem">© 2026 MyShop PH · Built by <a href="index.html">czerwin</a> · Philippines</div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

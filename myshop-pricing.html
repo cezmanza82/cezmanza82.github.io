@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MyShop PH — Pricing</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
+<style>
+  :root {
+    --brand: #0d6efd;
+    --brand-dark: #0a58ca;
+    --pro: #7c3aed;
+    --pro-light: #f3eeff;
+    --ent: #0f766e;
+    --ent-light: #ecfdf5;
+    --dark: #0f172a;
+    --muted: #64748b;
+  }
+  body { font-family: 'Segoe UI', sans-serif; color: var(--dark); background: #f8faff; }
+
+  .top-bar { background: var(--dark); color: #94a3b8; font-size: .8rem; padding: 10px 0; text-align: center; }
+  .top-bar a { color: #60a5fa; text-decoration: none; }
+
+  .page-header { background: #fff; border-bottom: 1px solid #e2e8f0; padding: 32px 0; }
+  .brand { font-weight: 800; font-size: 1.2rem; color: var(--brand); }
+
+  .price-card {
+    background: #fff;
+    border: 1px solid #e9ecef;
+    border-radius: 16px;
+    padding: 32px 28px;
+    height: 100%;
+    position: relative;
+  }
+  .price-card.featured {
+    border: 2px solid var(--pro);
+    box-shadow: 0 8px 32px rgba(124,58,237,.15);
+  }
+  .popular-badge {
+    position: absolute;
+    top: -12px; left: 50%;
+    transform: translateX(-50%);
+    background: var(--pro); color: #fff;
+    font-size: .7rem; font-weight: 700;
+    padding: 4px 16px; border-radius: 50px;
+    white-space: nowrap;
+  }
+  .price-tier { font-size: .8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
+  .price-amount { font-size: 2.2rem; font-weight: 800; line-height: 1; }
+  .price-amount sup { font-size: 1rem; font-weight: 600; vertical-align: top; margin-top: 8px; }
+  .price-period { font-size: .8rem; color: var(--muted); }
+  .price-onetime { font-size: .8rem; color: var(--muted); margin-top: 4px; }
+  .feat-list { list-style: none; padding: 0; margin: 1.5rem 0; }
+  .feat-list li { padding: 6px 0; font-size: .85rem; border-bottom: 1px solid #f1f5f9; display: flex; align-items: flex-start; gap: 8px; }
+  .feat-list li:last-child { border-bottom: none; }
+  .feat-list i.bi-check-circle-fill { color: #16a34a; flex-shrink: 0; margin-top: 1px; }
+  .feat-list i.bi-x-circle-fill { color: #d1d5db; flex-shrink: 0; margin-top: 1px; }
+
+  .btn-plan-free { background: #f1f5f9; border: none; color: var(--dark); font-weight: 600; width: 100%; padding: 10px; border-radius: 8px; cursor: pointer; }
+  .btn-plan-free:hover { background: #e2e8f0; }
+  .btn-plan-pro { background: var(--pro); border: none; color: #fff; font-weight: 600; width: 100%; padding: 10px; border-radius: 8px; cursor: pointer; }
+  .btn-plan-pro:hover { background: #6d28d9; }
+  .btn-plan-ent { background: var(--ent); border: none; color: #fff; font-weight: 600; width: 100%; padding: 10px; border-radius: 8px; cursor: pointer; }
+  .btn-plan-ent:hover { background: #0d6b64; }
+
+  .compare-table th { font-size: .8rem; font-weight: 700; text-align: center; padding: 12px 8px; }
+  .compare-table td { font-size: .82rem; padding: 10px 8px; border-bottom: 1px solid #f1f5f9; vertical-align: middle; }
+  .compare-table td:not(:first-child) { text-align: center; }
+  .compare-table .cat-row td { background: #f8faff; font-weight: 700; font-size: .75rem; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; }
+  .tick { color: #16a34a; font-size: 1rem; }
+  .cross { color: #d1d5db; font-size: 1rem; }
+  .pro-col { background: #faf5ff; }
+  .ent-col { background: #f0fdf9; }
+
+  .note-box { background: #fffbeb; border: 1px solid #fde68a; border-radius: 10px; padding: 16px 20px; font-size: .85rem; color: #78350f; margin-bottom: 24px; }
+  .note-box i { color: #d97706; margin-right: 6px; }
+
+  .contact-strip { background: var(--dark); color: #fff; padding: 48px 0; text-align: center; }
+  .contact-strip h3 { font-weight: 800; margin-bottom: .5rem; }
+  .contact-strip p { color: #94a3b8; font-size: .9rem; margin-bottom: 1.5rem; }
+  .btn-email { background: var(--brand); color: #fff; border: none; padding: 12px 24px; border-radius: 8px; font-weight: 600; text-decoration: none; display: inline-block; margin: 4px; font-size: .9rem; }
+  .btn-email:hover { background: var(--brand-dark); color: #fff; }
+  .btn-fb { background: #1877f2; color: #fff; border: none; padding: 12px 24px; border-radius: 8px; font-weight: 600; text-decoration: none; display: inline-block; margin: 4px; font-size: .9rem; }
+  .btn-fb:hover { background: #1565d8; color: #fff; }
+
+  footer { background: #0a0f1e; color: #475569; padding: 20px 0; font-size: .8rem; text-align: center; }
+  footer a { color: #60a5fa; text-decoration: none; }
+</style>
+</head>
+<body>
+
+<div class="top-bar">
+  This is a private pricing guide for MyShop PH &nbsp;·&nbsp;
+  <a href="myshop.html">← Back to MyShop PH</a>
+</div>
+
+<div class="page-header">
+  <div class="container">
+    <div class="d-flex align-items-center gap-3">
+      <div>
+        <div class="brand"><i class="bi bi-shop me-2"></i>MyShop PH</div>
+        <div style="font-size:.8rem;color:var(--muted)">Pricing — shared privately by czerwin</div>
+      </div>
+      <div class="ms-auto text-end d-none d-md-block">
+        <div style="font-size:.75rem;color:var(--muted)">Questions? Reach out at</div>
+        <a href="mailto:cezar.manzanilla@gmail.com" style="font-size:.85rem;color:var(--brand);font-weight:600">cezar.manzanilla@gmail.com</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container py-5">
+
+  <div class="note-box">
+    <i class="bi bi-info-circle-fill"></i>
+    <strong>Prices are in Philippine Peso (₱).</strong> Setup fee covers installation, configuration, and deployment to your server.
+    Hosting is separate (~₱250/mo on Hetzner) and paid directly by you to the provider.
+  </div>
+
+  <!-- PLAN CARDS -->
+  <div class="row g-4 mb-5 justify-content-center">
+
+    <div class="col-md-4">
+      <div class="price-card">
+        <div class="price-tier text-secondary">Free</div>
+        <div class="price-amount">₱0</div>
+        <div class="price-period">license fee · forever</div>
+        <div class="price-onetime" style="margin-top:8px;padding-top:8px;border-top:1px solid #f1f5f9">
+          <i class="bi bi-tools me-1"></i>Setup fee: <strong>₱3,000 – ₱5,000</strong>
+        </div>
+        <ul class="feat-list mt-3">
+          <li><i class="bi bi-check-circle-fill"></i>Unlimited products</li>
+          <li><i class="bi bi-check-circle-fill"></i>Order management</li>
+          <li><i class="bi bi-check-circle-fill"></i>Customer accounts</li>
+          <li><i class="bi bi-check-circle-fill"></i>GCash / COD / bank transfer</li>
+          <li><i class="bi bi-check-circle-fill"></i>1 admin user</li>
+          <li><i class="bi bi-check-circle-fill"></i>Security features</li>
+          <li><i class="bi bi-x-circle-fill"></i>Marketplace templates</li>
+          <li><i class="bi bi-x-circle-fill"></i>Age gate</li>
+          <li><i class="bi bi-x-circle-fill"></i>Staff accounts</li>
+          <li><i class="bi bi-x-circle-fill"></i>PayMongo integration</li>
+        </ul>
+        <button class="btn-plan-free" onclick="location.href='mailto:cezar.manzanilla@gmail.com?subject=MyShop PH Free Plan'">Get started free</button>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="price-card featured">
+        <div class="popular-badge"><i class="bi bi-star-fill me-1" style="font-size:.6rem"></i>Most popular</div>
+        <div class="price-tier" style="color:var(--pro)">Pro</div>
+        <div class="price-amount" style="color:var(--pro)"><sup>₱</sup>1,200</div>
+        <div class="price-period">per year (license renewal)</div>
+        <div class="price-onetime">or ₱4,500 one-time lifetime license</div>
+        <div style="margin-top:8px;padding-top:8px;border-top:1px solid #f1f5f9;font-size:.8rem;color:var(--muted)">
+          <i class="bi bi-tools me-1"></i>Setup fee: <strong style="color:var(--dark)">₱5,000 – ₱8,000</strong>
+        </div>
+        <ul class="feat-list mt-3">
+          <li><i class="bi bi-check-circle-fill"></i>Everything in Free</li>
+          <li><i class="bi bi-check-circle-fill"></i>All 3 marketplace templates</li>
+          <li><i class="bi bi-check-circle-fill"></i>Age gate (18+ verification)</li>
+          <li><i class="bi bi-check-circle-fill"></i>5 staff accounts</li>
+          <li><i class="bi bi-check-circle-fill"></i>PayMongo (cards, e-wallets)</li>
+          <li><i class="bi bi-check-circle-fill"></i>Priority support</li>
+          <li><i class="bi bi-x-circle-fill"></i>White-label (remove branding)</li>
+          <li><i class="bi bi-x-circle-fill"></i>Source code access</li>
+        </ul>
+        <button class="btn-plan-pro" onclick="location.href='mailto:cezar.manzanilla@gmail.com?subject=MyShop PH Pro Plan'">Get Pro</button>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="price-card">
+        <div class="price-tier" style="color:var(--ent)">Enterprise</div>
+        <div class="price-amount" style="color:var(--ent)"><sup>₱</sup>2,500</div>
+        <div class="price-period">per year (license renewal)</div>
+        <div class="price-onetime">or ₱9,500 one-time lifetime license</div>
+        <div style="margin-top:8px;padding-top:8px;border-top:1px solid #f1f5f9;font-size:.8rem;color:var(--muted)">
+          <i class="bi bi-tools me-1"></i>Setup fee: <strong style="color:var(--dark)">₱8,000 – ₱15,000</strong>
+        </div>
+        <ul class="feat-list mt-3">
+          <li><i class="bi bi-check-circle-fill"></i>Everything in Pro</li>
+          <li><i class="bi bi-check-circle-fill"></i>Unlimited staff accounts</li>
+          <li><i class="bi bi-check-circle-fill"></i>White-label (no czerwin branding)</li>
+          <li><i class="bi bi-check-circle-fill"></i>Source code access</li>
+          <li><i class="bi bi-check-circle-fill"></i>Custom feature development</li>
+          <li><i class="bi bi-check-circle-fill"></i>Dedicated support</li>
+          <li><i class="bi bi-check-circle-fill"></i>Migration from Facebook</li>
+          <li><i class="bi bi-check-circle-fill"></i>SLA guarantee</li>
+        </ul>
+        <button class="btn-plan-ent" onclick="location.href='mailto:cezar.manzanilla@gmail.com?subject=MyShop PH Enterprise Plan'">Contact for Enterprise</button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- COMPARISON TABLE -->
+  <h5 style="font-weight:800;margin-bottom:1.2rem">Full feature comparison</h5>
+  <div style="overflow-x:auto">
+    <table class="table compare-table" style="min-width:560px">
+      <thead>
+        <tr style="border-bottom:2px solid #e9ecef">
+          <th style="text-align:left;width:40%">Feature</th>
+          <th>Free</th>
+          <th class="pro-col" style="color:var(--pro)">Pro</th>
+          <th class="ent-col" style="color:var(--ent)">Enterprise</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="cat-row"><td colspan="4">Store basics</td></tr>
+        <tr><td>Unlimited products</td><td><i class="bi bi-check-circle-fill tick"></i></td><td class="pro-col"><i class="bi bi-check-circle-fill tick"></i></td><td class="ent-col"><i class="bi bi-check-circle-fill tick"></i></td></tr>
+        <tr><td>Product variants (size, color, etc.)</td><td><i class="bi bi-check-circle-fill tick"></i></td><td class="pro-col"><i class="bi bi-check-circle-fill tick"></i></td><td class="ent-col"><i class="bi bi-check-circle-fill tick"></i></td></tr>
+        <tr><td>Order management</td><td><i class="bi bi-check-circle-fill tick"></i></td><td class="pro-col"><i class="bi bi-check-circle-fill tick"></i></td><td class="ent-col"><i class="bi bi-check-circle-fill tick"></i></td></tr>
+        <tr><td>Customer accounts</td><td><i class="bi bi-check-circle-fill tick"></i></td><td class="pro-col"><i class="bi bi-check-circle-fill tick"></i></td><td class="ent-col"><i class="bi bi-check-circle-fill tick"></i></td></tr>
+        <tr><td>Coupons &amp; discounts</td><td><i class="bi bi-check-circle-fill tick"></i></td><td class="pro-col"><i class="bi bi-check-circle-fill tick"></i></td><td class="ent-col"><i class="bi bi-check-circle-fill tick"></i></td></tr>
+        <tr><td>Wishlist</td><td><i class="bi bi-check-circle-fill tick"></i></td><td class="pro-col"><i class="bi bi-check-circle-fill tick"></i></td><td class="ent-col"><i class="bi bi-check-circle-fill tick"></i></td></tr>
+
+        <tr class="cat-row"><td colspan="4">Payments</td></tr>
+        <tr><td>GCash / Maya / COD / bank transfer</td><td><i class="bi bi-check-circle-fill tick"></i></td><td class="pro-col"><i class="bi bi-check-circle-fill tick"></i></td><td class="ent-col"><i class="bi bi-check-circle-fill tick"></i></td></tr>
+        <tr><td>PayMongo (cards, GrabPay, BPI, QR)</td><td><i class="bi bi-x-circle-fill cross"></i></td><td class="pro-col"><i class="bi bi-check-circle-fill tick"></i></td><td class="ent-col"><i class="bi bi-check-circle-fill tick"></i></td></tr>
+
+        <tr class="cat-row"><td colspan="4">Design &amp; templates</td></tr>
+        <tr><td>Default store theme</td><td><i class="bi bi-check-circle-fill tick"></i></td><td class="pro-col"><i class="bi bi-check-circle-fill tick"></i></td><td class="ent-col"><i class="bi bi-check-circle-fill tick"></i></td></tr>
+        <tr><td>FlashMart (Shopee-style)</td><td><i class="bi bi-x-circle-fill cross"></i></td><td class="pro-col"><i class="bi bi-check-circle-fill tick"></i></td><td class="ent-col"><i class="bi bi-check-circle-fill tick"></i></td></tr>
+        <tr><td>BazaarPro (Lazada-style)</td><td><i class="bi bi-x-circle-fill cross"></i></td><td class="pro-col"><i class="bi bi-check-circle-fill tick"></i></td><td class="ent-col"><i class="bi bi-check-circle-fill tick"></i></td></tr>
+        <tr><td>DealZone (Amazon-style)</td><td><i class="bi bi-x-circle-fill cross"></i></td><td class="pro-col"><i class="bi bi-check-circle-fill tick"></i></td><td class="ent-col"><i class="bi bi-check-circle-fill tick"></i></td></tr>
+
+        <tr class="cat-row"><td colspan="4">Admin &amp; staff</td></tr>
+        <tr><td>Admin users</td><td>1</td><td class="pro-col">5</td><td class="ent-col">Unlimited</td></tr>
+        <tr><td>Role-based permissions</td><td><i class="bi bi-x-circle-fill cross"></i></td><td class="pro-col"><i class="bi bi-check-circle-fill tick"></i></td><td class="ent-col"><i class="bi bi-check-circle-fill tick"></i></td></tr>
+        <tr><td>Audit log with geo-IP</td><td><i class="bi bi-check-circle-fill tick"></i></td><td class="pro-col"><i class="bi bi-check-circle-fill tick"></i></td><td class="ent-col"><i class="bi bi-check-circle-fill tick"></i></td></tr>
+
+        <tr class="cat-row"><td colspan="4">Security</td></tr>
+        <tr><td>Brute-force lockout</td><td><i class="bi bi-check-circle-fill tick"></i></td><td class="pro-col"><i class="bi bi-check-circle-fill tick"></i></td><td class="ent-col"><i class="bi bi-check-circle-fill tick"></i></td></tr>
+        <tr><td>New location login alert</td><td><i class="bi bi-check-circle-fill tick"></i></td><td class="pro-col"><i class="bi bi-check-circle-fill tick"></i></td><td class="ent-col"><i class="bi bi-check-circle-fill tick"></i></td></tr>
+        <tr><td>2FA / OTP login</td><td><i class="bi bi-check-circle-fill tick"></i></td><td class="pro-col"><i class="bi bi-check-circle-fill tick"></i></td><td class="ent-col"><i class="bi bi-check-circle-fill tick"></i></td></tr>
+        <tr><td>Age gate (18+ verification)</td><td><i class="bi bi-x-circle-fill cross"></i></td><td class="pro-col"><i class="bi bi-check-circle-fill tick"></i></td><td class="ent-col"><i class="bi bi-check-circle-fill tick"></i></td></tr>
+
+        <tr class="cat-row"><td colspan="4">Ownership &amp; support</td></tr>
+        <tr><td>White-label (remove czerwin branding)</td><td><i class="bi bi-x-circle-fill cross"></i></td><td class="pro-col"><i class="bi bi-x-circle-fill cross"></i></td><td class="ent-col"><i class="bi bi-check-circle-fill tick"></i></td></tr>
+        <tr><td>Source code access</td><td><i class="bi bi-x-circle-fill cross"></i></td><td class="pro-col"><i class="bi bi-x-circle-fill cross"></i></td><td class="ent-col"><i class="bi bi-check-circle-fill tick"></i></td></tr>
+        <tr><td>Post-launch support</td><td>30 days</td><td class="pro-col">60 days</td><td class="ent-col">90 days</td></tr>
+        <tr><td>Custom feature development</td><td><i class="bi bi-x-circle-fill cross"></i></td><td class="pro-col"><i class="bi bi-x-circle-fill cross"></i></td><td class="ent-col"><i class="bi bi-check-circle-fill tick"></i></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- HOSTING NOTE -->
+  <div style="background:#eff6ff;border:1px solid #bfdbfe;border-radius:10px;padding:16px 20px;font-size:.85rem;color:#1e40af;margin-top:8px">
+    <i class="bi bi-info-circle-fill me-2"></i>
+    <strong>Hosting is not included</strong> — it's paid by you directly to the provider. Recommended: Hetzner CX22 at €4/mo (~₱250/mo).
+    Already have a VPS or local server? MyShop PH runs on any PHP 8.1+ host.
+  </div>
+
+</div>
+
+<div class="contact-strip">
+  <div class="container">
+    <h3>Ready to get started?</h3>
+    <p>Message me and I'll walk you through everything — setup, hosting, and launch.</p>
+    <a href="mailto:cezar.manzanilla@gmail.com?subject=MyShop PH Inquiry" class="btn-email">
+      <i class="bi bi-envelope-fill me-2"></i>cezar.manzanilla@gmail.com
+    </a>
+    <a href="https://www.facebook.com/czerwinm" target="_blank" rel="noopener" class="btn-fb">
+      <i class="bi bi-messenger me-2"></i>Message on Messenger
+    </a>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <a href="myshop.html">← Back to MyShop PH</a> &nbsp;·&nbsp;
+    <a href="index.html">czerwin.net</a> &nbsp;·&nbsp;
+    © 2026 · Prices subject to change.
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
