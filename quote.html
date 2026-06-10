@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>czerwin — Service Rates & Quote Guide</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
+<style>
+  :root {
+    --accent: #0d6efd;
+    --accent-dark: #0a58ca;
+    --dark: #0f172a;
+    --muted: #64748b;
+  }
+  body { font-family: 'Segoe UI', sans-serif; color: var(--dark); background: #f8faff; }
+
+  .top-bar {
+    background: var(--dark);
+    color: #94a3b8;
+    font-size: .8rem;
+    padding: 10px 0;
+    text-align: center;
+  }
+  .top-bar a { color: #60a5fa; text-decoration: none; }
+
+  .page-header {
+    background: #fff;
+    border-bottom: 1px solid #e2e8f0;
+    padding: 32px 0;
+  }
+  .page-header .brand { font-weight: 800; font-size: 1.1rem; color: var(--accent); }
+
+  .rate-card {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    overflow: hidden;
+    margin-bottom: 24px;
+  }
+  .rate-card-header {
+    padding: 18px 24px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    border-bottom: 1px solid #f1f5f9;
+  }
+  .rate-icon {
+    width: 44px; height: 44px;
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+  }
+  .rate-card-header h5 { font-weight: 700; margin: 0; font-size: 1rem; }
+  .rate-card-header p { margin: 2px 0 0; font-size: .8rem; color: var(--muted); }
+  .rate-body { padding: 20px 24px; }
+  .rate-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 10px 0;
+    border-bottom: 1px solid #f1f5f9;
+    gap: 12px;
+  }
+  .rate-row:last-child { border-bottom: none; }
+  .rate-label { font-size: .85rem; color: var(--dark); flex: 1; }
+  .rate-label small { display: block; font-size: .75rem; color: var(--muted); margin-top: 2px; }
+  .rate-price {
+    font-size: .85rem;
+    font-weight: 700;
+    color: var(--accent);
+    white-space: nowrap;
+    text-align: right;
+  }
+
+  .note-box {
+    background: #fffbeb;
+    border: 1px solid #fde68a;
+    border-radius: 10px;
+    padding: 16px 20px;
+    font-size: .85rem;
+    color: #78350f;
+    margin-bottom: 20px;
+  }
+  .note-box i { color: #d97706; margin-right: 6px; }
+
+  .info-box {
+    background: #eff6ff;
+    border: 1px solid #bfdbfe;
+    border-radius: 10px;
+    padding: 16px 20px;
+    font-size: .85rem;
+    color: #1e40af;
+    margin-bottom: 20px;
+  }
+  .info-box i { margin-right: 6px; }
+
+  .section-label {
+    font-size: .72rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 10px;
+  }
+
+  .checklist { list-style: none; padding: 0; margin: 0; }
+  .checklist li {
+    padding: 7px 0;
+    font-size: .85rem;
+    border-bottom: 1px solid #f1f5f9;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .checklist li:last-child { border-bottom: none; }
+  .checklist li i { color: #16a34a; flex-shrink: 0; margin-top: 2px; }
+
+  .contact-strip {
+    background: var(--dark);
+    color: #fff;
+    padding: 40px 0;
+    text-align: center;
+  }
+  .contact-strip h4 { font-weight: 800; margin-bottom: .4rem; }
+  .contact-strip p { color: #94a3b8; font-size: .9rem; margin-bottom: 1.5rem; }
+  .btn-email {
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    padding: 11px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px;
+    font-size: .9rem;
+  }
+  .btn-email:hover { background: var(--accent-dark); color: #fff; }
+  .btn-fb {
+    background: #1877f2;
+    color: #fff;
+    border: none;
+    padding: 11px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px;
+    font-size: .9rem;
+  }
+  .btn-fb:hover { background: #1565d8; color: #fff; }
+
+  footer { background: #0a0f1e; color: #475569; padding: 20px 0; font-size: .8rem; text-align: center; }
+  footer a { color: #60a5fa; text-decoration: none; }
+</style>
+</head>
+<body>
+
+<div class="top-bar">
+  This is a private pricing guide shared by czerwin &nbsp;·&nbsp;
+  <a href="index.html">← Back to main site</a>
+</div>
+
+<div class="page-header">
+  <div class="container">
+    <div class="d-flex align-items-center gap-3">
+      <div>
+        <div class="brand"><i class="bi bi-shop me-2"></i>czerwin</div>
+        <div style="font-size:.8rem;color:var(--muted)">Service Rates & Quote Guide</div>
+      </div>
+      <div class="ms-auto text-end d-none d-md-block">
+        <div style="font-size:.75rem;color:var(--muted)">Questions? Reach me at</div>
+        <a href="mailto:cezar.manzanilla@gmail.com" style="font-size:.85rem;color:var(--accent);font-weight:600">cezar.manzanilla@gmail.com</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container py-5">
+  <div class="row gy-4">
+
+    <div class="col-lg-8">
+
+      <div class="note-box">
+        <i class="bi bi-info-circle-fill"></i>
+        <strong>These are guide rates, not fixed prices.</strong> Every project is scoped individually.
+        Final quote depends on the number of pages, features, urgency, and ongoing support needed.
+        All rates are in Philippine Peso (₱).
+      </div>
+
+      <!-- WEBSITES -->
+      <div class="section-label">Websites</div>
+      <div class="rate-card">
+        <div class="rate-card-header">
+          <div class="rate-icon" style="background:#eff6ff;color:#1d4ed8"><i class="bi bi-globe"></i></div>
+          <div>
+            <h5>Business / Landing Page</h5>
+            <p>Single or multi-page website for a business, brand, or professional profile</p>
+          </div>
+        </div>
+        <div class="rate-body">
+          <div class="rate-row">
+            <div class="rate-label">Simple landing page (1 page)
+              <small>Hero, about, services, contact. Mobile-friendly.</small>
+            </div>
+            <div class="rate-price">₱1,500 – ₱3,000</div>
+          </div>
+          <div class="rate-row">
+            <div class="rate-label">Multi-page business website (3–5 pages)
+              <small>Home, about, services, gallery, contact. With contact form.</small>
+            </div>
+            <div class="rate-price">₱4,000 – ₱8,000</div>
+          </div>
+          <div class="rate-row">
+            <div class="rate-label">Rush delivery (3 days or less)
+              <small>Additional charge on top of base price.</small>
+            </div>
+            <div class="rate-price">+₱1,000 – ₱2,000</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ECOMMERCE -->
+      <div class="section-label">E-Commerce Stores</div>
+      <div class="rate-card">
+        <div class="rate-card-header">
+          <div class="rate-icon" style="background:#f0fdf4;color:#15803d"><i class="bi bi-cart-check-fill"></i></div>
+          <div>
+            <h5>Online Store Setup</h5>
+            <p>Full e-commerce store with products, cart, checkout, and payments</p>
+          </div>
+        </div>
+        <div class="rate-body">
+          <div class="rate-row">
+            <div class="rate-label">Starter store (up to 20 products)
+              <small>Products, cart, checkout, GCash/COD, order management, customer accounts.</small>
+            </div>
+            <div class="rate-price">₱5,000 – ₱8,000</div>
+          </div>
+          <div class="rate-row">
+            <div class="rate-label">Standard store (up to 100 products)
+              <small>All starter features + coupons, reviews, banners, delivery options.</small>
+            </div>
+            <div class="rate-price">₱8,000 – ₱12,000</div>
+          </div>
+          <div class="rate-row">
+            <div class="rate-label">Full store (100+ products)
+              <small>All standard features + variants (size/color/etc), staff accounts, advanced reports.</small>
+            </div>
+            <div class="rate-price">₱12,000 – ₱18,000</div>
+          </div>
+          <div class="rate-row">
+            <div class="rate-label">Facebook Shop migration
+              <small>Move existing Facebook/Instagram orders to a real store. Includes product data entry.</small>
+            </div>
+            <div class="rate-price">₱3,000 – ₱6,000</div>
+          </div>
+          <div class="rate-row">
+            <div class="rate-label">PayMongo / GCash / Maya integration
+              <small>Card payments, e-wallets, online banking via PayMongo.</small>
+            </div>
+            <div class="rate-price">₱1,500 – ₱2,500</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- HOSTING & INFRA -->
+      <div class="section-label">Hosting & Infrastructure</div>
+      <div class="rate-card">
+        <div class="rate-card-header">
+          <div class="rate-icon" style="background:#f5f3ff;color:#6d28d9"><i class="bi bi-server"></i></div>
+          <div>
+            <h5>Server & Hosting Setup</h5>
+            <p>VPS configuration, domain, SSL, and deployment</p>
+          </div>
+        </div>
+        <div class="rate-body">
+          <div class="rate-row">
+            <div class="rate-label">VPS setup (Linux, Apache/Nginx, PHP, MariaDB)
+              <small>Full server configuration from scratch. Hetzner, DigitalOcean, or your preferred host.</small>
+            </div>
+            <div class="rate-price">₱1,500 – ₱3,000</div>
+          </div>
+          <div class="rate-row">
+            <div class="rate-label">Domain + SSL configuration
+              <small>Point domain to server, install Let's Encrypt SSL, enforce HTTPS.</small>
+            </div>
+            <div class="rate-price">₱500 – ₱1,000</div>
+          </div>
+          <div class="rate-row">
+            <div class="rate-label">Migration (move existing site to new host)
+              <small>Files, database, email, DNS migration with zero-downtime cutover.</small>
+            </div>
+            <div class="rate-price">₱1,500 – ₱3,000</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MAINTENANCE -->
+      <div class="section-label">Ongoing Support</div>
+      <div class="rate-card">
+        <div class="rate-card-header">
+          <div class="rate-icon" style="background:#fff7ed;color:#c2410c"><i class="bi bi-tools"></i></div>
+          <div>
+            <h5>Monthly Maintenance</h5>
+            <p>Retainer-based support to keep your site running and updated</p>
+          </div>
+        </div>
+        <div class="rate-body">
+          <div class="rate-row">
+            <div class="rate-label">Basic — monitoring + minor updates
+              <small>Uptime checks, small content updates, 1–2 support requests per month.</small>
+            </div>
+            <div class="rate-price">₱800/mo</div>
+          </div>
+          <div class="rate-row">
+            <div class="rate-label">Standard — active management
+              <small>Product updates, coupon management, order support, up to 5 requests/month.</small>
+            </div>
+            <div class="rate-price">₱1,500/mo</div>
+          </div>
+          <div class="rate-row">
+            <div class="rate-label">Priority — same-day response
+              <small>Unlimited requests, priority response, monthly performance report.</small>
+            </div>
+            <div class="rate-price">₱2,500/mo</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- SIDEBAR -->
+    <div class="col-lg-4">
+
+      <div class="info-box">
+        <i class="bi bi-lightbulb-fill"></i>
+        <strong>Not sure what you need?</strong><br>
+        Just describe your business and I'll recommend the right package and give you an exact quote.
+      </div>
+
+      <!-- WHAT'S INCLUDED -->
+      <div style="background:#fff;border:1px solid #e2e8f0;border-radius:14px;padding:24px;margin-bottom:20px">
+        <div class="section-label">Always included</div>
+        <ul class="checklist">
+          <li><i class="bi bi-check-circle-fill"></i>Mobile-responsive design</li>
+          <li><i class="bi bi-check-circle-fill"></i>SSL-ready (HTTPS)</li>
+          <li><i class="bi bi-check-circle-fill"></i>Private demo before going live</li>
+          <li><i class="bi bi-check-circle-fill"></i>Revisions until you're happy</li>
+          <li><i class="bi bi-check-circle-fill"></i>30-day post-launch support</li>
+          <li><i class="bi bi-check-circle-fill"></i>You own everything (no lock-in)</li>
+        </ul>
+      </div>
+
+      <!-- NOT INCLUDED -->
+      <div style="background:#fff;border:1px solid #e2e8f0;border-radius:14px;padding:24px;margin-bottom:20px">
+        <div class="section-label">Not included in quotes</div>
+        <ul class="checklist">
+          <li><i class="bi bi-x-circle-fill" style="color:#dc2626"></i>Domain name (~₱800–1,200/yr, Namecheap)</li>
+          <li><i class="bi bi-x-circle-fill" style="color:#dc2626"></i>VPS hosting (~₱250–500/mo, Hetzner)</li>
+          <li><i class="bi bi-x-circle-fill" style="color:#dc2626"></i>Stock photos (free sources available)</li>
+          <li><i class="bi bi-x-circle-fill" style="color:#dc2626"></i>PayMongo transaction fees (charged by PayMongo)</li>
+        </ul>
+        <div style="font-size:.78rem;color:var(--muted);margin-top:10px">
+          I can help you set these up — costs go directly to the provider, not to me.
+        </div>
+      </div>
+
+      <!-- PAYMENT TERMS -->
+      <div style="background:#fff;border:1px solid #e2e8f0;border-radius:14px;padding:24px;margin-bottom:20px">
+        <div class="section-label">Payment terms</div>
+        <ul class="checklist">
+          <li><i class="bi bi-check-circle-fill"></i>50% downpayment to start</li>
+          <li><i class="bi bi-check-circle-fill"></i>50% upon go-live approval</li>
+          <li><i class="bi bi-check-circle-fill"></i>GCash / bank transfer accepted</li>
+          <li><i class="bi bi-check-circle-fill"></i>No work starts without downpayment</li>
+        </ul>
+      </div>
+
+      <!-- ABOUT -->
+      <div style="background:var(--dark);border-radius:14px;padding:24px;color:#fff">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px">
+          <div style="width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#1e3a5f,#1d4ed8);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.9rem;color:#fff;flex-shrink:0">CM</div>
+          <div>
+            <div style="font-weight:700;color:#f1f5f9;font-size:.9rem">Cezar M. (czerwin)</div>
+            <div style="font-size:.75rem;color:#64748b">Freelance Web Developer</div>
+          </div>
+        </div>
+        <div style="font-size:.8rem;color:#94a3b8;line-height:1.7">
+          BS Computer Science · 10+ years in IT · Linux Admin & Trainer · IT Operations Team Lead.
+          I build sites properly — from the server up.
+        </div>
+        <div style="margin-top:14px;padding-top:14px;border-top:1px solid rgba(255,255,255,.08);font-size:.78rem;color:#64748b">
+          <i class="bi bi-envelope me-2"></i>cezar.manzanilla@gmail.com<br>
+          <i class="bi bi-facebook me-2 mt-1"></i>facebook.com/czerwinm
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="contact-strip">
+  <div class="container">
+    <h4>Ready to get a quote?</h4>
+    <p>Tell me about your project and I'll send you an exact price — usually within the day.</p>
+    <a href="mailto:cezar.manzanilla@gmail.com" class="btn-email">
+      <i class="bi bi-envelope-fill me-2"></i>cezar.manzanilla@gmail.com
+    </a>
+    <a href="https://www.facebook.com/czerwinm" target="_blank" rel="noopener" class="btn-fb">
+      <i class="bi bi-messenger me-2"></i>Message on Messenger
+    </a>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <a href="index.html">← Back to czerwin.dev</a>
+    &nbsp;·&nbsp; © 2026 czerwin · Rates subject to change based on project scope.
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
