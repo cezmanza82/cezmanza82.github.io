@@ -408,6 +408,97 @@ body {
   border-radius: 50px;
 }
 
+/* ── Portfolio ───────────────────────────────────────── */
+.portfolio-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  height: 100%;
+  transition: box-shadow .25s, transform .25s, border-color .25s;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+}
+.portfolio-card:hover {
+  box-shadow: 0 16px 40px rgba(37,99,235,.12);
+  transform: translateY(-4px);
+  border-color: #bfdbfe;
+}
+.portfolio-card-thumb {
+  background: var(--dark);
+  padding: 28px 24px 20px;
+  position: relative;
+  overflow: hidden;
+}
+.portfolio-card-thumb::before {
+  content: '';
+  position: absolute;
+  top: -60px; right: -60px;
+  width: 240px; height: 240px;
+  background: radial-gradient(circle, rgba(37,99,235,.2) 0%, transparent 65%);
+  pointer-events: none;
+}
+.portfolio-card-url {
+  font-size: .68rem;
+  font-weight: 700;
+  color: #60a5fa;
+  letter-spacing: .4px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.portfolio-card-title {
+  font-size: 1.08rem;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -.3px;
+  margin: 0;
+  position: relative;
+}
+.portfolio-card-icon {
+  position: absolute;
+  bottom: 16px; right: 20px;
+  font-size: 3.5rem;
+  opacity: .12;
+  color: #fff;
+  line-height: 1;
+}
+.portfolio-card-body {
+  padding: 20px 22px 22px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.portfolio-card-body p {
+  font-size: .84rem;
+  color: var(--muted);
+  line-height: 1.6;
+  margin: 0 0 14px;
+}
+.portfolio-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; }
+.portfolio-tag {
+  font-size: .68rem;
+  font-weight: 600;
+  background: #eff6ff;
+  color: #1d4ed8;
+  padding: 3px 10px;
+  border-radius: 50px;
+}
+.portfolio-link {
+  font-size: .8rem;
+  font-weight: 700;
+  color: var(--brand);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 14px;
+  transition: gap .2s;
+}
+.portfolio-card:hover .portfolio-link { gap: 8px; }
+
 /* ── How it works ────────────────────────────────────── */
 .step-num {
   width: 42px; height: 42px;
@@ -586,6 +677,7 @@ footer a:hover { color: #93c5fd; }
         <ul class="navbar-nav me-3 align-items-lg-center gap-lg-1">
           <li class="nav-item"><a class="nav-link px-3" href="#services">Services</a></li>
           <li class="nav-item"><a class="nav-link px-3" href="#product">MyShop PH</a></li>
+          <li class="nav-item"><a class="nav-link px-3" href="#portfolio">Portfolio</a></li>
           <li class="nav-item"><a class="nav-link px-3" href="#about">About</a></li>
         </ul>
       </div>
@@ -774,6 +866,51 @@ footer a:hover { color: #93c5fd; }
   </div>
 </section>
 
+<!-- ═══════════════════════════════ PORTFOLIO ════════════════════════════ -->
+<section class="sec" id="portfolio" style="background:var(--surface)">
+  <div class="container">
+    <div class="text-center mb-5 fade-up">
+      <div class="eyebrow">My work</div>
+      <h2 class="sec-h">Sites I've built.</h2>
+      <p class="sec-p mx-auto mt-2">Real projects for real clients — each one properly hosted, secured, and built to last.</p>
+    </div>
+    <div class="row g-4 justify-content-center">
+
+      <div class="col-sm-6 col-lg-4 fade-up">
+        <a href="https://omarted.czerwin.net" target="_blank" rel="noopener" class="portfolio-card">
+          <div class="portfolio-card-thumb">
+            <div class="portfolio-card-url"><i class="bi bi-globe2"></i>omarted.czerwin.net</div>
+            <div class="portfolio-card-title">O.T. Construction Services</div>
+            <div class="portfolio-card-icon"><i class="bi bi-building"></i></div>
+          </div>
+          <div class="portfolio-card-body">
+            <p>Contractor portfolio site for a construction services business. Service showcase, project gallery, and contact form — built to convert visitors into leads.</p>
+            <div class="portfolio-tags">
+              <span class="portfolio-tag">PHP</span>
+              <span class="portfolio-tag">MariaDB</span>
+              <span class="portfolio-tag">Bootstrap 5</span>
+              <span class="portfolio-tag">Contact Form</span>
+            </div>
+            <span class="portfolio-link">View live site <i class="bi bi-arrow-right"></i></span>
+          </div>
+        </a>
+      </div>
+
+      <div class="col-sm-6 col-lg-4 fade-up" style="transition-delay:.06s">
+        <div class="portfolio-card" style="border-style:dashed;background:transparent;justify-content:center;align-items:center;min-height:260px;cursor:default">
+          <div style="text-align:center;padding:32px 24px">
+            <div style="width:52px;height:52px;background:#eff6ff;border-radius:12px;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;font-size:1.4rem;color:var(--brand)"><i class="bi bi-plus-lg"></i></div>
+            <div style="font-weight:700;font-size:.95rem;color:var(--text);margin-bottom:6px">Your site here</div>
+            <div style="font-size:.83rem;color:var(--muted);line-height:1.6;margin-bottom:16px">Got a project in mind? Let's build it.</div>
+            <a href="#contact" class="price-tag">Get a free quote →</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- ═══════════════════════════════ HOW IT WORKS ═════════════════════════ -->
 <section class="sec" id="how" style="background:var(--surface)">
   <div class="container">
@@ -899,7 +1036,7 @@ footer a:hover { color: #93c5fd; }
         <div style="font-weight:800;font-size:1.15rem">Cezar M.</div>
         <div style="color:var(--muted);font-size:.85rem;margin-top:2px">czerwin · Web Developer</div>
         <div style="margin-top:14px;display:flex;justify-content:center;gap:10px">
-          <a href="mailto:cezar.manzanilla@gmail.com" class="social-circle"><i class="bi bi-envelope-fill"></i></a>
+          <a href="mailto:cezar@czerwin.net" class="social-circle"><i class="bi bi-envelope-fill"></i></a>
           <a href="https://www.facebook.com/czerwinm" target="_blank" rel="noopener" class="social-circle"><i class="bi bi-facebook"></i></a>
         </div>
       </div>
@@ -959,9 +1096,9 @@ footer a:hover { color: #93c5fd; }
     <div class="contact-card fade-up" style="transition-delay:.1s">
       <h3>Hire czerwin</h3>
       <p>Tell me about your project and I'll get back to you within 24 hours.</p>
-      <a href="mailto:cezar.manzanilla@gmail.com" class="btn-contact-email">
+      <a href="mailto:cezar@czerwin.net" class="btn-contact-email">
         <i class="bi bi-envelope-fill" style="font-size:1.05rem"></i>
-        cezar.manzanilla@gmail.com
+        cezar@czerwin.net
       </a>
       <div class="divider-text">or</div>
       <a href="https://www.facebook.com/czerwinm" target="_blank" rel="noopener" class="btn-contact-fb">
@@ -991,6 +1128,7 @@ footer a:hover { color: #93c5fd; }
         <div class="d-flex flex-column gap-2">
           <a href="#services">Services</a>
           <a href="myshop.html">MyShop PH</a>
+          <a href="#portfolio">Portfolio</a>
           <a href="#about">About</a>
           <a href="#contact">Contact</a>
         </div>
@@ -998,7 +1136,7 @@ footer a:hover { color: #93c5fd; }
       <div class="col-md-4">
         <div style="font-size:.72rem;font-weight:700;color:#64748b;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px">Contact</div>
         <div class="d-flex flex-column gap-2">
-          <a href="mailto:cezar.manzanilla@gmail.com">cezar.manzanilla@gmail.com</a>
+          <a href="mailto:cezar@czerwin.net">cezar@czerwin.net</a>
           <a href="https://www.facebook.com/czerwinm" target="_blank" rel="noopener">facebook.com/czerwinm</a>
         </div>
       </div>
