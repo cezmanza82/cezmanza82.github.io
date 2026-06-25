@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Facebook Page vs Real Website — czerwin blog</title>
+  <meta name="description" content="Bakit hindi na sapat ang Facebook page para sa iyong negosyo, propesyon, o personal brand. A guide para sa lahat ng Filipino na ready na mag-level up." />
+  <link rel="canonical" href="https://czerwin.net/blog/blog-post-facebook-vs-website.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Lora:ital,wght@0,600;1,400&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet" />
+  <style>
+    :root {
+      --brand:    #2563eb;
+      --brand-h:  #1d4ed8;
+      --pro:      #7c3aed;
+      --dark:     #060b14;
+      --dark2:    #0d1526;
+      --bg:       #0f1117;
+      --surface:  #181c27;
+      --border:   #252a38;
+      --accent:   #4f8ef7;
+      --accent2:  #7c3aed;
+      --text:     #e8eaf0;
+      --muted:    #8891a8;
+      --tag-bg:   #1e2436;
+      --tag-text: #7ba7fb;
+      --callout:  #131826;
+      --red:      #ef4444;
+      --green:    #22c55e;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-size: 17px;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    .navbar {
+      background: rgba(6,11,20,.94);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255,255,255,.06);
+      padding: 14px 0;
+    }
+    .navbar-brand {
+      font-weight: 800;
+      font-size: 1.22rem;
+      color: #fff !important;
+      letter-spacing: -.4px;
+    }
+    .navbar-brand .b-accent { color: var(--brand); }
+    .navbar .nav-link {
+      color: rgba(255,255,255,.72) !important;
+      font-size: .88rem;
+      font-weight: 500;
+      transition: color .2s;
+    }
+    .navbar .nav-link:hover { color: #fff !important; }
+    .btn-nav-cta {
+      font-size: .85rem;
+      font-weight: 700;
+      background: var(--brand);
+      color: #fff !important;
+      border-radius: 7px;
+      padding: 6px 18px;
+      transition: background .2s;
+      text-decoration: none;
+    }
+    .btn-nav-cta:hover { background: var(--brand-h); }
+    .navbar-toggler { border-color: rgba(255,255,255,.2); }
+    .navbar-toggler-icon { filter: invert(1); }
+
+    /* ── LAYOUT ── */
+    .page-wrap {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 64px 24px 96px;
+    }
+
+    /* ── HEADER ── */
+    .post-eyebrow {
+      display: flex; gap: 10px; align-items: center;
+      margin-bottom: 20px; flex-wrap: wrap;
+    }
+    .tag {
+      background: var(--tag-bg); color: var(--tag-text);
+      font-size: 12px; font-weight: 600; letter-spacing: .04em;
+      padding: 4px 10px; border-radius: 4px; text-transform: uppercase;
+    }
+    .post-date { color: var(--muted); font-size: 13px; }
+    .read-time { color: var(--muted); font-size: 13px; }
+    .dot { color: var(--border); }
+
+    h1 {
+      font-family: 'Lora', serif;
+      font-size: clamp(28px, 5vw, 42px);
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: -0.5px;
+      color: #fff;
+      margin-bottom: 18px;
+    }
+    .post-subtitle {
+      font-size: 18px;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 32px;
+      border-left: 3px solid var(--accent);
+      padding-left: 16px;
+      font-style: italic;
+    }
+
+    .author-row {
+      display: flex; align-items: center; gap: 12px;
+      padding: 16px 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 48px;
+    }
+    .author-avatar {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: 16px; color: #fff; flex-shrink: 0;
+    }
+    .author-name { font-weight: 600; font-size: 14px; }
+    .author-role { font-size: 13px; color: var(--muted); }
+
+    /* ── BODY ── */
+    .post-body h2 {
+      font-family: 'Lora', serif;
+      font-size: 24px;
+      font-weight: 600;
+      color: #fff;
+      margin: 48px 0 16px;
+      padding-top: 8px;
+      border-top: 1px solid var(--border);
+    }
+    .post-body h3 {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--text);
+      margin: 28px 0 10px;
+    }
+    .post-body p { margin-bottom: 20px; color: #c8cdd8; }
+    .post-body p strong { color: var(--text); font-weight: 600; }
+    .post-body a { color: var(--accent); text-decoration: none; }
+    .post-body a:hover { text-decoration: underline; }
+
+    /* callout / highlight box */
+    .callout {
+      background: var(--callout);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--accent);
+      border-radius: 8px;
+      padding: 20px 24px;
+      margin: 28px 0;
+      color: #c8cdd8;
+      font-size: 16px;
+    }
+    .callout.warning { border-left-color: #f59e0b; }
+    .callout.success { border-left-color: var(--green); }
+    .callout strong { color: #fff; display: block; margin-bottom: 6px; font-size: 14px; text-transform: uppercase; letter-spacing: .05em; }
+
+    /* DM mockup */
+    .dm-mockup {
+      background: #1a1a2e;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      margin: 28px 0;
+      font-size: 14px;
+    }
+    .dm-header {
+      font-size: 12px; color: var(--muted);
+      text-transform: uppercase; letter-spacing: .07em;
+      margin-bottom: 14px; font-weight: 600;
+    }
+    .dm-msg {
+      background: #252945;
+      border-radius: 8px 8px 8px 2px;
+      padding: 10px 14px;
+      margin-bottom: 8px;
+      color: #c8cdd8;
+      max-width: 85%;
+      display: inline-block;
+    }
+    .dm-msg.own {
+      background: #1d3557;
+      border-radius: 8px 8px 2px 8px;
+      float: right;
+      clear: both;
+    }
+    .dm-clear { clear: both; }
+    .dm-stress {
+      margin-top: 14px; padding-top: 12px;
+      border-top: 1px solid var(--border);
+      color: var(--red); font-size: 13px; font-weight: 500;
+    }
+
+    /* comparison table */
+    .compare-table {
+      width: 100%; border-collapse: collapse;
+      margin: 28px 0; font-size: 14px;
+      border-radius: 10px; overflow: hidden;
+    }
+    .compare-table thead { background: var(--surface); }
+    .compare-table th {
+      padding: 12px 16px; text-align: left;
+      font-size: 12px; text-transform: uppercase;
+      letter-spacing: .05em; color: var(--muted);
+      border-bottom: 1px solid var(--border);
+    }
+    .compare-table td {
+      padding: 13px 16px;
+      border-bottom: 1px solid var(--border);
+      color: #c8cdd8;
+      background: var(--callout);
+    }
+    .compare-table tr:last-child td { border-bottom: none; }
+    .compare-table td:first-child { color: var(--text); font-weight: 500; }
+    .yes { color: var(--green); font-weight: 600; }
+    .no  { color: var(--red);   font-weight: 600; }
+
+    /* type cards */
+    .type-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 16px;
+      margin: 28px 0;
+    }
+    .type-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px;
+      transition: border-color .2s;
+    }
+    .type-card:hover { border-color: var(--accent); }
+    .type-card-icon { font-size: 24px; margin-bottom: 10px; }
+    .type-card-label {
+      font-weight: 700; font-size: 15px;
+      color: var(--text); margin-bottom: 6px;
+    }
+    .type-card p { font-size: 13px; color: var(--muted); margin: 0; }
+
+    /* numbered steps */
+    .steps { margin: 24px 0; }
+    .step {
+      display: flex; gap: 16px;
+      margin-bottom: 20px; align-items: flex-start;
+    }
+    .step-num {
+      background: var(--accent);
+      color: #fff; font-weight: 700; font-size: 13px;
+      width: 28px; height: 28px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; margin-top: 2px;
+    }
+    .step-text h3 { margin: 0 0 4px; font-size: 15px; }
+    .step-text p  { font-size: 14px; color: var(--muted); margin: 0; }
+
+    /* CTA section */
+    .post-cta {
+      background: linear-gradient(135deg, #1a2340, #1e1535);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 40px 32px;
+      text-align: center;
+      margin-top: 56px;
+    }
+    .post-cta h2 {
+      font-family: 'Lora', serif;
+      font-size: 26px; color: #fff;
+      margin-bottom: 12px;
+      border: none; padding: 0;
+    }
+    .post-cta p { color: var(--muted); margin-bottom: 24px; }
+    .cta-btn {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff; font-weight: 700; font-size: 15px;
+      padding: 13px 28px; border-radius: 8px;
+      text-decoration: none; transition: opacity .15s;
+    }
+    .cta-btn:hover { opacity: .85; }
+    .cta-sub { margin-top: 12px; font-size: 13px; color: var(--muted); }
+
+    /* footer */
+    .site-footer {
+      background: #03060e;
+      border-top: 1px solid rgba(255,255,255,.05);
+      text-align: center;
+      padding: 32px 24px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .site-footer a { color: var(--accent); text-decoration: none; }
+
+    @media (max-width: 600px) {
+      .type-grid { grid-template-columns: 1fr; }
+      .post-cta { padding: 28px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="navbar navbar-expand-lg sticky-top">
+  <div class="container">
+    <a class="navbar-brand" href="https://czerwin.net">czerwin<span class="b-accent">.</span></a>
+    <div class="ms-auto d-flex align-items-center gap-3">
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a href="https://czerwin.net/#contact" class="btn-nav-cta">Get a free quote →</a>
+    </div>
+    <div class="collapse navbar-collapse" id="nav">
+      <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+        <li class="nav-item"><a class="nav-link px-3" href="https://czerwin.net/#services">Services</a></li>
+        <li class="nav-item"><a class="nav-link px-3" href="https://czerwin.net/#pricing">Pricing</a></li>
+        <li class="nav-item"><a class="nav-link px-3" href="https://czerwin.net/#portfolio">Portfolio</a></li>
+        <li class="nav-item"><a class="nav-link px-3" href="https://czerwin.net/blog/">Blog</a></li>
+        <li class="nav-item"><a class="nav-link px-3" href="https://czerwin.net/#about">About</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- CONTENT -->
+<div class="page-wrap">
+
+  <!-- Header -->
+  <div class="post-eyebrow">
+    <span class="tag">Guide</span>
+    <span class="tag">Negosyo</span>
+    <span class="dot">·</span>
+    <span class="post-date">June 24, 2026</span>
+    <span class="dot">·</span>
+    <span class="read-time">7 min read</span>
+  </div>
+
+  <h1>Hindi Na Sapat ang Facebook Page — Ito ang Dahilan Kung Bakit Kailangan Mo Na ng Sariling Website</h1>
+
+  <p class="post-subtitle">Para sa mga nagbebenta sa Facebook, may propesyon, o may negosyo — ito ang honest na sagot sa tanong na "kailangan ko pa ba ng website?"</p>
+
+  <div class="author-row">
+    <div class="author-avatar">C</div>
+    <div>
+      <div class="author-name">Cezar M.</div>
+      <div class="author-role">Web Developer · czerwin.net</div>
+    </div>
+  </div>
+
+  <!-- Body -->
+  <div class="post-body">
+
+    <p>Alam mo na ang sitwasyon. Nagsimula kang mag-negosyo sa Facebook — nag-post, nag-share, nag-DM ng customers. Gumagana naman. <strong>Pero may point na nagiging sakit na sa ulo ang Messenger.</strong></p>
+
+    <div class="dm-mockup">
+      <div class="dm-header">📱 Facebook DMs · 47 unread</div>
+      <div class="dm-msg">Avail pa po ba, size M? 👀</div><div class="dm-clear"></div>
+      <div class="dm-msg">Magkano shipping to Davao po?</div><div class="dm-clear"></div>
+      <div class="dm-msg own">Sent na po GCash, check nyo 🙏</div><div class="dm-clear"></div>
+      <div class="dm-msg">Na-ship na ba order ko? Kelan dating?</div><div class="dm-clear"></div>
+      <div class="dm-msg own">Pasensya na po, may backlog kami 😅</div><div class="dm-clear"></div>
+      <div class="dm-stress">⚠️ Sino na ang nabayaran? Sino ang hindi pa? Nobody knows.</div>
+    </div>
+
+    <p>Ganyan talaga kapag ang Facebook lang ang iyong business platform. Hindi ito ang paraan para lumago. Ito ang paraan para mapagod ka.</p>
+
+    <h2>Bakit Hindi Na Sapat ang Facebook Page</h2>
+
+    <p>Hindi namin sinasabing wala na itong silbi. May gamit pa rin ang Facebook para mag-reach ng tao. Pero <strong>ang pagpapatakbo ng isang buong negosyo sa loob ng Facebook</strong> — orders, payments, customer service, catalog — iyon ang problema.</p>
+
+    <h3>1. Hindi mo ito pag-aari</h3>
+    <p>Ang Facebook page mo? Pag-aari ng Facebook. Pwedeng i-restrict ang reach ng iyong posts kahit walang ginawa na masama. Pwedeng mag-disappear ang account mo sa isang araw — at kasama lahat ng followers mo. <strong>Sa sariling website, ikaw ang may hawak.</strong></p>
+
+    <h3>2. Kinokontrol ka ng algorithm</h3>
+    <p>Nagpost ka ng produkto. Dalawang tao lang ang nakakita. Bakit? Kasi hindi favorable ang algorithm ngayon. Sa sariling website, kapag naghanap ang customer mo sa Google ng "flower shop Quezon City" — <strong>ikaw ang lalabas, hindi ang Facebook feed ng ibang tao.</strong></p>
+
+    <h3>3. Walang sistema — chaos ang buhay mo</h3>
+    <p>DM para sa order. GCash screenshot para sa bayad. Manual tracking kung sino ang nagbayad at hindi. Gaano ka katagal makaka-sustain ng ganito? <strong>May website ka man lang, automated na ang lahat — order confirmation, payment, tracking.</strong></p>
+
+    <h3>4. Hindi ka mukhang seryoso</h3>
+    <p>Totoo ito. Kapag sinabi mo sa isang potential client na "message mo ako sa Facebook" kumpara sa "visit our website at yourname.com" — <strong>ibang level ng credibility ang second option.</strong> Especially para sa mga propesyonal — doktor, abogado, arkitekto, consultant.</p>
+
+    <div class="callout warning">
+      <strong>⚡ Harsh truth</strong>
+      Kapag sinearch ka ng isang potential customer sa Google at walang lumabas na website mo — for them, it's like you don't officially exist. Facebook profile lang? Para silang magtatanong sa sarili: "Legit ba ito?"
+    </div>
+
+    <h2>Para Kanino Ang Sariling Website?</h2>
+
+    <p>Hindi lang para sa malalaking kumpanya. Lahat ng ito ay kailangan ng website:</p>
+
+    <div class="type-grid">
+      <div class="type-card">
+        <div class="type-card-icon">🛍️</div>
+        <div class="type-card-label">Online Sellers</div>
+        <p>Online store na may cart, GCash/Maya checkout, at order tracking. Tapos na ang DM chaos.</p>
+      </div>
+      <div class="type-card">
+        <div class="type-card-icon">🍽️</div>
+        <div class="type-card-label">Restaurants & Karinderya</div>
+        <p>Menu, delivery/pickup orders, reservation form, at location map — lahat sa iisang lugar.</p>
+      </div>
+      <div class="type-card">
+        <div class="type-card-icon">💼</div>
+        <div class="type-card-label">Consultants & Coaches</div>
+        <p>Professional bio, services, testimonials, at booking calendar. Para maging kredible sa mata ng kliyente.</p>
+      </div>
+      <div class="type-card">
+        <div class="type-card-icon">🏥</div>
+        <div class="type-card-label">Doctors, Lawyers, Accountants</div>
+        <p>Credentials, specializations, appointment booking — para mas madaling mahanap ka ng bagong pasyente o kliyente.</p>
+      </div>
+      <div class="type-card">
+        <div class="type-card-icon">🎨</div>
+        <div class="type-card-label">Artists & Creatives</div>
+        <p>Portfolio site para ipakita ang gawa mo — photography, illustration, music, writing — nang walang Facebook algorithm na nakaharang.</p>
+      </div>
+      <div class="type-card">
+        <div class="type-card-icon">🏗️</div>
+        <div class="type-card-label">Contractors & Service Businesses</div>
+        <p>Project gallery, service list, at contact form. Para kapag naghanap sa Google, ikaw ang una nilang makikita.</p>
+      </div>
+    </div>
+
+    <h2>Website vs Facebook Page — Honest Comparison</h2>
+
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>Feature</th>
+          <th>Facebook Page</th>
+          <th>Sariling Website</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Ikaw ang may-ari</td><td class="no">❌ Facebook ang may-ari</td><td class="yes">✅ 100% sa'yo</td></tr>
+        <tr><td>Google visibility (SEO)</td><td class="no">❌ Mahina</td><td class="yes">✅ Malakas</td></tr>
+        <tr><td>Custom domain (yourname.com)</td><td class="no">❌ Wala</td><td class="yes">✅ Mayroon</td></tr>
+        <tr><td>Order & payment tracking</td><td class="no">❌ Manual sa DMs</td><td class="yes">✅ Automated</td></tr>
+        <tr><td>Professional credibility</td><td class="no">❌ Mukhang pansamantala</td><td class="yes">✅ Mukhang established</td></tr>
+        <tr><td>Algorithm dependence</td><td class="no">❌ Sinasalat ka niya</td><td class="yes">✅ Wala — direct access</td></tr>
+        <tr><td>Custom branding & design</td><td class="no">❌ Limited</td><td class="yes">✅ Ganap na control</td></tr>
+        <tr><td>Data ng customers mo</td><td class="no">❌ Kay Facebook</td><td class="yes">✅ Sa'yo</td></tr>
+        <tr><td>Accept payments properly</td><td class="no">❌ Screenshot ng GCash</td><td class="yes">✅ GCash, Maya, COD integrated</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout success">
+      <strong>✅ Totoo itong nangyayari</strong>
+      Ang mga kliyente ko na lumipat mula Facebook-only papuntang sariling website ay consistent na nag-uulat: mas kaunting oras sa customer service, mas maraming benta na natutukoy, at — sa kanilang mga salita — "mas parang totoong negosyo na ang dating."
+    </div>
+
+    <h2>Paano Magsisimula — Step by Step</h2>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-text">
+          <h3>Alamin kung anong klase ng website ang kailangan mo</h3>
+          <p>Business site? Online store? Portfolio? Booking site? Depende sa negosyo o propesyon mo ang tamang format.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-text">
+          <h3>Kumuha ng domain name (e.g., yournegosyo.com)</h3>
+          <p>Ito ang address ng website mo. Roughly ₱800–₱1,200 per year. Importante ito para sa credibility at SEO.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-text">
+          <h3>Huwag gumamit ng libre na website builders</h3>
+          <p>Ang Wix, Weebly, at katulad nila ay may parehong problema ng Facebook — hindi mo ganap na pag-aari. Mas maganda ang properly hosted na website na sa iyo talaga.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-text">
+          <h3>Magtrabaho sa isang developer na nakaka-alam ng local market</h3>
+          <p>GCash? COD? J&T? LBC? Importante na ang developer mo ay alam ang kung paano gumagana ang negosyo sa Pilipinas — hindi lang mag-copy-paste ng foreign template.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">5</div>
+        <div class="step-text">
+          <h3>I-link ang website mo sa lahat ng iyong social media</h3>
+          <p>Gamitin pa rin ang Facebook — pero bilang traffic source papunta sa website mo, hindi bilang pangunahing platform ng negosyo.</p>
+        </div>
+      </div>
+    </div>
+
+    <h2>Hindi Mo Kailangang Mag-abandon ng Facebook</h2>
+
+    <p>Ito ang tamang mindset: <strong>gamitin ang Facebook para makaabot sa tao, pero gamitin ang website para kumita at magpatakbo ng negosyo.</strong></p>
+
+    <p>Post ka sa Facebook. Mag-run ng ads. Mag-share ng content. Pero kapag nag-click ang isang tao — dalhin mo sila sa website mo, hindi sa Messenger. Doon nangyayari ang tunay na benta — may order tracking, may payment confirmation, may customer record.</p>
+
+    <div class="callout">
+      <strong>💡 Quick tip</strong>
+      Ang pinaka-epektibong setup: Facebook at Instagram para sa marketing at awareness → Website para sa benta, booking, at customer relationship. Dalawa sila dapat mag-trabaho nang magkasama.
+    </div>
+
+    <h2>Magkano Ba Ito?</h2>
+
+    <p>Depende sa klase ng website at kung sino ang gagawa. Sa czerwin, ang isang <strong>business website ay nagsisimula sa ₱15,000</strong> — fixed price, walang sorpresa. Ang <strong>online store gamit ang Winshap</strong> ay nagsisimula sa ₱6,500 setup.</p>
+
+    <p>Ihalintulad mo iyon sa ilang buwan ng boosted Facebook posts na ang result ay puro "avail pa ba" DMs — at isipin mo kung saan mas magiging productive ang iyong pera.</p>
+
+    <p><strong>Hindi ito gastos. Ito ay investment.</strong> At sa karamihan ng aking mga kliyente, nababawi nila ito sa loob ng ilang buwan — dahil mas organisado na ang negosyo nila, mas maraming orders ang nata-track, at mas mataas ang tiwala ng customers sa kanila.</p>
+
+  </div><!-- /post-body -->
+
+  <!-- CTA -->
+  <div class="post-cta">
+    <h2>Ready ka na bang lumipat?</h2>
+    <p>Free consultation. Walang pressure. Sabihin mo lang ang iyong negosyo at makakakuha ka ng honest na quote bago pa magsimula ang trabaho.</p>
+    <a class="cta-btn" href="https://czerwin.net/#contact">Makipag-usap kay Cezar →</a>
+    <div class="cta-sub">O mag-message sa <a href="https://www.facebook.com/czerwinm" style="color:var(--accent);">Facebook Messenger</a> · Usually sumasagot sa loob ng ilang oras</div>
+  </div>
+
+</div><!-- /page-wrap -->
+
+<footer class="site-footer">
+  <p>© 2026 <a href="https://czerwin.net">czerwin.net</a> · Web Developer for Philippine Businesses · Philippines</p>
+  <p style="margin-top:8px;"><a href="/blog/">← Back to Blog</a> &nbsp;·&nbsp; <a href="https://czerwin.net">czerwin.net</a></p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
