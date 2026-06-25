@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>What Freelancers and Contractors Actually Need on Their Website (And What's Just Clutter)</title>
+  <meta name="description" content="Most freelancer websites fail for the same reason. A web developer breaks down what actually matters — and what to cut." />
+  <link rel="canonical" href="https://czerwin.net/blog/blog-post-freelancer-website.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Lora:ital,wght@0,600;1,400&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet" />
+  <style>
+    :root {
+      --brand:    #2563eb;
+      --brand-h:  #1d4ed8;
+      --pro:      #7c3aed;
+      --dark:     #060b14;
+      --dark2:    #0d1526;
+      --bg:       #0f1117;
+      --surface:  #181c27;
+      --border:   #252a38;
+      --accent:   #4f8ef7;
+      --accent2:  #7c3aed;
+      --text:     #e8eaf0;
+      --muted:    #8891a8;
+      --tag-bg:   #1e2436;
+      --tag-text: #7ba7fb;
+      --callout:  #131826;
+      --red:      #ef4444;
+      --green:    #22c55e;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-size: 17px;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    .navbar {
+      background: rgba(6,11,20,.94);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255,255,255,.06);
+      padding: 14px 0;
+    }
+    .navbar-brand {
+      font-weight: 800;
+      font-size: 1.22rem;
+      color: #fff !important;
+      letter-spacing: -.4px;
+    }
+    .navbar-brand .b-accent { color: var(--brand); }
+    .navbar .nav-link {
+      color: rgba(255,255,255,.72) !important;
+      font-size: .88rem;
+      font-weight: 500;
+      transition: color .2s;
+    }
+    .navbar .nav-link:hover { color: #fff !important; }
+    .btn-nav-cta {
+      font-size: .85rem;
+      font-weight: 700;
+      background: var(--brand);
+      color: #fff !important;
+      border-radius: 7px;
+      padding: 6px 18px;
+      transition: background .2s;
+      text-decoration: none;
+    }
+    .btn-nav-cta:hover { background: var(--brand-h); }
+    .navbar-toggler { border-color: rgba(255,255,255,.2); }
+    .navbar-toggler-icon { filter: invert(1); }
+
+    /* ── LAYOUT ── */
+    .page-wrap {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 64px 24px 96px;
+    }
+
+    /* ── HEADER ── */
+    .post-eyebrow {
+      display: flex; gap: 10px; align-items: center;
+      margin-bottom: 20px; flex-wrap: wrap;
+    }
+    .tag {
+      background: var(--tag-bg); color: var(--tag-text);
+      font-size: 12px; font-weight: 600; letter-spacing: .04em;
+      padding: 4px 10px; border-radius: 4px; text-transform: uppercase;
+    }
+    .post-date { color: var(--muted); font-size: 13px; }
+    .read-time { color: var(--muted); font-size: 13px; }
+    .dot { color: var(--border); }
+
+    h1 {
+      font-family: 'Lora', serif;
+      font-size: clamp(28px, 5vw, 42px);
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: -0.5px;
+      color: #fff;
+      margin-bottom: 18px;
+    }
+    .post-subtitle {
+      font-size: 18px;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 32px;
+      border-left: 3px solid var(--accent);
+      padding-left: 16px;
+      font-style: italic;
+    }
+
+    .author-row {
+      display: flex; align-items: center; gap: 12px;
+      padding: 16px 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 48px;
+    }
+    .author-avatar {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: 16px; color: #fff; flex-shrink: 0;
+    }
+    .author-name { font-weight: 600; font-size: 14px; }
+    .author-role { font-size: 13px; color: var(--muted); }
+
+    /* ── BODY ── */
+    .post-body h2 {
+      font-family: 'Lora', serif;
+      font-size: 24px;
+      font-weight: 600;
+      color: #fff;
+      margin: 48px 0 16px;
+      padding-top: 8px;
+      border-top: 1px solid var(--border);
+    }
+    .post-body h3 {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--text);
+      margin: 28px 0 10px;
+    }
+    .post-body p { margin-bottom: 20px; color: #c8cdd8; }
+    .post-body p strong { color: var(--text); font-weight: 600; }
+    .post-body a { color: var(--accent); text-decoration: none; }
+    .post-body a:hover { text-decoration: underline; }
+
+    /* callout / highlight box */
+    .callout {
+      background: var(--callout);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--accent);
+      border-radius: 8px;
+      padding: 20px 24px;
+      margin: 28px 0;
+      color: #c8cdd8;
+      font-size: 16px;
+    }
+    .callout.warning { border-left-color: #f59e0b; }
+    .callout.success { border-left-color: var(--green); }
+    .callout strong { color: #fff; display: block; margin-bottom: 6px; font-size: 14px; text-transform: uppercase; letter-spacing: .05em; }
+
+    /* clutter list */
+    .clutter-list {
+      margin: 24px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .clutter-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 18px 20px;
+    }
+    .clutter-item-label {
+      font-weight: 700;
+      font-size: 15px;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+    .clutter-item-label .badge-red {
+      display: inline-block;
+      background: rgba(239,68,68,.15);
+      color: var(--red);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+      margin-left: 8px;
+      vertical-align: middle;
+    }
+    .clutter-item p { font-size: 14px; color: var(--muted); margin: 0; }
+
+    /* needs list */
+    .needs-list {
+      margin: 24px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .need-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--green);
+      border-radius: 10px;
+      padding: 18px 20px;
+    }
+    .need-item-label {
+      font-weight: 700;
+      font-size: 15px;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+    .need-item p { font-size: 14px; color: var(--muted); margin: 0; }
+
+    /* CTA section */
+    .post-cta {
+      background: linear-gradient(135deg, #1a2340, #1e1535);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 40px 32px;
+      text-align: center;
+      margin-top: 56px;
+    }
+    .post-cta h2 {
+      font-family: 'Lora', serif;
+      font-size: 26px; color: #fff;
+      margin-bottom: 12px;
+      border: none; padding: 0;
+    }
+    .post-cta p { color: var(--muted); margin-bottom: 24px; }
+    .cta-btn {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff; font-weight: 700; font-size: 15px;
+      padding: 13px 28px; border-radius: 8px;
+      text-decoration: none; transition: opacity .15s;
+    }
+    .cta-btn:hover { opacity: .85; }
+    .cta-sub { margin-top: 12px; font-size: 13px; color: var(--muted); }
+
+    /* footer */
+    .site-footer {
+      background: #03060e;
+      border-top: 1px solid rgba(255,255,255,.05);
+      text-align: center;
+      padding: 32px 24px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .site-footer a { color: var(--accent); text-decoration: none; }
+
+    @media (max-width: 600px) {
+      .post-cta { padding: 28px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="navbar navbar-expand-lg sticky-top">
+  <div class="container">
+    <a class="navbar-brand" href="https://czerwin.net">czerwin<span class="b-accent">.</span></a>
+    <div class="ms-auto d-flex align-items-center gap-3">
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a href="https://czerwin.net/#contact" class="btn-nav-cta">Get a free quote →</a>
+    </div>
+    <div class="collapse navbar-collapse" id="nav">
+      <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+        <li class="nav-item"><a class="nav-link px-3" href="https://czerwin.net/#services">Services</a></li>
+        <li class="nav-item"><a class="nav-link px-3" href="https://czerwin.net/#pricing">Pricing</a></li>
+        <li class="nav-item"><a class="nav-link px-3" href="https://czerwin.net/#portfolio">Portfolio</a></li>
+        <li class="nav-item"><a class="nav-link px-3" href="https://czerwin.net/blog/">Blog</a></li>
+        <li class="nav-item"><a class="nav-link px-3" href="https://czerwin.net/#about">About</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- CONTENT -->
+<div class="page-wrap">
+
+  <!-- Header -->
+  <div class="post-eyebrow">
+    <span class="tag">Guide</span>
+    <span class="tag">Freelancing</span>
+    <span class="dot">·</span>
+    <span class="post-date">June 25, 2026</span>
+    <span class="dot">·</span>
+    <span class="read-time">5 min read</span>
+  </div>
+
+  <h1>What Freelancers and Contractors Actually Need on Their Website (And What's Just Clutter)</h1>
+
+  <p class="post-subtitle">Most freelancer websites fail for the same reason. Here's what actually does the job — and what to cut.</p>
+
+  <div class="author-row">
+    <div class="author-avatar">C</div>
+    <div>
+      <div class="author-name">Cezar M.</div>
+      <div class="author-role">Web Developer · czerwin.net</div>
+    </div>
+  </div>
+
+  <!-- Body -->
+  <div class="post-body">
+
+    <p>I recently built a portfolio site for a contractor. Before we started, he sent me a list of everything he wanted on it — a testimonials carousel, a "years of experience" counter, a full services breakdown with icons, an Instagram feed, a mission statement, and a contact form with eight fields.</p>
+
+    <p>We launched with none of that.</p>
+
+    <p>Not because those things are wrong — but because none of them were doing the actual job. <strong>The job of a freelancer or contractor website is simple: make the right person feel confident enough to reach out.</strong> That's it.</p>
+
+    <p>Here's what actually does that job, and what doesn't.</p>
+
+    <h2>What You Actually Need</h2>
+
+    <div class="needs-list">
+      <div class="need-item">
+        <div class="need-item-label">Your work, shown clearly</div>
+        <p>Not a wall of logos. Not a "projects" section with vague titles. Actual evidence — a screenshot, a photo, a before/after, a number. One real project shown well is worth more than ten listed by name. If you're just starting out and don't have work to show yet, a short description of the kind of problem you solve is enough. Just be specific.</p>
+      </div>
+      <div class="need-item">
+        <div class="need-item-label">One clear way to contact you</div>
+        <p>Pick one. Email, Messenger, a phone number — whichever you actually check and respond to fast. If you have all three on the page, the visitor has to make a decision. Most won't. A contact form feels professional but adds friction. Unless you have a reason to filter inquiries, a direct link works better.</p>
+      </div>
+      <div class="need-item">
+        <div class="need-item-label">One credibility signal</div>
+        <p>Just one thing that answers "why should I trust this person?" It could be a client quote, a company you've worked with, a credential, or even just how long you've been doing this. You don't need a testimonials section with a carousel. You need one sentence from one real person.</p>
+      </div>
+    </div>
+
+    <h2>What's Usually Clutter</h2>
+
+    <div class="clutter-list">
+      <div class="clutter-item">
+        <div class="clutter-item-label">The full services list <span class="badge-red">Cut it</span></div>
+        <p>Most freelancers list every service they've ever offered because they're afraid of missing a lead. What it actually does is make you look unfocused. Lead with the thing you're best at. The right client will ask about the rest.</p>
+      </div>
+      <div class="clutter-item">
+        <div class="clutter-item-label">The "About Me" essay <span class="badge-red">Trim it</span></div>
+        <p>Your background matters, but three paragraphs about your journey is too much for a first visit. Two to three sentences about who you are, what you do, and who you do it for is enough.</p>
+      </div>
+      <div class="clutter-item">
+        <div class="clutter-item-label">Embedded social media feeds <span class="badge-red">Cut it</span></div>
+        <p>Your Instagram grid on your website means your website is now dependent on you posting regularly. If you haven't posted in two months, it shows. Skip it — link to your profile if you want, but don't embed it.</p>
+      </div>
+      <div class="clutter-item">
+        <div class="clutter-item-label">The counter widgets <span class="badge-red">Cut it</span></div>
+        <p>"500+ clients served." "10 years of experience." These look lifted from a template and nobody believes them unless they're backed by something real. If your experience is genuine, show it — don't count it.</p>
+      </div>
+    </div>
+
+    <h2>The Honest Version</h2>
+
+    <p>When I sat down with the contractor I mentioned, we stripped the brief down to three things: a clear headline about what he does, four project photos with short descriptions, and one contact button. That was the site.</p>
+
+    <p>It loaded fast, looked clean on mobile, and the first inquiry came within the week.</p>
+
+    <div class="callout success">
+      <strong>✅ The pattern that works</strong>
+      Clear headline → work samples → one contact method. In that order. Everything else is optional.
+    </div>
+
+    <p>Most freelancers don't have a website problem. They have a clarity problem. The website just makes it visible.</p>
+
+    <div class="callout warning">
+      <strong>⚡ Worth asking yourself</strong>
+      If a stranger landed on your site right now with no context — could they tell in 5 seconds what you do and how to hire you? If the answer is no, that's the fix. Not a new section, not a better photo — just clearer structure.
+    </div>
+
+  </div><!-- /post-body -->
+
+  <!-- CTA -->
+  <div class="post-cta">
+    <h2>Need a site that actually works for you?</h2>
+    <p>I build clean, focused portfolio and business sites for Filipino freelancers and contractors. Fixed price, delivered in 1–2 weeks.</p>
+    <a class="cta-btn" href="https://czerwin.net/#contact">Talk to Cezar →</a>
+    <div class="cta-sub">Or message me on <a href="https://www.facebook.com/czerwinm" style="color:var(--accent);">Facebook Messenger</a> · Usually responds within a few hours</div>
+  </div>
+
+</div><!-- /page-wrap -->
+
+<footer class="site-footer">
+  <p>© 2026 <a href="https://czerwin.net">czerwin.net</a> · Web Developer for Philippine Businesses · Philippines</p>
+  <p style="margin-top:8px;"><a href="/blog/">← Back to Blog</a> &nbsp;·&nbsp; <a href="https://czerwin.net">czerwin.net</a></p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
