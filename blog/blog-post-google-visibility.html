@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Why Your Business Doesn't Show Up on Google — And What Actually Fixes It</title>
+  <meta name="description" content="Your competitor shows up when someone searches for your service. You don't. Here's the honest reason why — and what a web developer actually does about it." />
+  <link rel="canonical" href="https://czerwin.net/blog/blog-post-google-visibility.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Lora:ital,wght@0,600;1,400&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet" />
+  <style>
+    :root {
+      --brand:    #2563eb;
+      --brand-h:  #1d4ed8;
+      --pro:      #7c3aed;
+      --dark:     #060b14;
+      --dark2:    #0d1526;
+      --bg:       #0f1117;
+      --surface:  #181c27;
+      --border:   #252a38;
+      --accent:   #4f8ef7;
+      --accent2:  #7c3aed;
+      --text:     #e8eaf0;
+      --muted:    #8891a8;
+      --tag-bg:   #1e2436;
+      --tag-text: #7ba7fb;
+      --callout:  #131826;
+      --red:      #ef4444;
+      --green:    #22c55e;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-size: 17px;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    .navbar {
+      background: rgba(6,11,20,.94);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255,255,255,.06);
+      padding: 14px 0;
+    }
+    .navbar-brand {
+      font-weight: 800;
+      font-size: 1.22rem;
+      color: #fff !important;
+      letter-spacing: -.4px;
+    }
+    .navbar-brand .b-accent { color: var(--brand); }
+    .navbar .nav-link {
+      color: rgba(255,255,255,.72) !important;
+      font-size: .88rem;
+      font-weight: 500;
+      transition: color .2s;
+    }
+    .navbar .nav-link:hover { color: #fff !important; }
+    .btn-nav-cta {
+      font-size: .85rem;
+      font-weight: 700;
+      background: var(--brand);
+      color: #fff !important;
+      border-radius: 7px;
+      padding: 6px 18px;
+      transition: background .2s;
+      text-decoration: none;
+    }
+    .btn-nav-cta:hover { background: var(--brand-h); }
+    .navbar-toggler { border-color: rgba(255,255,255,.2); }
+    .navbar-toggler-icon { filter: invert(1); }
+
+    /* ── LAYOUT ── */
+    .page-wrap {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 64px 24px 96px;
+    }
+
+    /* ── HEADER ── */
+    .post-eyebrow {
+      display: flex; gap: 10px; align-items: center;
+      margin-bottom: 20px; flex-wrap: wrap;
+    }
+    .tag {
+      background: var(--tag-bg); color: var(--tag-text);
+      font-size: 12px; font-weight: 600; letter-spacing: .04em;
+      padding: 4px 10px; border-radius: 4px; text-transform: uppercase;
+    }
+    .post-date { color: var(--muted); font-size: 13px; }
+    .read-time { color: var(--muted); font-size: 13px; }
+    .dot { color: var(--border); }
+
+    h1 {
+      font-family: 'Lora', serif;
+      font-size: clamp(28px, 5vw, 42px);
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: -0.5px;
+      color: #fff;
+      margin-bottom: 18px;
+    }
+    .post-subtitle {
+      font-size: 18px;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 32px;
+      border-left: 3px solid var(--accent);
+      padding-left: 16px;
+      font-style: italic;
+    }
+
+    .author-row {
+      display: flex; align-items: center; gap: 12px;
+      padding: 16px 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 48px;
+    }
+    .author-avatar {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: 16px; color: #fff; flex-shrink: 0;
+    }
+    .author-name { font-weight: 600; font-size: 14px; }
+    .author-role { font-size: 13px; color: var(--muted); }
+
+    /* ── BODY ── */
+    .post-body h2 {
+      font-family: 'Lora', serif;
+      font-size: 24px;
+      font-weight: 600;
+      color: #fff;
+      margin: 48px 0 16px;
+      padding-top: 8px;
+      border-top: 1px solid var(--border);
+    }
+    .post-body h3 {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--text);
+      margin: 28px 0 10px;
+    }
+    .post-body p { margin-bottom: 20px; color: #c8cdd8; }
+    .post-body p strong { color: var(--text); font-weight: 600; }
+    .post-body a { color: var(--accent); text-decoration: none; }
+    .post-body a:hover { text-decoration: underline; }
+    .post-body em { color: var(--muted); font-style: italic; }
+
+    /* callout */
+    .callout {
+      background: var(--callout);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--accent);
+      border-radius: 8px;
+      padding: 20px 24px;
+      margin: 28px 0;
+      color: #c8cdd8;
+      font-size: 16px;
+    }
+    .callout.warning { border-left-color: #f59e0b; }
+    .callout.success { border-left-color: var(--green); }
+    .callout strong { color: #fff; display: block; margin-bottom: 6px; font-size: 14px; text-transform: uppercase; letter-spacing: .05em; }
+
+    /* good/bad list */
+    .split-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 28px 0;
+    }
+    .split-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 18px 20px;
+    }
+    .split-card-label {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      margin-bottom: 12px;
+    }
+    .split-card.good .split-card-label { color: var(--green); }
+    .split-card.bad .split-card-label { color: #f59e0b; }
+    .split-card ul { list-style: none; padding: 0; margin: 0; }
+    .split-card ul li {
+      font-size: 14px;
+      color: #c8cdd8;
+      padding: 5px 0;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+    .split-card ul li:last-child { border-bottom: none; }
+    .split-card ul li i { flex-shrink: 0; margin-top: 3px; }
+
+    /* questions block */
+    .questions-block {
+      background: var(--callout);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px 24px;
+      margin: 28px 0;
+    }
+    .questions-block p {
+      font-size: 14px;
+      color: #c8cdd8;
+      margin-bottom: 10px;
+      padding-left: 20px;
+      position: relative;
+    }
+    .questions-block p:last-child { margin-bottom: 0; }
+    .questions-block p::before {
+      content: '?';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 13px;
+    }
+
+    /* CTA section */
+    .post-cta {
+      background: linear-gradient(135deg, #1a2340, #1e1535);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 40px 32px;
+      text-align: center;
+      margin-top: 56px;
+    }
+    .post-cta h2 {
+      font-family: 'Lora', serif;
+      font-size: 26px; color: #fff;
+      margin-bottom: 12px;
+      border: none; padding: 0;
+    }
+    .post-cta p { color: var(--muted); margin-bottom: 24px; }
+    .cta-btn {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff; font-weight: 700; font-size: 15px;
+      padding: 13px 28px; border-radius: 8px;
+      text-decoration: none; transition: opacity .15s;
+    }
+    .cta-btn:hover { opacity: .85; }
+    .cta-sub { margin-top: 12px; font-size: 13px; color: var(--muted); }
+
+    /* footer */
+    .site-footer {
+      background: #03060e;
+      border-top: 1px solid rgba(255,255,255,.05);
+      text-align: center;
+      padding: 32px 24px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .site-footer a { color: var(--accent); text-decoration: none; }
+
+    @media (max-width: 600px) {
+      .split-list { grid-template-columns: 1fr; }
+      .post-cta { padding: 28px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="navbar navbar-expand-lg sticky-top">
+  <div class="container">
+    <a class="navbar-brand" href="https://czerwin.net">czerwin<span class="b-accent">.</span></a>
+    <div class="ms-auto d-flex align-items-center gap-3">
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a href="https://czerwin.net/#contact" class="btn-nav-cta">Get a free quote →</a>
+    </div>
+    <div class="collapse navbar-collapse" id="nav">
+      <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+        <li class="nav-item"><a class="nav-link px-3" href="https://czerwin.net/#services">Services</a></li>
+        <li class="nav-item"><a class="nav-link px-3" href="https://czerwin.net/#pricing">Pricing</a></li>
+        <li class="nav-item"><a class="nav-link px-3" href="https://czerwin.net/#portfolio">Portfolio</a></li>
+        <li class="nav-item"><a class="nav-link px-3" href="https://czerwin.net/#faq">FAQ</a></li>
+        <li class="nav-item"><a class="nav-link px-3" href="https://czerwin.net/#about">About</a></li>
+        <li class="nav-item"><a class="nav-link px-3 active" href="https://czerwin.net/blog/">Blog</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- CONTENT -->
+<div class="page-wrap">
+
+  <!-- Header -->
+  <div class="post-eyebrow">
+    <span class="tag">Guide</span>
+    <span class="tag">Web Dev</span>
+    <span class="dot">·</span>
+    <span class="post-date">June 26, 2026</span>
+    <span class="dot">·</span>
+    <span class="read-time">7 min read</span>
+  </div>
+
+  <h1>Why Your Business Doesn't Show Up on Google — And What Actually Fixes It</h1>
+
+  <p class="post-subtitle">Someone searches for exactly what you sell, in your area, and finds your competitor. Not you. Here's the honest reason why — and what actually changes that.</p>
+
+  <div class="author-row">
+    <div class="author-avatar">C</div>
+    <div>
+      <div class="author-name">Cezar M.</div>
+      <div class="author-role">Web Developer · czerwin.net</div>
+    </div>
+  </div>
+
+  <!-- Body -->
+  <div class="post-body">
+
+    <p>Try this right now. Open Google and type the name of what you sell, followed by your city or area. Something like <em>"custom cakes Antipolo"</em> or <em>"computer repair Caloocan"</em> or <em>"affordable plumber Davao."</em></p>
+
+    <p>Did you show up? Maybe in the map section? Maybe in the regular results below it?</p>
+
+    <p>If the answer is no — or if you only see a competitor you know is smaller and less experienced than you — that's a frustrating place to be. You've been running your business for years. You have real customers, real reviews, real results. But to Google, you might as well not exist.</p>
+
+    <p>The good news is there's usually a clear reason for it. The bad news is it's not a quick fix. Let me walk through both honestly.</p>
+
+    <h2>What Google actually needs before it shows you</h2>
+
+    <p>Google isn't magic. It's a system, and like any system, it needs the right inputs to produce the right output. If those inputs are missing, you don't appear — regardless of how good your business actually is.</p>
+
+    <h3>A page that Google has found and indexed</h3>
+    <p>The most basic requirement: your website has to exist, and Google has to know about it. A lot of business owners assume this happens automatically. Sometimes it does, but not always — especially for new sites. Google needs to crawl the page, index it, and decide it's worth showing for relevant searches. If you've never submitted your site to Google Search Console and your site has no links pointing to it from anywhere, Google may simply not know it's there.</p>
+
+    <h3>A Google Business Profile — and it needs to be filled in</h3>
+    <p>This is the single highest-impact free thing most Filipino small businesses aren't doing. Google Business Profile (the thing that shows your business name, address, hours, photos, and reviews on the map) is completely free. But you have to claim it, verify it, and actually fill it in. Most businesses claim it and leave it half-empty — no photos, no hours, no description, outdated phone number. Google uses all of that information when deciding who to show in local search results.</p>
+
+    <p>If you haven't claimed yours yet, go to <strong>business.google.com</strong>. Search for your business, claim it, and verify it via the postcard or phone call Google sends. It takes a week or two but it's worth doing today.</p>
+
+    <h3>Consistent information everywhere</h3>
+    <p>Google cross-checks. If your business name, address, and phone number are slightly different on your Facebook page, your website, and your Google Business Profile — different spellings, different phone numbers, old address you haven't updated — that inconsistency weakens your local search signal. Google is less confident about showing you because it isn't sure which version is correct.</p>
+
+    <p>It sounds minor. It isn't. Pick one version of your business name, address, and phone number, and make sure it matches everywhere.</p>
+
+    <h3>Content that matches what people actually search for</h3>
+    <p>This is where a lot of business websites quietly fail. The homepage says something like <em>"We provide quality services with passion and excellence"</em> — which tells Google absolutely nothing. Google can't match that to a search for <em>"affordable wedding photographer Pasig."</em></p>
+
+    <p>Your website needs to use the actual words your customers type when they're looking for what you do. Not marketing language. Real, specific search terms: your service, your location, your specialty. If you're a cake maker in Marikina who specializes in fondant, those words need to appear naturally in your page content — not stuffed awkwardly, but present and clear.</p>
+
+    <div class="callout success">
+      <strong>✅ The short version</strong>
+      Claim your Google Business Profile, fill it in completely, make sure your contact info matches everywhere, and write your website content in plain language that matches what your customers would actually type.
+    </div>
+
+    <h2>Where most businesses go wrong</h2>
+
+    <p>The basics above are fixable. But there are a few deeper mistakes that keep businesses invisible on Google even after they've done the obvious steps.</p>
+
+    <h3>Thinking Facebook counts as Google</h3>
+    <p>This one comes up a lot. A business owner has 5,000 followers on Facebook and a page full of customer testimonials, and they can't understand why they don't show up on Google. Facebook and Google are different systems. A Facebook post doesn't help you rank on Google. A Facebook page has almost no influence over your Google search position. They are completely separate.</p>
+
+    <p>Being active on Facebook is worth doing — but don't mistake Facebook followers for Google visibility. They don't convert into each other.</p>
+
+    <h3>"I have a website but still don't show up"</h3>
+    <p>New websites take time. Google doesn't just find your site and immediately show it to everyone searching in your category. It has to assess your site over weeks and months — checking for signals of quality, relevance, and trustworthiness. A brand new site with no backlinks, thin content, and no traffic history is going to rank below an older site with more signals, even if your business is better.</p>
+
+    <p>This is frustrating but normal. The answer isn't to panic or pay for SEO magic. It's to be patient and keep adding genuine, useful content to your site over time.</p>
+
+    <h3>Writing for yourself instead of your customer</h3>
+    <p>Here's a test. Read your homepage out loud. Does it sound like what your customer would type into Google? Or does it sound like a company brochure from 2010?</p>
+
+    <p>Most business websites write about themselves — their story, their mission, their values. That's not what people search for. People search for <em>"same-day flower delivery Cebu"</em> or <em>"cheap auto repair near Cubao."</em> Your site needs to speak that language first, story second.</p>
+
+    <h3>Targeting the whole country when your customers are local</h3>
+    <p>A lot of Filipino business owners want to rank for broad terms — <em>"web developer Philippines"</em> or <em>"online shop Philippines."</em> The competition for those is enormous. There are established businesses with years of content, backlinks, and domain authority competing for those exact terms.</p>
+
+    <p>You don't need to beat them. You need to beat whoever is ranking in your city. <em>"Web developer Cavite"</em> or <em>"online store setup Laguna"</em> is a much more winnable fight — and the person searching for it is probably already ready to hire someone local. That's the customer you actually want.</p>
+
+    <div class="split-list">
+      <div class="split-card good">
+        <div class="split-card-label">What actually helps</div>
+        <ul>
+          <li><i class="bi bi-check-circle-fill" style="color:var(--green)"></i>Claimed & complete Google Business Profile</li>
+          <li><i class="bi bi-check-circle-fill" style="color:var(--green)"></i>Consistent name/address/phone everywhere</li>
+          <li><i class="bi bi-check-circle-fill" style="color:var(--green)"></i>Content that uses real search terms</li>
+          <li><i class="bi bi-check-circle-fill" style="color:var(--green)"></i>Targeting local, specific searches</li>
+          <li><i class="bi bi-check-circle-fill" style="color:var(--green)"></i>Real customer reviews on Google</li>
+        </ul>
+      </div>
+      <div class="split-card bad">
+        <div class="split-card-label">What doesn't help</div>
+        <ul>
+          <li><i class="bi bi-x-circle-fill" style="color:#f59e0b"></i>Facebook posts and page activity</li>
+          <li><i class="bi bi-x-circle-fill" style="color:#f59e0b"></i>Vague homepage copy</li>
+          <li><i class="bi bi-x-circle-fill" style="color:#f59e0b"></i>Competing for nationwide terms</li>
+          <li><i class="bi bi-x-circle-fill" style="color:#f59e0b"></i>Ignoring Google Business Profile</li>
+          <li><i class="bi bi-x-circle-fill" style="color:#f59e0b"></i>Expecting instant results</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2>The honest model</h2>
+
+    <p>I want to be straight about what a web developer actually does here — because this is an area where a lot of promises get made that don't hold up.</p>
+
+    <p>When I build a website, I write the page content and structure it so that Google can read it cleanly. I make sure the page titles, headings, and descriptions use the right language. I set up the technical side — fast load times, mobile-friendly layout, proper indexing signals — that Google expects to see before it takes a site seriously. I help clients set up and fill in their Google Business Profile correctly. I connect the site to Google Search Console so we can see how it's performing and what search terms are bringing people in.</p>
+
+    <div class="questions-block">
+      <p>Is Google finding and indexing every page — or are some pages blocked?</p>
+      <p>Is the site loading fast enough on mobile, where most Filipino customers are searching?</p>
+      <p>Does the page title and meta description actually match what the customer is searching for?</p>
+      <p>Are there other websites linking to this one — or is it completely isolated?</p>
+      <p>Do the images have descriptive filenames, or are they all named "IMG_0023.jpg"?</p>
+    </div>
+
+    <p>Those details matter. They're not magic — they're just the minimum standard Google expects before it considers a site credible enough to show people.</p>
+
+    <p>What I can't promise is a specific ranking position or a timeline. Anyone who guarantees you "page 1 of Google in 30 days" is selling something that doesn't work the way they're claiming. Google's algorithm considers hundreds of factors, and a lot of them — how old your domain is, how many other sites link to yours, how long people stay on your page when they visit — take months to build up naturally.</p>
+
+    <p>What I can promise is that the site will be built correctly from the start, with the right structure and content, so that when Google does index it fully, it has the best possible foundation to rank from. The alternative — a site that's built without any attention to these things — often stays invisible not because Google is ignoring you, but because Google genuinely can't figure out what you do or where you are.</p>
+
+    <div class="callout warning">
+      <strong>⚠️ On paid SEO services</strong>
+      There are a lot of agencies in the Philippines offering SEO packages — monthly retainers for ₱5,000–₱20,000 a month. Some are legitimate. Many are not. Before paying anyone for SEO, ask them what specific actions they'll take each month and what reports you'll receive. Vague answers ("we'll optimize your site and build links") are a red flag. A developer who builds your site correctly from the start is a better investment than monthly fees for work you can't verify.
+    </div>
+
+    <h2>Start local. Be specific. Be patient.</h2>
+
+    <p>You don't need to rank first in all of the Philippines. You need to rank in your city, your barangay, your area. The person in Biñan searching for a plumber at 7pm isn't going to call someone in Quezon City just because they showed up first. They want someone nearby. And that's a search you can actually win.</p>
+
+    <p>The businesses that show up consistently in local search are usually not doing anything complicated. They have a properly set up Google Business Profile with real photos, accurate hours, and a handful of genuine customer reviews. They have a website that clearly says what they do and where they do it. And they've been online long enough for Google to consider them established.</p>
+
+    <p>That's the whole formula. No tricks, no monthly retainers with vague deliverables. Just the right foundation, done correctly, with enough time to take hold.</p>
+
+  </div><!-- /post-body -->
+
+  <!-- CTA -->
+  <div class="post-cta">
+    <h2>Want to get found on Google?</h2>
+    <p>If you're thinking about getting your business visible in local search, that's the part I can help with — building the right foundation so Google actually knows you exist.</p>
+    <a class="cta-btn" href="https://czerwin.net/#contact">Talk to Cezar →</a>
+    <div class="cta-sub">Or message me on <a href="https://www.facebook.com/czerwinm" style="color:var(--accent);">Facebook Messenger</a> · Usually responds within a few hours</div>
+  </div>
+
+</div><!-- /page-wrap -->
+
+<footer class="site-footer">
+  <p>© 2026 <a href="https://czerwin.net">czerwin.net</a> · Web Developer for Philippine Businesses · Philippines</p>
+  <p style="margin-top:8px;"><a href="/blog/">← Back to Blog</a> &nbsp;·&nbsp; <a href="https://czerwin.net">czerwin.net</a></p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
