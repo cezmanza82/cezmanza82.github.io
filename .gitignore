@@ -4,3 +4,9 @@ capture-og.mjs
 package.json
 package-lock.json
 node_modules/
+.claude/
+blog/drafts/
+*.studio3
+og-image-old*.png
+Logo-dark*.png
+Logo-light*.png
