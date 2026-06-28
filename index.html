@@ -506,43 +506,41 @@ body {
 }
 .portfolio-card-thumb {
   background: var(--dark);
-  padding: 28px 24px 20px;
   position: relative;
   overflow: hidden;
+  height: 200px;
 }
-.portfolio-card-thumb::before {
-  content: '';
+.portfolio-card-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+  transition: transform .4s ease;
+}
+.portfolio-card:hover .portfolio-card-thumb img { transform: scale(1.04); }
+.portfolio-card-overlay {
   position: absolute;
-  top: -60px; right: -60px;
-  width: 240px; height: 240px;
-  background: radial-gradient(circle, rgba(37,99,235,.2) 0%, transparent 65%);
-  pointer-events: none;
+  bottom: 0; left: 0; right: 0;
+  padding: 10px 14px 10px;
+  background: linear-gradient(to top, rgba(0,0,0,.75) 0%, transparent 100%);
 }
 .portfolio-card-url {
   font-size: .68rem;
   font-weight: 700;
-  color: #60a5fa;
+  color: rgba(255,255,255,.7);
   letter-spacing: .4px;
-  margin-bottom: 10px;
+  margin-bottom: 4px;
   display: flex;
   align-items: center;
   gap: 5px;
 }
 .portfolio-card-title {
-  font-size: 1.08rem;
+  font-size: .95rem;
   font-weight: 800;
   color: #fff;
-  letter-spacing: -.3px;
+  letter-spacing: -.2px;
   margin: 0;
-  position: relative;
-}
-.portfolio-card-icon {
-  position: absolute;
-  bottom: 16px; right: 20px;
-  font-size: 3.5rem;
-  opacity: .12;
-  color: #fff;
-  line-height: 1;
 }
 .portfolio-card-body {
   padding: 20px 22px 22px;
@@ -968,9 +966,11 @@ footer a:hover { color: #93c5fd; }
       <div class="col-sm-6 col-lg-4 fade-up">
         <a href="https://omarted.czerwin.net" target="_blank" rel="noopener" class="portfolio-card">
           <div class="portfolio-card-thumb">
-            <div class="portfolio-card-url"><i class="bi bi-globe2"></i>omarted.czerwin.net</div>
-            <div class="portfolio-card-title">O.T. Construction Services</div>
-            <div class="portfolio-card-icon"><i class="bi bi-building"></i></div>
+            <img src="img/portfolio-omarted.jpg" alt="O.T. Construction Services website screenshot" loading="lazy">
+            <div class="portfolio-card-overlay">
+              <div class="portfolio-card-url"><i class="bi bi-globe2"></i>omarted.czerwin.net</div>
+              <div class="portfolio-card-title">O.T. Construction Services</div>
+            </div>
           </div>
           <div class="portfolio-card-body">
             <p>Contractor portfolio site for a construction services business. Service showcase, project gallery, and contact form — built to convert visitors into leads.</p>
@@ -987,10 +987,12 @@ footer a:hover { color: #93c5fd; }
 
       <div class="col-sm-6 col-lg-4 fade-up" style="transition-delay:.06s">
         <a href="https://sinouna.czerwin.net" target="_blank" rel="noopener" class="portfolio-card">
-          <div class="portfolio-card-thumb" style="background:linear-gradient(135deg,#0e0e10,#1a1a2e)">
-            <div class="portfolio-card-url"><i class="bi bi-globe2"></i>sinouna.czerwin.net</div>
-            <div class="portfolio-card-title">SinoUna PH</div>
-            <div class="portfolio-card-icon"><i class="bi bi-trophy"></i></div>
+          <div class="portfolio-card-thumb">
+            <img src="img/portfolio-sinouna.jpg" alt="SinoUna PH website screenshot" loading="lazy">
+            <div class="portfolio-card-overlay">
+              <div class="portfolio-card-url"><i class="bi bi-globe2"></i>sinouna.czerwin.net</div>
+              <div class="portfolio-card-title">SinoUna PH</div>
+            </div>
           </div>
           <div class="portfolio-card-body">
             <p>Local business ranking platform for Village East, Cainta. Dynamic scoring engine, admin approval workflow, email notifications, and three-level rankings.</p>
@@ -1007,10 +1009,12 @@ footer a:hover { color: #93c5fd; }
 
       <div class="col-sm-6 col-lg-4 fade-up" style="transition-delay:.12s">
         <a href="https://myshopph.czerwin.net" target="_blank" rel="noopener" class="portfolio-card">
-          <div class="portfolio-card-thumb" style="background:linear-gradient(135deg,#0f172a,#1e3a5f)">
-            <div class="portfolio-card-url"><i class="bi bi-globe2"></i>myshopph.czerwin.net</div>
-            <div class="portfolio-card-title">Winshap — E-commerce Platform</div>
-            <div class="portfolio-card-icon"><i class="bi bi-shop"></i></div>
+          <div class="portfolio-card-thumb">
+            <img src="img/portfolio-winshap.jpg" alt="Winshap e-commerce platform screenshot" loading="lazy">
+            <div class="portfolio-card-overlay">
+              <div class="portfolio-card-url"><i class="bi bi-globe2"></i>myshopph.czerwin.net</div>
+              <div class="portfolio-card-title">Winshap — E-commerce Platform</div>
+            </div>
           </div>
           <div class="portfolio-card-body">
             <p>My own e-commerce platform for Philippine sellers. Live demo with sample products — explore the storefront and admin dashboard. GCash, Maya, COD ready.</p>
@@ -1027,10 +1031,12 @@ footer a:hover { color: #93c5fd; }
 
       <div class="col-sm-6 col-lg-4 fade-up" style="transition-delay:.24s">
         <a href="https://mimii.czerwin.net" target="_blank" rel="noopener" class="portfolio-card">
-          <div class="portfolio-card-thumb" style="background:linear-gradient(135deg,#2d1b4e,#6b21a8,#db2777)">
-            <div class="portfolio-card-url"><i class="bi bi-globe2"></i>mimii.czerwin.net</div>
-            <div class="portfolio-card-title">Mimi — Digital Art Portfolio</div>
-            <div class="portfolio-card-icon"><i class="bi bi-palette"></i></div>
+          <div class="portfolio-card-thumb">
+            <img src="img/portfolio-mimi.jpg" alt="Mimi digital art portfolio screenshot" loading="lazy">
+            <div class="portfolio-card-overlay">
+              <div class="portfolio-card-url"><i class="bi bi-globe2"></i>mimii.czerwin.net</div>
+              <div class="portfolio-card-title">Mimi — Digital Art Portfolio</div>
+            </div>
           </div>
           <div class="portfolio-card-body">
             <p>Digital art portfolio for a young artist. Gallery with lightbox, image protection, switchable layouts, and 20+ color themes — all managed from a no-database admin panel.</p>
