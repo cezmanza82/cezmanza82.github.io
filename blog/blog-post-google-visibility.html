@@ -79,11 +79,43 @@
     .navbar-toggler { border-color: rgba(255,255,255,.2); }
     .navbar-toggler-icon { filter: invert(1); }
 
+    /* ── HERO IMAGE ── */
+    .post-hero {
+      position: relative; width: 100%; height: 480px; overflow: hidden;
+    }
+    .post-hero img {
+      width: 100%; height: 100%; object-fit: cover; object-position: center; display: block;
+    }
+    .post-hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(6,11,20,1) 0%, rgba(6,11,20,.6) 40%, rgba(6,11,20,.2) 100%);
+    }
+    .post-hero-content {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      padding: 40px; max-width: 800px; margin: 0 auto;
+    }
+    .post-hero-eyebrow { display: flex; gap: 10px; align-items: center; margin-bottom: 14px; flex-wrap: wrap; }
+    .post-hero h1 {
+      font-family: 'Lora', serif;
+      font-size: clamp(24px, 4vw, 38px); font-weight: 600; color: #fff;
+      line-height: 1.2; letter-spacing: -.5px; margin: 0;
+      text-shadow: 0 2px 12px rgba(0,0,0,.5);
+    }
+
     /* ── LAYOUT ── */
     .page-wrap {
       max-width: 720px;
       margin: 0 auto;
-      padding: 64px 24px 96px;
+      padding: 40px 24px 96px;
+    }
+
+    /* ── DROP CAP ── */
+    .post-body > p:first-child::first-letter {
+      font-family: 'Lora', serif;
+      font-size: 4rem; font-weight: 600;
+      float: left; line-height: .8;
+      margin: 6px 10px 0 0;
+      color: var(--accent);
     }
 
     /* ── HEADER ── */
@@ -308,20 +340,28 @@
   </div>
 </nav>
 
+<!-- HERO IMAGE -->
+<div class="post-hero">
+  <img src="../img/blog-post4.jpg" alt="Google sign on building">
+  <div class="post-hero-overlay"></div>
+  <div class="post-hero-content">
+    <div class="post-hero-eyebrow">
+      <span class="tag">Guide</span>
+      <span class="tag">SEO</span>
+    </div>
+    <h1>Why Your Business Doesn't Show Up on Google — And What Actually Fixes It</h1>
+  </div>
+</div>
+
 <!-- CONTENT -->
 <div class="page-wrap">
 
   <!-- Header -->
   <div class="post-eyebrow">
-    <span class="tag">Guide</span>
-    <span class="tag">Web Dev</span>
+    <span class="post-date"><i class="bi bi-calendar3"></i> June 26, 2026</span>
     <span class="dot">·</span>
-    <span class="post-date">June 26, 2026</span>
-    <span class="dot">·</span>
-    <span class="read-time">7 min read</span>
+    <span class="read-time"><i class="bi bi-clock"></i> 7 min read</span>
   </div>
-
-  <h1>Why Your Business Doesn't Show Up on Google — And What Actually Fixes It</h1>
 
   <p class="post-subtitle">Someone searches for exactly what you sell, in your area, and finds your competitor. Not you. Here's the honest reason why — and what actually changes that.</p>
 
