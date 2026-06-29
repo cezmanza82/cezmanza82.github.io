@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Won't Replace Your Web Developer — Here's What It Actually Does — czerwin.net</title>
+  <meta name="description" content="Everyone's saying AI will replace developers. Here's the honest truth about what AI can and can't do — and why Filipino business owners still need a real developer." />
+  <meta property="og:title" content="AI Won't Replace Your Web Developer — Here's What It Actually Does" />
+  <meta property="og:description" content="Everyone's saying AI will replace developers. Here's the honest truth about what AI can and can't do — and why Filipino business owners still need a real developer." />
+  <meta property="og:image"        content="https://czerwin.net/img/blog-post6.jpg" />
+  <meta property="og:image:width"  content="1200" />
+  <meta property="og:image:height" content="800" />
+  <meta property="og:url" content="https://czerwin.net/blog/blog-post-ai-wont-replace-developers.html" />
+  <meta property="og:type" content="article" />
+  <link rel="canonical" href="https://czerwin.net/blog/blog-post-ai-wont-replace-developers.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Lora:ital,wght@0,600;1,400&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet" />
+  <style>
+    :root {
+      --brand:    #2563eb;
+      --brand-h:  #1d4ed8;
+      --dark:     #060b14;
+      --bg:       #0f1117;
+      --surface:  #181c27;
+      --border:   #252a38;
+      --accent:   #4f8ef7;
+      --text:     #e8eaf0;
+      --muted:    #8891a8;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.75; -webkit-font-smoothing: antialiased; }
+
+    .navbar { background: rgba(6,11,20,.94); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(255,255,255,.06); padding: 14px 0; }
+    .navbar-brand { font-weight: 800; font-size: 1.22rem; color: #fff !important; letter-spacing: -.4px; }
+    .navbar-brand .b-accent { color: var(--brand); }
+    .navbar .nav-link { color: rgba(255,255,255,.72) !important; font-size: .88rem; font-weight: 500; transition: color .2s; }
+    .navbar .nav-link:hover { color: #fff !important; }
+    .btn-nav-cta { font-size: .85rem; font-weight: 700; background: var(--brand); color: #fff !important; border-radius: 7px; padding: 6px 18px; transition: background .2s; text-decoration: none; }
+    .btn-nav-cta:hover { background: var(--brand-h); }
+    .navbar-toggler { border-color: rgba(255,255,255,.2); }
+    .navbar-toggler-icon { filter: invert(1); }
+
+    .post-hero { background: var(--dark); border-bottom: 1px solid var(--border); padding: 72px 0 56px; }
+    .post-eyebrow { font-size: .72rem; font-weight: 700; letter-spacing: 1.6px; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
+    .post-hero h1 { font-family: 'Lora', serif; font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 600; color: #fff; letter-spacing: -.5px; margin-bottom: 16px; line-height: 1.2; }
+    .post-meta { font-size: .85rem; color: var(--muted); display: flex; gap: 20px; flex-wrap: wrap; }
+    .post-meta i { font-size: .8rem; }
+
+    .post-body { max-width: 720px; margin: 0 auto; padding: 64px 24px 96px; }
+    .post-body h2 { font-family: 'Lora', serif; font-size: 1.5rem; font-weight: 600; color: #fff; margin: 48px 0 16px; letter-spacing: -.2px; }
+    .post-body p { font-size: .97rem; color: #c8ccd8; line-height: 1.85; margin-bottom: 20px; }
+    .post-body strong { color: var(--text); }
+    .post-body ul { margin: 0 0 20px 20px; }
+    .post-body ul li { font-size: .97rem; color: #c8ccd8; line-height: 1.85; margin-bottom: 8px; }
+
+    .callout { background: var(--surface); border-left: 3px solid var(--accent); border-radius: 0 8px 8px 0; padding: 20px 24px; margin: 32px 0; }
+    .callout p { margin: 0; color: var(--text); }
+
+    .reality-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin-bottom: 24px; display: flex; gap: 16px; align-items: flex-start; }
+    .reality-card .icon { font-size: 1.5rem; flex-shrink: 0; margin-top: 2px; }
+    .reality-card h3 { font-size: 1rem; font-weight: 700; color: #fff; margin-bottom: 6px; }
+    .reality-card p { font-size: .9rem; color: #9ca3b0; margin: 0; line-height: 1.7; }
+
+    .site-footer { background: #03060e; border-top: 1px solid rgba(255,255,255,.05); text-align: center; padding: 32px 24px; font-size: 13px; color: var(--muted); }
+    .site-footer a { color: var(--accent); text-decoration: none; }
+
+    .back-link { display: inline-flex; align-items: center; gap: 6px; font-size: .85rem; color: var(--muted); text-decoration: none; margin-bottom: 32px; transition: color .2s; }
+    .back-link:hover { color: var(--accent); }
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg sticky-top">
+  <div class="container">
+    <a class="navbar-brand" href="https://czerwin.net">czerwin<span class="b-accent">.</span></a>
+    <div class="ms-auto d-flex align-items-center gap-3">
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a href="https://czerwin.net/#contact" class="btn-nav-cta">Get a free quote →</a>
+    </div>
+    <div class="collapse navbar-collapse" id="nav">
+      <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+        <li class="nav-item"><a class="nav-link px-3" href="https://czerwin.net/#services">Services</a></li>
+        <li class="nav-item"><a class="nav-link px-3" href="https://czerwin.net/#pricing">Pricing</a></li>
+        <li class="nav-item"><a class="nav-link px-3" href="https://czerwin.net/#portfolio">Portfolio</a></li>
+        <li class="nav-item"><a class="nav-link px-3" href="https://czerwin.net/#faq">FAQ</a></li>
+        <li class="nav-item"><a class="nav-link px-3" href="https://czerwin.net/#about">About</a></li>
+        <li class="nav-item"><a class="nav-link px-3 active" href="/blog/">Blog</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<section class="post-hero">
+  <div class="container">
+    <div class="post-eyebrow">Opinion &nbsp;·&nbsp; Technology</div>
+    <h1>AI Won't Replace Your Web Developer — Here's What It Actually Does</h1>
+    <div class="post-meta">
+      <span><i class="bi bi-calendar3"></i> June 29, 2026</span>
+      <span><i class="bi bi-clock"></i> 5 min read</span>
+      <span><i class="bi bi-person"></i> czerwin.net</span>
+    </div>
+  </div>
+</section>
+
+<div class="post-body">
+  <a href="/blog/" class="back-link"><i class="bi bi-arrow-left"></i> Back to blog</a>
+
+  <p>You've probably seen it — bloggers, YouTubers, people selling online courses — all saying the same thing: <strong>"AI will replace web developers. You don't need to hire one anymore. Just use AI and build it yourself."</strong></p>
+
+  <p>Here's what's interesting about that claim: almost every person saying it is also selling you something. A course. A template. A subscription tool. The message is designed to make you feel like hiring a developer is a waste of money — so you buy their product instead.</p>
+
+  <p>So let's talk about what's actually true.</p>
+
+  <h2>What AI can genuinely do</h2>
+
+  <p>AI tools have made building websites faster. That's real. A developer using AI today can do in a few hours what used to take days. That's good for you — it means lower cost and faster delivery.</p>
+
+  <p>AI can also help you write content, generate design ideas, and suggest fixes for simple problems. We covered the practical tools in <a href="/blog/blog-post-ai-tools-for-business.html" style="color: var(--accent);">last week's post</a> — and those are genuinely useful for business owners.</p>
+
+  <p>But there's a gap between "AI helps" and "AI replaces."</p>
+
+  <h2>What actually happens when business owners try to DIY</h2>
+
+  <div class="reality-card">
+    <div class="icon">⏱️</div>
+    <div>
+      <h3>It takes much longer than expected</h3>
+      <p>AI gives you a starting point, not a finished product. A business owner who doesn't know HTML, hosting, domains, or databases will spend days — sometimes weeks — getting something that barely works. That's time away from actually running your business.</p>
+    </div>
+  </div>
+
+  <div class="reality-card">
+    <div class="icon">🔒</div>
+    <div>
+      <h3>Security is invisible until something breaks</h3>
+      <p>AI won't tell you your contact form is exposed to spam bots. It won't warn you that your hosting is misconfigured, that your SSL certificate expired, or that someone is scraping your customer data. A developer thinks about these things before they become problems.</p>
+    </div>
+  </div>
+
+  <div class="reality-card">
+    <div class="icon">📱</div>
+    <div>
+      <h3>It looks fine on your screen, broken on everyone else's</h3>
+      <p>AI-generated websites often look good on the device you tested on. Then a customer opens it on their phone and the menu doesn't work, the text overflows, the checkout button is hidden. Testing across devices and browsers is a skill, not a feature.</p>
+    </div>
+  </div>
+
+  <div class="reality-card">
+    <div class="icon">🔧</div>
+    <div>
+      <h3>When something breaks, you're on your own</h3>
+      <p>Websites break. Hosting changes. Plugins conflict. Payment gateways update their APIs. When that happens at 10pm on a Friday before a sale you've been promoting for two weeks — who do you call? AI doesn't have a phone number.</p>
+    </div>
+  </div>
+
+  <h2>What AI actually changed</h2>
+
+  <p>AI made developers faster and more affordable — not unnecessary. The developer who used to charge ₱50,000 for a 3-month project can now deliver the same quality in 3 weeks. That's the real benefit for business owners.</p>
+
+  <div class="callout">
+    <p>AI lowered the cost of building. It didn't lower the cost of knowing what you're building, why it matters, and how to keep it running.</p>
+  </div>
+
+  <p>The judgment, the experience, the ability to ask the right questions about your business and translate that into something that actually works online — that's still human work. AI is a tool in those hands, not a replacement for them.</p>
+
+  <h2>The honest comparison</h2>
+
+  <p>A carpenter with a nail gun is faster than one without. That doesn't mean you should buy a nail gun and build your own house. You'd still hire the carpenter — now they just finish faster.</p>
+
+  <p>Same principle. Use AI for what it's good at: writing your captions, drafting your product descriptions, generating ideas. Let your developer use it too — so your project costs less and ships faster. That's the right division of work.</p>
+
+  <h2>What this means for you</h2>
+
+  <p>If you're a business owner in the Philippines looking to get online, the question isn't "should I use AI or hire a developer?" The question is: <strong>"Do I want to spend weeks learning this myself, or do I want it done correctly so I can focus on my business?"</strong></p>
+
+  <p>If you want it done right — <a href="https://czerwin.net/#contact" style="color: var(--accent);">let's talk</a>. I use AI in my workflow too. That's exactly why I can deliver faster and charge less than before.</p>
+
+  <h2>Further reading</h2>
+  <ul>
+    <li><a href="/blog/blog-post-ai-tools-for-business.html" style="color: var(--accent);">AI Tools That Actually Save Filipino Business Owners Time</a> — czerwin.net</li>
+    <li><a href="https://openai.com/chatgpt" target="_blank" rel="noopener" style="color: var(--accent);">ChatGPT</a> — openai.com</li>
+    <li><a href="https://claude.ai" target="_blank" rel="noopener" style="color: var(--accent);">Claude</a> — anthropic.com</li>
+  </ul>
+</div>
+
+<footer class="site-footer">
+  <p>© 2026 <a href="https://czerwin.net">czerwin.net</a> · Web Developer for Business Owners · Philippines</p>
+  <p style="margin-top:8px;"><a href="/blog/">← Back to blog</a></p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
