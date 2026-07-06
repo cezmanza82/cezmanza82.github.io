@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Why Smart Shopee Sellers Also Build Their Own Website â€” czerwin.net</title>
+  <meta name="description" content="Thousands of Filipino sellers succeed on Shopee and Lazada â€” and the smartest ones also build their own website. Here's why the combination works so well." />
+  <meta property="og:title" content="Why Smart Shopee Sellers Also Build Their Own Website" />
+  <meta property="og:description" content="Thousands of Filipino sellers succeed on Shopee and Lazada â€” and the smartest ones also build their own website. Here's why the combination works so well." />
+  <meta property="og:image"        content="https://czerwin.net/img/blog-post7.jpg" />
+  <meta property="og:image:width"  content="1200" />
+  <meta property="og:image:height" content="800" />
+  <meta property="og:url" content="https://czerwin.net/blog/blog-post-shopee-sellers-website.html" />
+  <meta property="og:type" content="article" />
+  <link rel="canonical" href="https://czerwin.net/blog/blog-post-shopee-sellers-website.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Lora:ital,wght@0,600;1,400&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet" />
+  <style>
+    :root {
+      --brand:    #2563eb;
+      --brand-h:  #1d4ed8;
+      --dark:     #060b14;
+      --bg:       #0f1117;
+      --surface:  #181c27;
+      --border:   #252a38;
+      --accent:   #4f8ef7;
+      --text:     #e8eaf0;
+      --muted:    #8891a8;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.75; -webkit-font-smoothing: antialiased; }
+
+    .navbar { background: rgba(6,11,20,.94); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(255,255,255,.06); padding: 14px 0; }
+    .navbar-brand { font-weight: 800; font-size: 1.22rem; color: #fff !important; letter-spacing: -.4px; }
+    .navbar-brand .b-accent { color: var(--brand); }
+    .navbar .nav-link { color: rgba(255,255,255,.72) !important; font-size: .88rem; font-weight: 500; transition: color .2s; }
+    .navbar .nav-link:hover { color: #fff !important; }
+    .btn-nav-cta { font-size: .85rem; font-weight: 700; background: var(--brand); color: #fff !important; border-radius: 7px; padding: 6px 18px; transition: background .2s; text-decoration: none; }
+    .btn-nav-cta:hover { background: var(--brand-h); }
+    .navbar-toggler { border-color: rgba(255,255,255,.2); }
+    .navbar-toggler-icon { filter: invert(1); }
+
+    .post-hero { position: relative; width: 100%; height: 480px; overflow: hidden; display: flex; align-items: flex-end; }
+    .post-hero-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; }
+    .post-hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(6,11,20,.15) 0%, rgba(6,11,20,.75) 60%, rgba(6,11,20,.97) 100%); }
+    .post-hero-content { position: relative; z-index: 2; width: 100%; padding: 0 0 40px; }
+    .post-eyebrow { font-size: .72rem; font-weight: 700; letter-spacing: 1.6px; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
+    .post-hero h1 { font-family: 'Lora', serif; font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 600; color: #fff; letter-spacing: -.5px; margin-bottom: 16px; line-height: 1.2; }
+    .post-meta { font-size: .85rem; color: rgba(255,255,255,.7); display: flex; gap: 20px; flex-wrap: wrap; }
+    .post-meta i { font-size: .8rem; }
+    .post-body > p:first-child::first-letter { font-family: 'Lora', serif; font-size: 4rem; font-weight: 600; float: left; line-height: .85; margin: 4px 10px 0 0; color: var(--accent); }
+
+    .post-body { max-width: 720px; margin: 0 auto; padding: 64px 24px 96px; }
+    .post-body h2 { font-family: 'Lora', serif; font-size: 1.5rem; font-weight: 600; color: #fff; margin: 48px 0 16px; letter-spacing: -.2px; }
+    .post-body p { font-size: .97rem; color: #c8ccd8; line-height: 1.85; margin-bottom: 20px; }
+    .post-body strong { color: var(--text); }
+    .post-body ul { margin: 0 0 20px 20px; }
+    .post-body ul li { font-size: .97rem; color: #c8ccd8; line-height: 1.85; margin-bottom: 8px; }
+
+    .callout { background: var(--surface); border-left: 3px solid var(--accent); border-radius: 0 8px 8px 0; padding: 20px 24px; margin: 32px 0; }
+    .callout p { margin: 0; color: var(--text); }
+
+    .reality-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin-bottom: 24px; display: flex; gap: 16px; align-items: flex-start; }
+    .reality-card .icon { font-size: 1.5rem; flex-shrink: 0; margin-top: 2px; }
+    .reality-card h3 { font-size: 1rem; font-weight: 700; color: #fff; margin-bottom: 6px; }
+    .reality-card p { font-size: .9rem; color: #9ca3b0; margin: 0; line-height: 1.7; }
+
+    .site-footer { background: #03060e; border-top: 1px solid rgba(255,255,255,.05); text-align: center; padding: 32px 24px; font-size: 13px; color: var(--muted); }
+    .site-footer a { color: var(--accent); text-decoration: none; }
+
+    .back-link { display: inline-flex; align-items: center; gap: 6px; font-size: .85rem; color: var(--muted); text-decoration: none; margin-bottom: 32px; transition: color .2s; }
+    .back-link:hover { color: var(--accent); }
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg sticky-top">
+  <div class="container">
+    <a class="navbar-brand" href="https://czerwin.net">czerwin<span class="b-accent">.</span></a>
+    <div class="ms-auto d-flex align-items-center gap-3">
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a href="https://czerwin.net/#contact" class="btn-nav-cta">Get a free quote â†’</a>
+    </div>
+    <div class="collapse navbar-collapse" id="nav">
+      <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+        <li class="nav-item"><a class="nav-link px-3" href="https://czerwin.net/#services">Services</a></li>
+        <li class="nav-item"><a class="nav-link px-3" href="https://czerwin.net/#pricing">Pricing</a></li>
+        <li class="nav-item"><a class="nav-link px-3" href="https://czerwin.net/#portfolio">Portfolio</a></li>
+        <li class="nav-item"><a class="nav-link px-3" href="https://czerwin.net/#faq">FAQ</a></li>
+        <li class="nav-item"><a class="nav-link px-3" href="https://czerwin.net/#about">About</a></li>
+        <li class="nav-item"><a class="nav-link px-3 active" href="/blog/">Blog</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<section class="post-hero">
+  <!-- TODO: download hero image from Unsplash and save as img/blog-post7.jpg before Monday 8am -->
+  <img class="post-hero-img" src="/img/blog-post7.jpg" alt="Laptop on a desk, representing a business owner's own website" />
+  <div class="post-hero-overlay"></div>
+  <div class="post-hero-content">
+    <div class="container">
+      <div class="post-eyebrow">Business</div>
+      <h1>Why Smart Shopee Sellers Also Build Their Own Website</h1>
+      <div class="post-meta">
+        <span><i class="bi bi-calendar3"></i> July 6, 2026</span>
+        <span><i class="bi bi-clock"></i> 5 min read</span>
+        <span><i class="bi bi-person"></i> czerwin.net</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="post-body">
+  <a href="/blog/" class="back-link"><i class="bi bi-arrow-left"></i> Back to blog</a>
+
+  <p>Plenty of sellers build real success on Shopee and Lazada â€” steady sales, loyal buyers, a growing catalog. And the smartest ones don't stop there. Alongside their marketplace store, they also build their own website.</p>
+
+  <p>It's not about choosing one over the other. It's about using each for what it does best. Shopee brings you built-in traffic and buyers who are already there to shop. Your own website gives you something different â€” a space that's entirely yours, built around your brand and your customers.</p>
+
+  <h2>What a marketplace gives you â€” and what a website adds</h2>
+
+  <p>Here's an honest look at what each channel brings to the table when you're selling through Shopee or Lazada.</p>
+
+  <div class="reality-card">
+    <div class="icon">ðŸ“¦</div>
+    <div>
+      <h3>Your products</h3>
+      <p>Your inventory is yours. Your listings â€” the descriptions, photos, and keywords you put work into â€” live on Shopee's platform, which is great for reaching buyers already browsing there. A website lets you also host that same catalog on a page that's entirely your own.</p>
+    </div>
+  </div>
+
+  <div class="reality-card">
+    <div class="icon">ðŸ‘¥</div>
+    <div>
+      <h3>Your customers</h3>
+      <p>Shopee handles a lot of the buyer relationship for you â€” that's part of what makes it convenient. A website adds something extra: your own customer list, so you can follow up directly, run promos, and stay in touch on your own terms.</p>
+    </div>
+  </div>
+
+  <div class="reality-card">
+    <div class="icon">â­</div>
+    <div>
+      <h3>Your reviews and ratings</h3>
+      <p>Great reviews you've earned on Shopee show up right where buyers on that platform are already looking â€” that's valuable. A website lets you also showcase those wins on a page that's fully under your control, alongside your own brand story.</p>
+    </div>
+  </div>
+
+  <div class="reality-card">
+    <div class="icon">ðŸ“£</div>
+    <div>
+      <h3>Your visibility</h3>
+      <p>Shopee's algorithm drives a lot of your visibility there, and that's part of how any marketplace works. A website adds a second channel where your visibility comes from your own SEO and marketing â€” a place you can grow independently, on top of your marketplace presence.</p>
+    </div>
+  </div>
+
+  <h2>What each channel is good at</h2>
+
+  <p>Platform fees are part of doing business on Shopee and Lazada â€” commission, payment processing, optional promotion fees. That's a fair trade for the traffic and convenience the platform brings.</p>
+
+  <p>A website adds a different kind of value on top: every sale through it builds your own customer list directly, growing something that's entirely yours alongside whatever you're building on the marketplace side.</p>
+
+  <div class="callout">
+    <p>The goal isn't to leave Shopee â€” it's to build both. Using a platform and having your own channel work well together, not in competition with each other.</p>
+  </div>
+
+  <p>Sellers who build their own website early tend to find the whole process smoother down the line â€” the SEO, the Google presence, and the customer list all compound over time, on top of the growth they're already getting from the marketplace.</p>
+
+  <h2>What a website adds to the mix</h2>
+
+  <p>A website isn't a replacement for Shopee. Most sellers who have their own site still use the marketplaces â€” that's where a lot of the traffic is. A website adds something the marketplaces don't: a place that's actually yours.</p>
+
+  <p>When someone buys from your website, you get their email. You can follow up. You can send them a discount on their birthday. You can let them know when a product they looked at comes back in stock. You can run a campaign without sharing the same search results page as your competitors.</p>
+
+  <p>It also means your business keeps running smoothly across both channels â€” you've always got a home base, a customer list, and a Google presence that are entirely yours.</p>
+
+  <h2>This isn't about spending more money</h2>
+
+  <p>I want to be upfront here: a website is an extra cost. Hosting, a domain, someone to build and maintain it. If you're just starting out and your margins are thin, that might not be where you should spend first. Shopee is actually a smart way to test if your products sell before you invest more.</p>
+
+  <p>But if you've been selling for a year or more, if you've got steady orders, if your store has real traction â€” that's usually the stage where having a channel of your own is worth the investment. It's less about whether you can afford a website, and more about how much more you could build with one.</p>
+
+  <p>If you're thinking about building your own store alongside your marketplace presence, that's the part I can help with. Whether it's a simple catalog site or a full checkout experience with GCash and COD support â€” <a href="https://czerwin.net/#contact" style="color: var(--accent);">let's talk</a>.</p>
+
+  <h2>Further reading</h2>
+  <ul>
+    <li><a href="/blog/blog-post-facebook-vs-website.html" style="color: var(--accent);">Facebook Page vs. Website: What Filipino Business Owners Actually Need</a> â€” czerwin.net</li>
+    <li><a href="/blog/blog-post-google-visibility.html" style="color: var(--accent);">Why Your Business Doesn't Show Up on Google â€” And What Actually Fixes It</a> â€” czerwin.net</li>
+  </ul>
+</div>
+
+<footer class="site-footer">
+  <p>Â© 2026 <a href="https://czerwin.net">czerwin.net</a> Â· Web Developer for Business Owners Â· Philippines</p>
+  <p style="margin-top:8px;"><a href="/blog/">â† Back to blog</a></p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
