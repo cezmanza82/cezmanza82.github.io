@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Small Things That Make Your Website Easier to Use on a Phone — czerwin.net</title>
+  <meta name="description" content="Most of your customers browse on their phone, not a desktop. Here are a few simple, easy wins that make a website feel effortless on mobile." />
+  <meta property="og:title" content="Small Things That Make Your Website Easier to Use on a Phone" />
+  <meta property="og:description" content="Most of your customers browse on their phone, not a desktop. Here are a few simple, easy wins that make a website feel effortless on mobile." />
+  <meta property="og:image"        content="https://czerwin.net/img/blog-post8.jpg" />
+  <meta property="og:image:width"  content="1200" />
+  <meta property="og:image:height" content="800" />
+  <meta property="og:url" content="https://czerwin.net/blog/blog-post-mobile-friendly-tips.html" />
+  <meta property="og:type" content="article" />
+  <link rel="canonical" href="https://czerwin.net/blog/blog-post-mobile-friendly-tips.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Lora:ital,wght@0,600;1,400&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet" />
+  <style>
+    :root {
+      --brand:    #2563eb;
+      --brand-h:  #1d4ed8;
+      --dark:     #060b14;
+      --bg:       #0f1117;
+      --surface:  #181c27;
+      --border:   #252a38;
+      --accent:   #4f8ef7;
+      --text:     #e8eaf0;
+      --muted:    #8891a8;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.75; -webkit-font-smoothing: antialiased; }
+
+    .navbar { background: rgba(6,11,20,.94); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(255,255,255,.06); padding: 14px 0; }
+    .navbar-brand { font-weight: 800; font-size: 1.22rem; color: #fff !important; letter-spacing: -.4px; }
+    .navbar-brand .b-accent { color: var(--brand); }
+    .navbar .nav-link { color: rgba(255,255,255,.72) !important; font-size: .88rem; font-weight: 500; transition: color .2s; }
+    .navbar .nav-link:hover { color: #fff !important; }
+    .btn-nav-cta { font-size: .85rem; font-weight: 700; background: var(--brand); color: #fff !important; border-radius: 7px; padding: 6px 18px; transition: background .2s; text-decoration: none; }
+    .btn-nav-cta:hover { background: var(--brand-h); }
+    .navbar-toggler { border-color: rgba(255,255,255,.2); }
+    .navbar-toggler-icon { filter: invert(1); }
+
+    .post-hero { position: relative; width: 100%; height: 480px; overflow: hidden; display: flex; align-items: flex-end; }
+    .post-hero-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; }
+    .post-hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(6,11,20,.15) 0%, rgba(6,11,20,.75) 60%, rgba(6,11,20,.97) 100%); }
+    .post-hero-content { position: relative; z-index: 2; width: 100%; padding: 0 0 40px; }
+    .post-eyebrow { font-size: .72rem; font-weight: 700; letter-spacing: 1.6px; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
+    .post-hero h1 { font-family: 'Lora', serif; font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 600; color: #fff; letter-spacing: -.5px; margin-bottom: 16px; line-height: 1.2; }
+    .post-meta { font-size: .85rem; color: rgba(255,255,255,.7); display: flex; gap: 20px; flex-wrap: wrap; }
+    .post-meta i { font-size: .8rem; }
+    .post-body > p:first-child::first-letter { font-family: 'Lora', serif; font-size: 4rem; font-weight: 600; float: left; line-height: .85; margin: 4px 10px 0 0; color: var(--accent); }
+
+    .post-body { max-width: 720px; margin: 0 auto; padding: 64px 24px 96px; }
+    .post-body h2 { font-family: 'Lora', serif; font-size: 1.5rem; font-weight: 600; color: #fff; margin: 48px 0 16px; letter-spacing: -.2px; }
+    .post-body h3 { font-size: 1.08rem; font-weight: 700; color: #fff; margin: 32px 0 12px; }
+    .post-body p { font-size: .97rem; color: #c8ccd8; line-height: 1.85; margin-bottom: 20px; }
+    .post-body strong { color: var(--text); }
+    .post-body ul { margin: 0 0 20px 20px; }
+    .post-body ul li { font-size: .97rem; color: #c8ccd8; line-height: 1.85; margin-bottom: 8px; }
+
+    .callout { background: var(--surface); border-left: 3px solid var(--accent); border-radius: 0 8px 8px 0; padding: 20px 24px; margin: 32px 0; }
+    .callout p { margin: 0; color: var(--text); }
+
+    .reality-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin-bottom: 24px; display: flex; gap: 16px; align-items: flex-start; }
+    .reality-card .icon { font-size: 1.5rem; flex-shrink: 0; margin-top: 2px; }
+    .reality-card h3 { font-size: 1rem; font-weight: 700; color: #fff; margin-bottom: 6px; margin-top: 0; }
+    .reality-card p { font-size: .9rem; color: #9ca3b0; margin: 0; line-height: 1.7; }
+
+    .site-footer { background: #03060e; border-top: 1px solid rgba(255,255,255,.05); text-align: center; padding: 32px 24px; font-size: 13px; color: var(--muted); }
+    .site-footer a { color: var(--accent); text-decoration: none; }
+
+    .back-link { display: inline-flex; align-items: center; gap: 6px; font-size: .85rem; color: var(--muted); text-decoration: none; margin-bottom: 32px; transition: color .2s; }
+    .back-link:hover { color: var(--accent); }
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg sticky-top">
+  <div class="container">
+    <a class="navbar-brand" href="https://czerwin.net">czerwin<span class="b-accent">.</span></a>
+    <div class="ms-auto d-flex align-items-center gap-3">
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a href="https://czerwin.net/#contact" class="btn-nav-cta">Get a free quote →</a>
+    </div>
+    <div class="collapse navbar-collapse" id="nav">
+      <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+        <li class="nav-item"><a class="nav-link px-3" href="https://czerwin.net/#services">Services</a></li>
+        <li class="nav-item"><a class="nav-link px-3" href="https://czerwin.net/#pricing">Pricing</a></li>
+        <li class="nav-item"><a class="nav-link px-3" href="https://czerwin.net/#portfolio">Portfolio</a></li>
+        <li class="nav-item"><a class="nav-link px-3" href="https://czerwin.net/#faq">FAQ</a></li>
+        <li class="nav-item"><a class="nav-link px-3" href="https://czerwin.net/#about">About</a></li>
+        <li class="nav-item"><a class="nav-link px-3 active" href="/blog/">Blog</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<section class="post-hero">
+  <!-- TODO: download hero image from Unsplash and save as img/blog-post8.jpg before Monday 8am -->
+  <img class="post-hero-img" src="/img/blog-post8.jpg" alt="Person comfortably browsing a website on a phone" />
+  <div class="post-hero-overlay"></div>
+  <div class="post-hero-content">
+    <div class="container">
+      <div class="post-eyebrow">Web Dev &nbsp;·&nbsp; Mobile</div>
+      <h1>Small Things That Make Your Website Easier to Use on a Phone</h1>
+      <div class="post-meta">
+        <span><i class="bi bi-calendar3"></i> July 13, 2026</span>
+        <span><i class="bi bi-clock"></i> 4 min read</span>
+        <span><i class="bi bi-person"></i> czerwin.net</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="post-body">
+  <a href="/blog/" class="back-link"><i class="bi bi-arrow-left"></i> Back to blog</a>
+
+  <p>Most of your customers aren't sitting at a desktop when they find your website. They're on a phone — scrolling through a Facebook comment, tapping a link from a group chat, checking your site while they're out doing errands. That's just how people browse in the Philippines these days, and it's worth building your site with that in mind.</p>
+
+  <p>The good news is that making a site feel comfortable on a phone doesn't take a big redesign. It's usually a handful of small, easy details that add up to a much smoother experience. Here are the ones I check first.</p>
+
+  <h2>Easy wins that make a real difference</h2>
+
+  <div class="reality-card">
+    <div class="icon">👆</div>
+    <div>
+      <h3>Buttons big enough for a thumb</h3>
+      <p>A button that's easy to click with a mouse can be frustrating to tap accurately with a thumb. Making buttons and links a bit bigger, with a little breathing room around them, makes browsing feel effortless instead of fiddly.</p>
+    </div>
+  </div>
+
+  <div class="reality-card">
+    <div class="icon">📞</div>
+    <div>
+      <h3>Contact info that's one tap away</h3>
+      <p>If someone wants to call or message you, a phone number that's actually clickable (not just text) saves them the trouble of copying and pasting. Same with a Messenger or WhatsApp link sitting right where they can see it.</p>
+    </div>
+  </div>
+
+  <div class="reality-card">
+    <div class="icon">🖼️</div>
+    <div>
+      <h3>Photos sized for a small screen</h3>
+      <p>A product photo that looks great on a laptop can end up loading slowly or looking oddly cropped on a phone. A quick resize before uploading keeps things looking sharp and loading quickly, wherever someone's viewing from.</p>
+    </div>
+  </div>
+
+  <div class="reality-card">
+    <div class="icon">📋</div>
+    <div>
+      <h3>Menus that don't fight the screen</h3>
+      <p>A simple, collapsible menu (the kind that tucks away behind a tap) works a lot better on a small screen than a long row of links squeezed together. It keeps things tidy and easy to scan.</p>
+    </div>
+  </div>
+
+  <h2>A simple way to check your own site</h2>
+
+  <p>Try this: open your own website on your phone, using your regular mobile data — not your home wifi. Scroll through it the way a first-time visitor would. Can you tap what you need without zooming in? Is your number clickable? Does everything feel like it fits comfortably on the screen?</p>
+
+  <p>If something feels a little clunky, that's useful information — not a big problem, just a small tune-up waiting to happen.</p>
+
+  <div class="callout">
+    <p>A phone-friendly website isn't about doing everything perfectly. It's about making the handful of things people actually do — tapping, calling, scrolling, browsing photos — feel easy.</p>
+  </div>
+
+  <h2>The honest model</h2>
+
+  <p>When I build a site, I check it on an actual phone throughout the process, not just at the end. Buttons, contact links, photos, menus — I want all of it to feel natural on a small screen, because that's where most visitors will actually experience it.</p>
+
+  <h2>The bottom line</h2>
+
+  <p>Your customers are already meeting you on their phones. A few small, thoughtful touches make that experience feel easy and welcoming — and that's often the difference between someone browsing a little longer or bouncing off to check somewhere else.</p>
+
+  <p>If you'd like a second pair of eyes on how your site feels on mobile, that's the part I can help with.</p>
+
+  <h2>Further reading</h2>
+  <ul>
+    <li><a href="/blog/blog-post-google-visibility.html" style="color: var(--accent);">Why Your Business Doesn't Show Up on Google</a> — czerwin.net</li>
+  </ul>
+</div>
+
+<footer class="site-footer">
+  <p>© 2026 <a href="https://czerwin.net">czerwin.net</a> · Web Developer for Business Owners · Philippines</p>
+  <p style="margin-top:8px;"><a href="/blog/">← Back to blog</a></p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
