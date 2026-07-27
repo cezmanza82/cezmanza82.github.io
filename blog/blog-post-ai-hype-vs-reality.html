@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Right Now: What's Real, What's Risk, and What's Just Noise — czerwin.net</title>
+  <meta name="description" content="No hype, no fear — a straight look at what's actually true about AI right now for developers, sysadmins, business owners, and everyone else, backed by real 2026 research." />
+  <meta property="og:title" content="AI Right Now: What's Real, What's Risk, and What's Just Noise" />
+  <meta property="og:description" content="No hype, no fear — a straight look at what's actually true about AI right now for developers, sysadmins, business owners, and everyone else, backed by real 2026 research." />
+  <meta property="og:image"        content="https://czerwin.net/img/blog-post10.jpg" />
+  <meta property="og:image:width"  content="1200" />
+  <meta property="og:image:height" content="800" />
+  <meta property="og:url" content="https://czerwin.net/blog/blog-post-ai-hype-vs-reality.html" />
+  <meta property="og:type" content="article" />
+  <link rel="canonical" href="https://czerwin.net/blog/blog-post-ai-hype-vs-reality.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Lora:ital,wght@0,600;1,400&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet" />
+  <style>
+    :root {
+      --brand:    #2563eb;
+      --brand-h:  #1d4ed8;
+      --dark:     #060b14;
+      --bg:       #0f1117;
+      --surface:  #181c27;
+      --border:   #252a38;
+      --accent:   #4f8ef7;
+      --text:     #e8eaf0;
+      --muted:    #8891a8;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.75; -webkit-font-smoothing: antialiased; }
+
+    .navbar { background: rgba(6,11,20,.94); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(255,255,255,.06); padding: 14px 0; }
+    .navbar-brand { font-weight: 800; font-size: 1.22rem; color: #fff !important; letter-spacing: -.4px; }
+    .navbar-brand .b-accent { color: var(--brand); }
+    .navbar .nav-link { color: rgba(255,255,255,.72) !important; font-size: .88rem; font-weight: 500; transition: color .2s; }
+    .navbar .nav-link:hover { color: #fff !important; }
+    .btn-nav-cta { font-size: .85rem; font-weight: 700; background: var(--brand); color: #fff !important; border-radius: 7px; padding: 6px 18px; transition: background .2s; text-decoration: none; }
+    .btn-nav-cta:hover { background: var(--brand-h); }
+    .navbar-toggler { border-color: rgba(255,255,255,.2); }
+    .navbar-toggler-icon { filter: invert(1); }
+
+    .post-hero { position: relative; width: 100%; height: 480px; overflow: hidden; display: flex; align-items: flex-end; }
+    .post-hero-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; }
+    .post-hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(6,11,20,.15) 0%, rgba(6,11,20,.75) 60%, rgba(6,11,20,.97) 100%); }
+    .post-hero-content { position: relative; z-index: 2; width: 100%; padding: 0 0 40px; }
+    .post-eyebrow { font-size: .72rem; font-weight: 700; letter-spacing: 1.6px; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
+    .post-hero h1 { font-family: 'Lora', serif; font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 600; color: #fff; letter-spacing: -.5px; margin-bottom: 16px; line-height: 1.2; }
+    .post-meta { font-size: .85rem; color: rgba(255,255,255,.7); display: flex; gap: 20px; flex-wrap: wrap; }
+    .post-meta i { font-size: .8rem; }
+    .post-wrap { max-width: 1000px; margin: 0 auto; padding: 64px 24px 96px; display: grid; grid-template-columns: minmax(0,1fr) 220px; gap: 48px; align-items: start; }
+
+    .post-body > p:first-of-type::first-letter { font-family: 'Lora', serif; font-size: 3.6rem; font-weight: 600; float: left; line-height: .82; margin: 4px 10px 0 0; color: var(--accent); }
+    .post-body h2 { font-family: 'Lora', serif; font-size: 1.5rem; font-weight: 600; color: #fff; margin: 48px 0 16px; letter-spacing: -.2px; border-bottom: 1px solid var(--border); padding-bottom: 10px; }
+    .post-body h3 { font-size: 1.05rem; font-weight: 700; color: #fff; margin: 28px 0 10px; }
+    .post-body p { font-size: .97rem; color: #c8ccd8; line-height: 1.85; margin-bottom: 20px; }
+    .post-body strong { color: var(--text); }
+    .post-body ul { margin: 0 0 20px 20px; }
+    .post-body ul li { font-size: .97rem; color: #c8ccd8; line-height: 1.85; margin-bottom: 8px; }
+
+    .callout { background: var(--surface); border-left: 3px solid var(--accent); border-radius: 0 8px 8px 0; padding: 20px 24px; margin: 32px 0; }
+    .callout p { margin: 0; color: var(--text); }
+
+    .rail { border-left: 1px solid var(--border); padding-left: 24px; position: sticky; top: 100px; }
+    .rail-quote { font-family: 'Lora', serif; font-style: italic; font-size: 1.1rem; line-height: 1.5; color: #fff; margin-bottom: 32px; }
+    .rail-quote::before { content: '\201C'; display: block; font-size: 2.2rem; color: var(--accent); line-height: .5; margin-bottom: 8px; }
+    .rail-label { font-size: .68rem; font-weight: 700; letter-spacing: 1.4px; text-transform: uppercase; color: var(--muted); margin-bottom: 40px; }
+
+    .site-footer { background: #03060e; border-top: 1px solid rgba(255,255,255,.05); text-align: center; padding: 32px 24px; font-size: 13px; color: var(--muted); }
+    .site-footer a { color: var(--accent); text-decoration: none; }
+
+    .back-link { display: inline-flex; align-items: center; gap: 6px; font-size: .85rem; color: var(--muted); text-decoration: none; margin-bottom: 8px; grid-column: 1 / -1; transition: color .2s; }
+    .back-link:hover { color: var(--accent); }
+
+    @media (max-width: 780px) {
+      .post-wrap { grid-template-columns: 1fr; }
+      .rail { border-left: none; padding-left: 0; border-top: 1px solid var(--border); padding-top: 24px; position: static; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg sticky-top">
+  <div class="container">
+    <a class="navbar-brand" href="https://czerwin.net">czerwin<span class="b-accent">.</span></a>
+    <div class="ms-auto d-flex align-items-center gap-3">
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a href="https://czerwin.net/#contact" class="btn-nav-cta">Get a free quote →</a>
+    </div>
+    <div class="collapse navbar-collapse" id="nav">
+      <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+        <li class="nav-item"><a class="nav-link px-3" href="https://czerwin.net/#services">Services</a></li>
+        <li class="nav-item"><a class="nav-link px-3" href="https://czerwin.net/#pricing">Pricing</a></li>
+        <li class="nav-item"><a class="nav-link px-3" href="https://czerwin.net/#portfolio">Portfolio</a></li>
+        <li class="nav-item"><a class="nav-link px-3" href="https://czerwin.net/#faq">FAQ</a></li>
+        <li class="nav-item"><a class="nav-link px-3" href="https://czerwin.net/#about">About</a></li>
+        <li class="nav-item"><a class="nav-link px-3 active" href="/blog/">Blog</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<section class="post-hero">
+  <!-- TODO: download hero image from Unsplash and save as img/blog-post10.jpg before Monday 8am -->
+  <img class="post-hero-img" src="/img/blog-post10.jpg" alt="Close-up of a computer chip representing artificial intelligence" />
+  <div class="post-hero-overlay"></div>
+  <div class="post-hero-content">
+    <div class="container">
+      <div class="post-eyebrow">Opinion &nbsp;·&nbsp; Technology</div>
+      <h1>AI Right Now: What's Real, What's Risk, and What's Just Noise</h1>
+      <div class="post-meta">
+        <span><i class="bi bi-calendar3"></i> July 27, 2026</span>
+        <span><i class="bi bi-clock"></i> 6 min read</span>
+        <span><i class="bi bi-person"></i> czerwin.net</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="post-wrap">
+  <a href="/blog/" class="back-link"><i class="bi bi-arrow-left"></i> Back to blog</a>
+
+  <div class="post-body">
+  <p>Here's my take: most of what you're reading about AI right now is either too scared or too sold. One side says it's replacing everyone by next year. The other is selling you a course, a tool, or a subscription and needs you to believe that too. Neither is really talking about what's actually happening.</p>
+
+  <p>So here's the current state — for whoever you are: developer, sysadmin, business owner, or just someone trying to figure out what's worth believing.</p>
+
+  <h3>If you write code for a living</h3>
+  <p>The shift is real, not a prediction — 92% of developers now use AI tools daily, and 46% of new code written in 2026 is AI-generated. That's already happened. What doesn't get said as often is that a 2026 METR study found a 37% gap between how AI performs on benchmarks and how it performs in real, deployed systems. It writes fast. It doesn't mean what it writes is right, secure, or something you'd want running unreviewed — that gap is exactly where a shortcut turns into an incident.</p>
+
+  <h3>If you're the one keeping systems running</h3>
+  <p>The useful part is real too — log triage, scripting, documentation, all genuinely faster with AI in the loop. But the bigger story right now is what people are calling "shadow AI" — AI tools employees use on their own, without IT knowing or approving it. Someone pastes a client list, a chunk of source code, or financial numbers into a free AI tool just to get something done faster, and it never goes through any security review because nobody in IT even knows it happened. Nearly half of all AI use inside companies today happens exactly this way. That's not a future risk to plan around — it's already happening, quietly, in most organizations right now.</p>
+
+  <h3>If you run a business</h3>
+  <p>AI has genuinely made building and operating things cheaper and faster than it was two years ago — that part isn't hype. What is ahead of itself is the "fully autonomous AI agent running your business" pitch you're probably being sold somewhere — only 11% of companies actually have AI agents in production, no matter how it's marketed. If someone's selling you a hands-off AI solution today, be skeptical of how hands-off it really is.</p>
+
+  <h3>And if none of the above is you</h3>
+  <p>AI tools are genuinely more accessible now — you don't need to code to get real use out of them. But the myths still doing damage are worth dropping: AI doesn't have opinions or genuine creativity, it's pattern prediction, not a mind. It can't learn or adapt on its own between updates. And "AI means mass layoffs" is more nuanced than the headlines — projections show real displacement but a net gain in jobs created, which is disruptive, not apocalyptic.</p>
+
+  <div class="callout">
+    <p>The people getting the most out of AI aren't the ones using it the most. They're the ones who know exactly where to trust it and where to double-check it.</p>
+  </div>
+
+  <h2>How do you actually deal with any of this?</h2>
+  <p>Not with a checklist that pretends AI is simple — with one habit: verify before you rely. A developer reviews the AI-written code like it came from a junior, not a senior. A sysadmin brings shadow AI into the open — official tools with real data agreements, not whatever's free — instead of pretending it isn't happening. A business owner asks a vendor to show, not just claim, what their "AI agent" actually does. Everyone else treats a confident AI answer the same way they'd treat a confident stranger's opinion — worth hearing, not worth accepting blind.</p>
+
+  <p>That's the harder half of this conversation, and it's worth its own post: what it actually looks like to use AI well, day to day, instead of just knowing where the hype breaks down. That's next.</p>
+
+  <h2>Further reading &amp; sources</h2>
+  <ul>
+    <li><a href="/blog/blog-post-ai-wont-replace-developers.html" style="color: var(--accent);">AI Won't Replace Your Web Developer — Here's What It Actually Does</a> — czerwin.net</li>
+    <li><a href="/blog/blog-post-ai-tools-for-business.html" style="color: var(--accent);">AI Tools That Actually Save Filipino Business Owners Time</a> — czerwin.net</li>
+    <li><a href="https://smartermsp.com/ai-in-2026-hype-vs-reality/" target="_blank" rel="noopener" style="color: var(--accent);">AI in 2026: Hype vs. Reality</a> — SmarterMSP</li>
+    <li><a href="https://seismicpixels.com/ai-coding-hype-vs-reality/" target="_blank" rel="noopener" style="color: var(--accent);">AI Code Development 2026: The Gap Between Hype and Reality</a> — Seismic Pixels</li>
+    <li><a href="https://www.tomsguide.com/ai/5-huge-ai-misconceptions-to-drop-now-heres-what-you-need-to-know-in-2026" target="_blank" rel="noopener" style="color: var(--accent);">5 Huge AI Misconceptions to Drop Now</a> — Tom's Guide</li>
+    <li><a href="https://www.upwork.com/resources/artificial-intelligence-myths" target="_blank" rel="noopener" style="color: var(--accent);">Debunking 11 Common AI Myths in 2026</a> — Upwork</li>
+  </ul>
+  </div>
+
+  <div class="rail">
+    <div class="rail-quote">The people getting the most out of AI aren't the ones using it the most.</div>
+    <div class="rail-label">the real question<br>where do you trust it, where do you check it</div>
+    <div class="rail-quote" style="font-size: .95rem;">Verify before you rely.</div>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <p>© 2026 <a href="https://czerwin.net">czerwin.net</a> · Web Developer for Business Owners · Philippines</p>
+  <p style="margin-top:8px;"><a href="/blog/">← Back to blog</a></p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
