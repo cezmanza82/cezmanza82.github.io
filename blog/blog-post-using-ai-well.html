@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Using AI Well: The Habits That Actually Matter — czerwin.net</title>
+  <meta name="description" content="Last week was about hype vs. reality. This week is the harder half — the actual day-to-day habits that separate people who get real value from AI from people quietly shipping unverified work." />
+  <meta property="og:title" content="Using AI Well: The Habits That Actually Matter" />
+  <meta property="og:description" content="Last week was about hype vs. reality. This week is the harder half — the actual day-to-day habits that separate people who get real value from AI from people quietly shipping unverified work." />
+  <meta property="og:image"        content="https://czerwin.net/img/blog-post11.jpg" />
+  <meta property="og:image:width"  content="1200" />
+  <meta property="og:image:height" content="800" />
+  <meta property="og:url" content="https://czerwin.net/blog/blog-post-using-ai-well.html" />
+  <meta property="og:type" content="article" />
+  <link rel="canonical" href="https://czerwin.net/blog/blog-post-using-ai-well.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Lora:ital,wght@0,600;1,400&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet" />
+  <style>
+    :root {
+      --brand:    #2563eb;
+      --brand-h:  #1d4ed8;
+      --dark:     #060b14;
+      --bg:       #0f1117;
+      --surface:  #181c27;
+      --border:   #252a38;
+      --accent:   #4f8ef7;
+      --text:     #e8eaf0;
+      --muted:    #8891a8;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.75; -webkit-font-smoothing: antialiased; }
+
+    .navbar { background: rgba(6,11,20,.94); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(255,255,255,.06); padding: 14px 0; }
+    .navbar-brand { font-weight: 800; font-size: 1.22rem; color: #fff !important; letter-spacing: -.4px; }
+    .navbar-brand .b-accent { color: var(--brand); }
+    .navbar .nav-link { color: rgba(255,255,255,.72) !important; font-size: .88rem; font-weight: 500; transition: color .2s; }
+    .navbar .nav-link:hover { color: #fff !important; }
+    .btn-nav-cta { font-size: .85rem; font-weight: 700; background: var(--brand); color: #fff !important; border-radius: 7px; padding: 6px 18px; transition: background .2s; text-decoration: none; }
+    .btn-nav-cta:hover { background: var(--brand-h); }
+    .navbar-toggler { border-color: rgba(255,255,255,.2); }
+    .navbar-toggler-icon { filter: invert(1); }
+
+    .post-hero { position: relative; width: 100%; height: 480px; overflow: hidden; display: flex; align-items: flex-end; }
+    .post-hero-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; }
+    .post-hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(6,11,20,.15) 0%, rgba(6,11,20,.75) 60%, rgba(6,11,20,.97) 100%); }
+    .post-hero-content { position: relative; z-index: 2; width: 100%; padding: 0 0 40px; }
+    .post-eyebrow { font-size: .72rem; font-weight: 700; letter-spacing: 1.6px; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
+    .post-hero h1 { font-family: 'Lora', serif; font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 600; color: #fff; letter-spacing: -.5px; margin-bottom: 16px; line-height: 1.2; }
+    .post-meta { font-size: .85rem; color: rgba(255,255,255,.7); display: flex; gap: 20px; flex-wrap: wrap; }
+    .post-meta i { font-size: .8rem; }
+    .post-wrap { max-width: 1000px; margin: 0 auto; padding: 64px 24px 96px; display: grid; grid-template-columns: minmax(0,1fr) 220px; gap: 48px; align-items: start; }
+
+    .post-body > p:first-of-type::first-letter { font-family: 'Lora', serif; font-size: 3.6rem; font-weight: 600; float: left; line-height: .82; margin: 4px 10px 0 0; color: var(--accent); }
+    .post-body h2 { font-family: 'Lora', serif; font-size: 1.5rem; font-weight: 600; color: #fff; margin: 48px 0 16px; letter-spacing: -.2px; border-bottom: 1px solid var(--border); padding-bottom: 10px; }
+    .post-body h3 { font-size: 1.05rem; font-weight: 700; color: #fff; margin: 28px 0 10px; }
+    .post-body p { font-size: .97rem; color: #c8ccd8; line-height: 1.85; margin-bottom: 20px; }
+    .post-body strong { color: var(--text); }
+    .post-body ul { margin: 0 0 20px 20px; }
+    .post-body ul li { font-size: .97rem; color: #c8ccd8; line-height: 1.85; margin-bottom: 8px; }
+
+    .callout { background: var(--surface); border-left: 3px solid var(--accent); border-radius: 0 8px 8px 0; padding: 20px 24px; margin: 32px 0; }
+    .callout p { margin: 0; color: var(--text); }
+
+    .rail { border-left: 1px solid var(--border); padding-left: 24px; position: sticky; top: 100px; }
+    .rail-quote { font-family: 'Lora', serif; font-style: italic; font-size: 1.1rem; line-height: 1.5; color: #fff; margin-bottom: 32px; }
+    .rail-quote::before { content: '\201C'; display: block; font-size: 2.2rem; color: var(--accent); line-height: .5; margin-bottom: 8px; }
+    .rail-label { font-size: .68rem; font-weight: 700; letter-spacing: 1.4px; text-transform: uppercase; color: var(--muted); margin-bottom: 40px; }
+
+    .site-footer { background: #03060e; border-top: 1px solid rgba(255,255,255,.05); text-align: center; padding: 32px 24px; font-size: 13px; color: var(--muted); }
+    .site-footer a { color: var(--accent); text-decoration: none; }
+
+    .back-link { display: inline-flex; align-items: center; gap: 6px; font-size: .85rem; color: var(--muted); text-decoration: none; margin-bottom: 8px; grid-column: 1 / -1; transition: color .2s; }
+    .back-link:hover { color: var(--accent); }
+
+    @media (max-width: 780px) {
+      .post-wrap { grid-template-columns: 1fr; }
+      .rail { border-left: none; padding-left: 0; border-top: 1px solid var(--border); padding-top: 24px; position: static; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg sticky-top">
+  <div class="container">
+    <a class="navbar-brand" href="https://czerwin.net">czerwin<span class="b-accent">.</span></a>
+    <div class="ms-auto d-flex align-items-center gap-3">
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a href="https://czerwin.net/#contact" class="btn-nav-cta">Get a free quote →</a>
+    </div>
+    <div class="collapse navbar-collapse" id="nav">
+      <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+        <li class="nav-item"><a class="nav-link px-3" href="https://czerwin.net/#services">Services</a></li>
+        <li class="nav-item"><a class="nav-link px-3" href="https://czerwin.net/#pricing">Pricing</a></li>
+        <li class="nav-item"><a class="nav-link px-3" href="https://czerwin.net/#portfolio">Portfolio</a></li>
+        <li class="nav-item"><a class="nav-link px-3" href="https://czerwin.net/#faq">FAQ</a></li>
+        <li class="nav-item"><a class="nav-link px-3" href="https://czerwin.net/#about">About</a></li>
+        <li class="nav-item"><a class="nav-link px-3 active" href="/blog/">Blog</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<section class="post-hero">
+  <!-- TODO: download hero image from Unsplash and save as img/blog-post11.jpg before Monday 8am -->
+  <img class="post-hero-img" src="/img/blog-post11.jpg" alt="Person reviewing work on a laptop at a desk, checking a document carefully" />
+  <div class="post-hero-overlay"></div>
+  <div class="post-hero-content">
+    <div class="container">
+      <div class="post-eyebrow">Technology &nbsp;·&nbsp; AI</div>
+      <h1>Using AI Well: The Habits That Actually Matter</h1>
+      <div class="post-meta">
+        <span><i class="bi bi-calendar3"></i> August 3, 2026</span>
+        <span><i class="bi bi-clock"></i> 6 min read</span>
+        <span><i class="bi bi-person"></i> czerwin.net</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="post-wrap">
+  <a href="/blog/" class="back-link"><i class="bi bi-arrow-left"></i> Back to blog</a>
+
+  <div class="post-body">
+  <p>Last week's post was about telling the hype apart from what's real. If you read that one, you already know AI isn't running anyone's business on its own and isn't replacing your developer — but you also know it's genuinely useful, and pretending otherwise is its own kind of denial. This week is the harder question: what does actually using it well look like, day to day, once the hype and the fear are both out of the way?</p>
+
+  <p>Because "using AI" isn't one skill. Typing a good prompt isn't it — that part's easy, and everyone's already fine at it. The people getting consistently good results aren't doing anything clever with the tool. They're doing something disciplined with themselves: knowing exactly which output to trust, which to double-check, and which to never hand over in the first place.</p>
+
+  <p>Here's what that discipline actually looks like, for whoever you are.</p>
+
+  <h3>If you write code for a living</h3>
+  <p>Treat AI-written code the way you'd treat a pull request from a junior dev, not a senior one — read every line, run it, and understand why it works before it ships. That's not paranoia. A 2026 Stanford HAI AI Index review found hallucination rates across today's top models ranging anywhere from 22% up to 94%, depending on the task. That's a wide enough range that "it looked right" isn't a standard you can afford to work by.</p>
+
+  <h3>If you're the one keeping systems running</h3>
+  <p>The habit that matters here is the boring one: never paste anything into a public AI tool that you wouldn't be comfortable seeing outside the company — client data, credentials, internal logs, source code. If your org doesn't have an approved tool with an actual data agreement, that's the gap to raise, not work around quietly. Ties directly into last week's point about shadow AI — the fix isn't banning the habit, it's giving people a sanctioned version of it.</p>
+
+  <h3>If you run a business</h3>
+  <p>A recent Connext Global survey found only 17% of workers believe AI is reliable running on its own — the other 70%-plus say it only works well paired with human review. That matches what I see building sites and tools for clients: AI is excellent at a first draft — a product description, a reply template, a first pass at copy — and genuinely bad at being the last set of eyes on anything that goes out under your business's name.</p>
+
+  <h3>And if none of the above is you</h3>
+  <p>The habit is smaller than it sounds: ask AI for the answer, then ask yourself one question before you act on it — "would I bet money this is right?" If not, a five-minute check beats an hour of cleanup later. Same energy as double-checking a GCash transfer before you hit send.</p>
+
+  <div class="callout">
+    <p>69% of AI users admit they've shipped AI output they never actually verified — usually not out of laziness, but because reviewing AI output has quietly become its own unpaid job. Researchers are calling it "botsitting," and it now eats roughly 6.4 hours a week for the average worker.</p>
+  </div>
+
+  <h2>Where this breaks down in practice</h2>
+  <p>Here's the honest part: knowing the rule and following it under deadline pressure are two different things. 45% of workers say they've had to fix or redo a coworker's task because it leaned too heavily on unverified AI output, and that number climbs to 57% among managers cleaning up after their own team. The habit doesn't fail because people don't know better — it fails because "I'll check it properly later" is one of the easiest promises to break when the deadline is today.</p>
+
+  <p>The other honest part: even AI itself isn't great at catching its own mistakes. Fact-checking AI output with more AI still needs a human holding the actual context — what's true, what matters, what the client actually asked for — because that's the one thing no model has.</p>
+
+  <h2>The model I actually work by</h2>
+  <p>When I use AI for a client project — scaffolding, a first pass at a component, drafting copy — I treat the output as a starting point I'm fully responsible for, not a finished deliverable. Nothing goes into a live site or a client's hands until I've read it, tested it, and would put my own name on it if asked. That's not a policy I invented for this post — it's just the same standard I'd hold myself to if I'd written it from scratch, and AI doesn't get a pass that I wouldn't give myself.</p>
+
+  <h2>So, using AI well</h2>
+  <p>It's not a tool problem, and it was never really about which AI is "best." It's a habit — the same one, repeated: draft fast, verify before you rely, and never let "AI said so" replace your own judgment on anything with your name or your business's name attached to it. That's the whole difference between the people quietly getting more done and the people quietly cleaning up after themselves.</p>
+
+  <p>If you're thinking about how AI actually fits into your business or your team's day-to-day work — not the hype version, the real one — that's the part I can help with.</p>
+
+  <h2>Further reading &amp; sources</h2>
+  <ul>
+    <li><a href="/blog/blog-post-ai-hype-vs-reality.html" style="color: var(--accent);">AI Right Now: What's Real, What's Risk, and What's Just Noise</a> — czerwin.net</li>
+    <li><a href="/blog/blog-post-ai-wont-replace-developers.html" style="color: var(--accent);">AI Won't Replace Your Web Developer — Here's What It Actually Does</a> — czerwin.net</li>
+    <li><a href="/blog/blog-post-ai-tools-for-business.html" style="color: var(--accent);">AI Tools That Actually Save Filipino Business Owners Time</a> — czerwin.net</li>
+    <li><a href="https://productimpactpod.com/news/botsitting-work-ai-index-2026/" target="_blank" rel="noopener" style="color: var(--accent);">New Report Says You're Wasting More Time Botsitting Than Getting Value From AI</a> — Product Impact</li>
+    <li><a href="https://www.businesswire.com/news/home/20260218894481/en/Only-17-Say-Workplace-AI-Is-Reliable-Without-Human-Oversight-New-Connext-Global-Survey-Finds" target="_blank" rel="noopener" style="color: var(--accent);">Only 17% Say Workplace AI Is Reliable Without Human Oversight</a> — Connext Global</li>
+  </ul>
+  </div>
+
+  <div class="rail">
+    <div class="rail-quote">The people getting consistently good results aren't doing anything clever with the tool. They're doing something disciplined with themselves.</div>
+    <div class="rail-label">who this is for<br>devs &middot; sysadmins &middot; owners &middot; everyone else</div>
+    <div class="rail-quote" style="font-size: .95rem;">Draft fast, verify before you rely, and never let "AI said so" replace your own judgment.</div>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <p>© 2026 <a href="https://czerwin.net">czerwin.net</a> · Web Developer for Business Owners · Philippines</p>
+  <p style="margin-top:8px;"><a href="/blog/">← Back to blog</a></p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
