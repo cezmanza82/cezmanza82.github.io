@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Developer vs. Vibe Coder: What Experience Actually Changes — czerwin.net</title>
+  <meta name="description" content="Two people can give the same AI tool the same request and get completely different results. The gap isn't a secret prompt trick — it's a specific, learnable skill." />
+  <meta property="og:title" content="Developer vs. Vibe Coder: What Experience Actually Changes" />
+  <meta property="og:description" content="Two people can give the same AI tool the same request and get completely different results. The gap isn't a secret prompt trick — it's a specific, learnable skill." />
+  <meta property="og:image"        content="https://czerwin.net/img/blog-post12.jpg" />
+  <meta property="og:image:width"  content="1200" />
+  <meta property="og:image:height" content="800" />
+  <meta property="og:url" content="https://czerwin.net/blog/blog-post-developer-vs-vibe-coder.html" />
+  <meta property="og:type" content="article" />
+  <link rel="canonical" href="https://czerwin.net/blog/blog-post-developer-vs-vibe-coder.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Lora:ital,wght@0,600;1,400&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet" />
+  <style>
+    :root {
+      --brand:    #2563eb;
+      --brand-h:  #1d4ed8;
+      --dark:     #060b14;
+      --bg:       #0f1117;
+      --surface:  #181c27;
+      --border:   #252a38;
+      --accent:   #4f8ef7;
+      --text:     #e8eaf0;
+      --muted:    #8891a8;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.75; -webkit-font-smoothing: antialiased; }
+
+    .navbar { background: rgba(6,11,20,.94); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(255,255,255,.06); padding: 14px 0; }
+    .navbar-brand { font-weight: 800; font-size: 1.22rem; color: #fff !important; letter-spacing: -.4px; }
+    .navbar-brand .b-accent { color: var(--brand); }
+    .navbar .nav-link { color: rgba(255,255,255,.72) !important; font-size: .88rem; font-weight: 500; transition: color .2s; }
+    .navbar .nav-link:hover { color: #fff !important; }
+    .btn-nav-cta { font-size: .85rem; font-weight: 700; background: var(--brand); color: #fff !important; border-radius: 7px; padding: 6px 18px; transition: background .2s; text-decoration: none; }
+    .btn-nav-cta:hover { background: var(--brand-h); }
+    .navbar-toggler { border-color: rgba(255,255,255,.2); }
+    .navbar-toggler-icon { filter: invert(1); }
+
+    .post-hero { position: relative; width: 100%; height: 480px; overflow: hidden; display: flex; align-items: flex-end; }
+    .post-hero-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; }
+    .post-hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(6,11,20,.15) 0%, rgba(6,11,20,.75) 60%, rgba(6,11,20,.97) 100%); }
+    .post-hero-content { position: relative; z-index: 2; width: 100%; padding: 0 0 40px; }
+    .post-eyebrow { font-size: .72rem; font-weight: 700; letter-spacing: 1.6px; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
+    .post-hero h1 { font-family: 'Lora', serif; font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 600; color: #fff; letter-spacing: -.5px; margin-bottom: 16px; line-height: 1.2; }
+    .post-meta { font-size: .85rem; color: rgba(255,255,255,.7); display: flex; gap: 20px; flex-wrap: wrap; }
+    .post-meta i { font-size: .8rem; }
+    .post-wrap { max-width: 1000px; margin: 0 auto; padding: 64px 24px 96px; display: grid; grid-template-columns: minmax(0,1fr) 220px; gap: 48px; align-items: start; }
+
+    .post-body > p:first-of-type::first-letter { font-family: 'Lora', serif; font-size: 3.6rem; font-weight: 600; float: left; line-height: .82; margin: 4px 10px 0 0; color: var(--accent); }
+    .post-body h2 { font-family: 'Lora', serif; font-size: 1.5rem; font-weight: 600; color: #fff; margin: 48px 0 16px; letter-spacing: -.2px; border-bottom: 1px solid var(--border); padding-bottom: 10px; }
+    .post-body h3 { font-size: 1.05rem; font-weight: 700; color: #fff; margin: 28px 0 10px; }
+    .post-body p { font-size: .97rem; color: #c8ccd8; line-height: 1.85; margin-bottom: 20px; }
+    .post-body strong { color: var(--text); }
+    .post-body ul { margin: 0 0 20px 20px; }
+    .post-body ul li { font-size: .97rem; color: #c8ccd8; line-height: 1.85; margin-bottom: 8px; }
+
+    .callout { background: var(--surface); border-left: 3px solid var(--accent); border-radius: 0 8px 8px 0; padding: 20px 24px; margin: 32px 0; }
+    .callout p { margin: 0; color: var(--text); }
+
+    .rail { border-left: 1px solid var(--border); padding-left: 24px; position: sticky; top: 100px; }
+    .rail-quote { font-family: 'Lora', serif; font-style: italic; font-size: 1.1rem; line-height: 1.5; color: #fff; margin-bottom: 32px; }
+    .rail-quote::before { content: '\201C'; display: block; font-size: 2.2rem; color: var(--accent); line-height: .5; margin-bottom: 8px; }
+    .rail-label { font-size: .68rem; font-weight: 700; letter-spacing: 1.4px; text-transform: uppercase; color: var(--muted); margin-bottom: 40px; }
+
+    .site-footer { background: #03060e; border-top: 1px solid rgba(255,255,255,.05); text-align: center; padding: 32px 24px; font-size: 13px; color: var(--muted); }
+    .site-footer a { color: var(--accent); text-decoration: none; }
+
+    .back-link { display: inline-flex; align-items: center; gap: 6px; font-size: .85rem; color: var(--muted); text-decoration: none; margin-bottom: 8px; grid-column: 1 / -1; transition: color .2s; }
+    .back-link:hover { color: var(--accent); }
+
+    @media (max-width: 780px) {
+      .post-wrap { grid-template-columns: 1fr; }
+      .rail { border-left: none; padding-left: 0; border-top: 1px solid var(--border); padding-top: 24px; position: static; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg sticky-top">
+  <div class="container">
+    <a class="navbar-brand" href="https://czerwin.net">czerwin<span class="b-accent">.</span></a>
+    <div class="ms-auto d-flex align-items-center gap-3">
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a href="https://czerwin.net/#contact" class="btn-nav-cta">Get a free quote →</a>
+    </div>
+    <div class="collapse navbar-collapse" id="nav">
+      <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+        <li class="nav-item"><a class="nav-link px-3" href="https://czerwin.net/#services">Services</a></li>
+        <li class="nav-item"><a class="nav-link px-3" href="https://czerwin.net/#pricing">Pricing</a></li>
+        <li class="nav-item"><a class="nav-link px-3" href="https://czerwin.net/#portfolio">Portfolio</a></li>
+        <li class="nav-item"><a class="nav-link px-3" href="https://czerwin.net/#faq">FAQ</a></li>
+        <li class="nav-item"><a class="nav-link px-3" href="https://czerwin.net/#about">About</a></li>
+        <li class="nav-item"><a class="nav-link px-3 active" href="/blog/">Blog</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<section class="post-hero">
+  <img class="post-hero-img" src="/img/blog-post12.jpg" alt="Laptop screen displaying colorful lines of code" />
+  <div class="post-hero-overlay"></div>
+  <div class="post-hero-content">
+    <div class="container">
+      <div class="post-eyebrow">Opinion &nbsp;·&nbsp; Technology</div>
+      <h1>Developer vs. Vibe Coder: What Experience Actually Changes</h1>
+      <div class="post-meta">
+        <span><i class="bi bi-calendar3"></i> August 10, 2026</span>
+        <span><i class="bi bi-clock"></i> 6 min read</span>
+        <span><i class="bi bi-person"></i> czerwin.net</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="post-wrap">
+  <a href="/blog/" class="back-link"><i class="bi bi-arrow-left"></i> Back to blog</a>
+
+  <div class="post-body">
+  <p>Last week's post was about the habits that separate people who get real value from AI from people quietly shipping unverified work. This week is a layer earlier than that. Before you can verify anything, you have to actually get to a good result in the first place — and that's where two people can type the same kind of request into the same AI tool and end up in completely different places. One gets something usable in a few tries. The other rewrites the same prompt five different ways and still isn't happy with it.</p>
+
+  <p>This is the "developer vs. vibe coder" question, and I want to be upfront about something before I get into it: I'm not writing this to look down on anyone building with AI without a formal coding background. Vibe coding — describing what you want and letting AI handle the syntax — is a genuinely useful way to build things, and pieces of that workflow show up in how I work too. The honest difference here isn't talent, and it isn't "real" coding versus "fake" coding. It's something narrower, and much more learnable than either of those framings suggest.</p>
+
+  <p>The difference isn't which AI model they used, or some secret prompt phrasing nobody told them about. It's experience — specifically, what experience changes about what you notice when something goes wrong.</p>
+
+  <h2>Good Prompting Was Never One-Shot</h2>
+
+  <h3>Bad draft, diagnose, refine — the same loop, every time</h3>
+  <p>AI output rarely lands right on the first try, no matter who's asking. That part is the same for everyone. What differs is what happens next. Someone newer to this treats a bad result as a reason to reword the whole prompt and try again from scratch, hoping the next phrasing gets lucky. Someone with more time logged looks at the same bad result and asks a narrower question first: which specific part is wrong, and why? Wrong assumption on the AI's part? Missing context I never actually gave it? A real limitation of the tool that no phrasing will fix? That diagnosis step is the whole difference, and it's a skill built through repetition — not a gift some people are born with and others aren't.</p>
+
+  <h3>The loop is bigger than the prompt</h3>
+  <p>"Using AI well" was never just about the prompt — that part's easy, and most people are already fine at it. The fuller loop looks more like this: idea, then discovering there's more to it than the idea, then workflow, planning, designing, building, testing, fixing what breaks, testing again, documenting, implementing, shipping it, maintaining it, and eventually the next idea. Staying in that loop — instead of stopping the moment an output looks finished — is most of what "using AI well" actually means.</p>
+
+  <h2>Where This Gets Honest</h2>
+
+  <h3>The experience gap is real, and it's not about talent</h3>
+  <p>Someone who has spent years building things — with or without AI involved — has broken more things, in more specific ways, and remembers what those specific breaks looked like. That memory is what lets you look at a wrong AI output and immediately have a hypothesis instead of just a guess. It's pattern matching built from repetition, not secret knowledge nobody's willing to share.</p>
+
+  <h3>This isn't a wall — it's a curve</h3>
+  <p>The good news buried in that is the gap closes with hours logged, not years of a formal background. Every time you stop to diagnose why an output was wrong instead of just re-rolling the prompt and hoping, you're building the exact same skill a developer built by doing that same thing thousands of times over. Filipino freelancers and small business owners building their own tools and sites with AI right now are on this same curve today — it's not a club with a locked door, it's a habit anyone can start practicing this week.</p>
+
+  <h2>Where I'm At With This Myself</h2>
+  <p>I'll be honest about my own side of this too — I don't always slow down and diagnose properly either. Deadline pressure gets everyone, developer or not, and "that's close enough, ship it" is a tempting shortcut on a Friday afternoon regardless of how many years you've been doing this. The discipline described above isn't a certificate I earned once and now hold forever. It's a practice I'm still building the same way anyone reading this would be — one specific diagnosis at a time, some weeks better than others.</p>
+
+  <div class="callout">
+    <p>I don't think of this as developers on one side and everyone else on the other. It's more like everyone's on the same learning curve, and some of us have just logged more hours walking it.</p>
+  </div>
+
+  <h2>So, Developer or Vibe Coder?</h2>
+  <p>Honestly, that's the wrong question. The real one is simpler: are you stopping at the first draft, or staying in the loop until you actually understand why something worked? That question matters a lot more than whatever title is on your business card, and it's the one part of this that's fully within your control starting with your very next prompt.</p>
+
+  <p>If you're building something with AI and keep hitting the same kind of wall over and over, that's the part I can help with — not by taking it over for you, but by helping you see specifically what's going wrong.</p>
+
+  <h2>Further reading</h2>
+  <ul>
+    <li><a href="/blog/blog-post-using-ai-well.html" style="color: var(--accent);">Using AI Well: The Habits That Actually Matter</a> — czerwin.net</li>
+    <li><a href="/blog/blog-post-ai-wont-replace-developers.html" style="color: var(--accent);">AI Won't Replace Your Web Developer — Here's What It Actually Does</a> — czerwin.net</li>
+    <li><a href="/blog/blog-post-ai-hype-vs-reality.html" style="color: var(--accent);">AI Right Now: What's Real, What's Risk, and What's Just Noise</a> — czerwin.net</li>
+  </ul>
+  </div>
+
+  <div class="rail">
+    <div class="rail-quote">The difference isn't which AI model they used, or some secret prompt phrasing nobody told them about.</div>
+    <div class="rail-quote" style="font-size: .95rem;">Every time you stop to diagnose why an output was wrong instead of just re-rolling the prompt, you're building the exact same skill.</div>
+    <div class="rail-quote" style="font-size: .95rem;">Are you stopping at the first draft, or staying in the loop until you actually understand why something worked?</div>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <p>© 2026 <a href="https://czerwin.net">czerwin.net</a> · Web Developer for Business Owners · Philippines</p>
+  <p style="margin-top:8px;"><a href="/blog/">← Back to blog</a></p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
