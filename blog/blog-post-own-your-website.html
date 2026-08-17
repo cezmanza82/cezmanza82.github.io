@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3 Things You Should Actually Own on Your Own Website — czerwin.net</title>
+  <meta name="description" content="A website you can't log into isn't fully yours yet. Here are the three things — the domain, the hosting account, and the actual files — every business owner should have real access to, no matter who manages the day-to-day." />
+  <meta property="og:title" content="3 Things You Should Actually Own on Your Own Website" />
+  <meta property="og:description" content="A website you can't log into isn't fully yours yet. Here are the three things — the domain, the hosting account, and the actual files — every business owner should have real access to, no matter who manages the day-to-day." />
+  <meta property="og:image"        content="https://czerwin.net/img/blog-post13.jpg" />
+  <meta property="og:image:width"  content="1200" />
+  <meta property="og:image:height" content="800" />
+  <meta property="og:url" content="https://czerwin.net/blog/blog-post-own-your-website.html" />
+  <meta property="og:type" content="article" />
+  <link rel="canonical" href="https://czerwin.net/blog/blog-post-own-your-website.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Lora:ital,wght@0,600;1,400&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet" />
+  <style>
+    :root {
+      --brand:    #2563eb;
+      --brand-h:  #1d4ed8;
+      --dark:     #060b14;
+      --bg:       #0f1117;
+      --surface:  #181c27;
+      --border:   #252a38;
+      --accent:   #4f8ef7;
+      --text:     #e8eaf0;
+      --muted:    #8891a8;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.75; -webkit-font-smoothing: antialiased; }
+
+    .navbar { background: rgba(6,11,20,.94); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(255,255,255,.06); padding: 14px 0; }
+    .navbar-brand { font-weight: 800; font-size: 1.22rem; color: #fff !important; letter-spacing: -.4px; }
+    .navbar-brand .b-accent { color: var(--brand); }
+    .navbar .nav-link { color: rgba(255,255,255,.72) !important; font-size: .88rem; font-weight: 500; transition: color .2s; }
+    .navbar .nav-link:hover { color: #fff !important; }
+    .btn-nav-cta { font-size: .85rem; font-weight: 700; background: var(--brand); color: #fff !important; border-radius: 7px; padding: 6px 18px; transition: background .2s; text-decoration: none; }
+    .btn-nav-cta:hover { background: var(--brand-h); }
+    .navbar-toggler { border-color: rgba(255,255,255,.2); }
+    .navbar-toggler-icon { filter: invert(1); }
+
+    .post-hero { position: relative; width: 100%; height: 480px; overflow: hidden; display: flex; align-items: flex-end; }
+    .post-hero-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; }
+    .post-hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(6,11,20,.15) 0%, rgba(6,11,20,.75) 60%, rgba(6,11,20,.97) 100%); }
+    .post-hero-content { position: relative; z-index: 2; width: 100%; padding: 0 0 40px; }
+    .post-eyebrow { font-size: .72rem; font-weight: 700; letter-spacing: 1.6px; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
+    .post-hero h1 { font-family: 'Lora', serif; font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 600; color: #fff; letter-spacing: -.5px; margin-bottom: 16px; line-height: 1.2; }
+    .post-meta { font-size: .85rem; color: rgba(255,255,255,.7); display: flex; gap: 20px; flex-wrap: wrap; }
+    .post-meta i { font-size: .8rem; }
+    .post-wrap { max-width: 1000px; margin: 0 auto; padding: 64px 24px 96px; display: grid; grid-template-columns: minmax(0,1fr) 220px; gap: 48px; align-items: start; }
+
+    .post-body > p:first-of-type::first-letter { font-family: 'Lora', serif; font-size: 3.6rem; font-weight: 600; float: left; line-height: .82; margin: 4px 10px 0 0; color: var(--accent); }
+    .post-body h2 { font-family: 'Lora', serif; font-size: 1.5rem; font-weight: 600; color: #fff; margin: 48px 0 16px; letter-spacing: -.2px; border-bottom: 1px solid var(--border); padding-bottom: 10px; }
+    .post-body h3 { font-size: 1.05rem; font-weight: 700; color: #fff; margin: 28px 0 10px; }
+    .post-body p { font-size: .97rem; color: #c8ccd8; line-height: 1.85; margin-bottom: 20px; }
+    .post-body strong { color: var(--text); }
+    .post-body ul { margin: 0 0 20px 20px; }
+    .post-body ul li { font-size: .97rem; color: #c8ccd8; line-height: 1.85; margin-bottom: 8px; }
+
+    .callout { background: var(--surface); border-left: 3px solid var(--accent); border-radius: 0 8px 8px 0; padding: 20px 24px; margin: 32px 0; }
+    .callout p { margin: 0; color: var(--text); }
+
+    .rail { border-left: 1px solid var(--border); padding-left: 24px; position: sticky; top: 100px; }
+    .rail-quote { font-family: 'Lora', serif; font-style: italic; font-size: 1.1rem; line-height: 1.5; color: #fff; margin-bottom: 32px; }
+    .rail-quote::before { content: '\201C'; display: block; font-size: 2.2rem; color: var(--accent); line-height: .5; margin-bottom: 8px; }
+    .rail-label { font-size: .68rem; font-weight: 700; letter-spacing: 1.4px; text-transform: uppercase; color: var(--muted); margin-bottom: 40px; }
+
+    .site-footer { background: #03060e; border-top: 1px solid rgba(255,255,255,.05); text-align: center; padding: 32px 24px; font-size: 13px; color: var(--muted); }
+    .site-footer a { color: var(--accent); text-decoration: none; }
+
+    .back-link { display: inline-flex; align-items: center; gap: 6px; font-size: .85rem; color: var(--muted); text-decoration: none; margin-bottom: 8px; grid-column: 1 / -1; transition: color .2s; }
+    .back-link:hover { color: var(--accent); }
+
+    @media (max-width: 780px) {
+      .post-wrap { grid-template-columns: 1fr; }
+      .rail { border-left: none; padding-left: 0; border-top: 1px solid var(--border); padding-top: 24px; position: static; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg sticky-top">
+  <div class="container">
+    <a class="navbar-brand" href="https://czerwin.net">czerwin<span class="b-accent">.</span></a>
+    <div class="ms-auto d-flex align-items-center gap-3">
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a href="https://czerwin.net/#contact" class="btn-nav-cta">Get a free quote →</a>
+    </div>
+    <div class="collapse navbar-collapse" id="nav">
+      <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+        <li class="nav-item"><a class="nav-link px-3" href="https://czerwin.net/#services">Services</a></li>
+        <li class="nav-item"><a class="nav-link px-3" href="https://czerwin.net/#pricing">Pricing</a></li>
+        <li class="nav-item"><a class="nav-link px-3" href="https://czerwin.net/#portfolio">Portfolio</a></li>
+        <li class="nav-item"><a class="nav-link px-3" href="https://czerwin.net/#faq">FAQ</a></li>
+        <li class="nav-item"><a class="nav-link px-3" href="https://czerwin.net/#about">About</a></li>
+        <li class="nav-item"><a class="nav-link px-3 active" href="/blog/">Blog</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<section class="post-hero">
+  <img class="post-hero-img" src="/img/blog-post13.jpg" alt="A hand holding a set of keys" />
+  <div class="post-hero-overlay"></div>
+  <div class="post-hero-content">
+    <div class="container">
+      <div class="post-eyebrow">Business &nbsp;·&nbsp; Ownership</div>
+      <h1>3 Things You Should Actually Own on Your Own Website</h1>
+      <div class="post-meta">
+        <span><i class="bi bi-calendar3"></i> August 17, 2026</span>
+        <span><i class="bi bi-clock"></i> 5 min read</span>
+        <span><i class="bi bi-person"></i> czerwin.net</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="post-wrap">
+  <a href="/blog/" class="back-link"><i class="bi bi-arrow-left"></i> Back to blog</a>
+
+  <div class="post-body">
+  <p>Ask a business owner a simple question — can you log into your own domain and hosting accounts? — and a lot of them honestly don't know. Not because anything's wrong. Usually it's because someone else set it up years ago, everything's been running fine since, and nobody's had a reason to check.</p>
+
+  <p>That's not a knock on anyone. Most business owners hired someone specifically so they wouldn't have to think about domains and hosting — that's a completely reasonable thing to want. But there's a difference between not managing something day-to-day and not having access to it at all. The first is normal. The second means decisions about your own website aren't fully yours to make.</p>
+
+  <p>Here are the three things worth actually owning, and what "owning" means in practice.</p>
+
+  <h2>The Three Things</h2>
+
+  <h3>1. Your Domain Name</h3>
+  <p>The name people type — winshap.com, yourbusiness.ph, whatever it is — is registered somewhere called a registrar. What matters isn't which registrar; it's whose name and email are on that account. If it's not yours, you're a guest on your own address.</p>
+  <p>Worth checking today: log into that account yourself, even just once. Confirm the account email is one you actually read. Make sure renewal is set up the way you'd want it — auto-renew, your card on file, a reminder that reaches you.</p>
+
+  <h3>2. Your Hosting Account</h3>
+  <p>This is where the actual files live and run. Plenty of business owners have never logged into their hosting panel — someone else always handled it, and that's completely fine. What matters is that the login itself exists somewhere you could reach if you ever needed to.</p>
+  <p>Worth checking today: ask whoever manages your hosting for at least a view-only login, so you always know it exists and where to find it.</p>
+
+  <h3>3. Your Website's Actual Files</h3>
+  <p>The real content, design, and code — not something permanently locked inside a single page-builder account that only one person can access. Some tools genuinely don't offer a full export, and that's a trade-off worth knowing about upfront, not something to panic over if you're already using one.</p>
+  <p>Worth checking today: ask for a full copy or export at least once, just to confirm it's possible.</p>
+
+  <div class="callout">
+    <p>There's a difference between not managing something day-to-day and not having access to it at all. The first is normal. The second means decisions about your own website aren't fully yours to make.</p>
+  </div>
+
+  <h2>Owning It Doesn't Mean Managing It</h2>
+  <p>None of this means you need to become the person who renews domains or restarts servers at 2am. That's specialized work, and paying someone to handle it well is a good decision, not a shortcut you should feel bad about.</p>
+  <p>The distinction is access versus operation. You can hand someone the keys to drive the car without signing over the title. Most of the time this never actually comes up — everything just keeps running quietly in the background. It matters on the handful of days when you want to make a real call about your own website: switch providers, add a feature, get a second opinion. On those days, you want that decision to actually be yours to make.</p>
+
+  <h2>The Standard I Work By</h2>
+  <p>This is the standard I hold myself to on every site I build, starting with my own: the domain goes under an account in the owner's name and email, the hosting login exists and is handed over from day one, and there's always an actual copy of the source files — not just a live link you can look at but never leave with.</p>
+  <p>Why bother, if the owner may never touch any of it directly? Because a website built for a business should outlast whoever's currently working on it — including me.</p>
+
+  <p>A website is worth building. A website you can actually get into is worth owning.</p>
+
+  <p>If you're not sure whether you could log into your own domain or hosting account today, that's a five-minute thing to check — and if you'd like a hand doing that check, that's the part I can help with.</p>
+
+  <h2>Further reading</h2>
+  <ul>
+    <li><a href="/blog/blog-post-facebook-vs-website.html" style="color: var(--accent);">Your Facebook Page Is Not Enough — Here's Why Your Business Needs a Real Website</a> — czerwin.net</li>
+    <li><a href="https://who.is" target="_blank" rel="noopener" style="color: var(--accent);">Who.is</a> — free lookup to check who a domain is actually registered to</li>
+  </ul>
+  </div>
+
+  <div class="rail">
+    <div class="rail-quote">There's a difference between not managing something day-to-day and not having access to it at all.</div>
+    <div class="rail-label">3 things<br>domain &middot; hosting &middot; files</div>
+    <div class="rail-quote" style="font-size: .95rem;">A website is worth building. A website you can actually get into is worth owning.</div>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <p>© 2026 <a href="https://czerwin.net">czerwin.net</a> · Web Developer for Business Owners · Philippines</p>
+  <p style="margin-top:8px;"><a href="/blog/">← Back to blog</a></p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
