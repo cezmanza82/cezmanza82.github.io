@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>What a Website Should Actually Cost You — czerwin.net</title>
+  <meta name="description" content="Ask five people what a website should cost and you'll get five different numbers. Here's what actually drives the price, and why the cheapest quote is often the most expensive choice you'll make this year." />
+  <meta property="og:title" content="What a Website Should Actually Cost You" />
+  <meta property="og:description" content="Ask five people what a website should cost and you'll get five different numbers. Here's what actually drives the price, and why the cheapest quote is often the most expensive choice you'll make this year." />
+  <meta property="og:image"        content="https://czerwin.net/img/blog-post14.jpg" />
+  <meta property="og:image:width"  content="1200" />
+  <meta property="og:image:height" content="800" />
+  <meta property="og:url" content="https://czerwin.net/blog/blog-post-website-pricing-reality.html" />
+  <meta property="og:type" content="article" />
+  <link rel="canonical" href="https://czerwin.net/blog/blog-post-website-pricing-reality.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Lora:ital,wght@0,600;1,400&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet" />
+  <style>
+    :root {
+      --brand:    #2563eb;
+      --brand-h:  #1d4ed8;
+      --dark:     #060b14;
+      --bg:       #0f1117;
+      --surface:  #181c27;
+      --border:   #252a38;
+      --accent:   #4f8ef7;
+      --text:     #e8eaf0;
+      --muted:    #8891a8;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.75; -webkit-font-smoothing: antialiased; }
+
+    .navbar { background: rgba(6,11,20,.94); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(255,255,255,.06); padding: 14px 0; }
+    .navbar-brand { font-weight: 800; font-size: 1.22rem; color: #fff !important; letter-spacing: -.4px; }
+    .navbar-brand .b-accent { color: var(--brand); }
+    .navbar .nav-link { color: rgba(255,255,255,.72) !important; font-size: .88rem; font-weight: 500; transition: color .2s; }
+    .navbar .nav-link:hover { color: #fff !important; }
+    .btn-nav-cta { font-size: .85rem; font-weight: 700; background: var(--brand); color: #fff !important; border-radius: 7px; padding: 6px 18px; transition: background .2s; text-decoration: none; }
+    .btn-nav-cta:hover { background: var(--brand-h); }
+    .navbar-toggler { border-color: rgba(255,255,255,.2); }
+    .navbar-toggler-icon { filter: invert(1); }
+
+    .post-hero { position: relative; width: 100%; height: 480px; overflow: hidden; display: flex; align-items: flex-end; }
+    .post-hero-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; }
+    .post-hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(6,11,20,.15) 0%, rgba(6,11,20,.75) 60%, rgba(6,11,20,.97) 100%); }
+    .post-hero-content { position: relative; z-index: 2; width: 100%; padding: 0 0 40px; }
+    .post-eyebrow { font-size: .72rem; font-weight: 700; letter-spacing: 1.6px; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
+    .post-hero h1 { font-family: 'Lora', serif; font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 600; color: #fff; letter-spacing: -.5px; margin-bottom: 16px; line-height: 1.2; }
+    .post-meta { font-size: .85rem; color: rgba(255,255,255,.7); display: flex; gap: 20px; flex-wrap: wrap; }
+    .post-meta i { font-size: .8rem; }
+    .post-wrap { max-width: 1000px; margin: 0 auto; padding: 64px 24px 96px; display: grid; grid-template-columns: minmax(0,1fr) 220px; gap: 48px; align-items: start; }
+
+    .post-body > p:first-of-type::first-letter { font-family: 'Lora', serif; font-size: 3.6rem; font-weight: 600; float: left; line-height: .82; margin: 4px 10px 0 0; color: var(--accent); }
+    .post-body h2 { font-family: 'Lora', serif; font-size: 1.5rem; font-weight: 600; color: #fff; margin: 48px 0 16px; letter-spacing: -.2px; border-bottom: 1px solid var(--border); padding-bottom: 10px; }
+    .post-body h3 { font-size: 1.05rem; font-weight: 700; color: #fff; margin: 28px 0 10px; }
+    .post-body p { font-size: .97rem; color: #c8ccd8; line-height: 1.85; margin-bottom: 20px; }
+    .post-body strong { color: var(--text); }
+    .post-body ul { margin: 0 0 20px 20px; }
+    .post-body ul li { font-size: .97rem; color: #c8ccd8; line-height: 1.85; margin-bottom: 8px; }
+
+    .callout { background: var(--surface); border-left: 3px solid var(--accent); border-radius: 0 8px 8px 0; padding: 20px 24px; margin: 32px 0; }
+    .callout p { margin: 0; color: var(--text); }
+
+    .rail { border-left: 1px solid var(--border); padding-left: 24px; position: sticky; top: 100px; }
+    .rail-quote { font-family: 'Lora', serif; font-style: italic; font-size: 1.1rem; line-height: 1.5; color: #fff; margin-bottom: 32px; }
+    .rail-quote::before { content: '\201C'; display: block; font-size: 2.2rem; color: var(--accent); line-height: .5; margin-bottom: 8px; }
+    .rail-label { font-size: .68rem; font-weight: 700; letter-spacing: 1.4px; text-transform: uppercase; color: var(--muted); margin-bottom: 40px; }
+
+    .site-footer { background: #03060e; border-top: 1px solid rgba(255,255,255,.05); text-align: center; padding: 32px 24px; font-size: 13px; color: var(--muted); }
+    .site-footer a { color: var(--accent); text-decoration: none; }
+
+    .back-link { display: inline-flex; align-items: center; gap: 6px; font-size: .85rem; color: var(--muted); text-decoration: none; margin-bottom: 8px; grid-column: 1 / -1; transition: color .2s; }
+    .back-link:hover { color: var(--accent); }
+
+    @media (max-width: 780px) {
+      .post-wrap { grid-template-columns: 1fr; }
+      .rail { border-left: none; padding-left: 0; border-top: 1px solid var(--border); padding-top: 24px; position: static; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg sticky-top">
+  <div class="container">
+    <a class="navbar-brand" href="https://czerwin.net">czerwin<span class="b-accent">.</span></a>
+    <div class="ms-auto d-flex align-items-center gap-3">
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a href="https://czerwin.net/#contact" class="btn-nav-cta">Get a free quote →</a>
+    </div>
+    <div class="collapse navbar-collapse" id="nav">
+      <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+        <li class="nav-item"><a class="nav-link px-3" href="https://czerwin.net/#services">Services</a></li>
+        <li class="nav-item"><a class="nav-link px-3" href="https://czerwin.net/#pricing">Pricing</a></li>
+        <li class="nav-item"><a class="nav-link px-3" href="https://czerwin.net/#portfolio">Portfolio</a></li>
+        <li class="nav-item"><a class="nav-link px-3" href="https://czerwin.net/#faq">FAQ</a></li>
+        <li class="nav-item"><a class="nav-link px-3" href="https://czerwin.net/#about">About</a></li>
+        <li class="nav-item"><a class="nav-link px-3 active" href="/blog/">Blog</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<section class="post-hero">
+  <img class="post-hero-img" src="/img/blog-post14.jpg" alt="Calculator and invoice on a desk next to a laptop" />
+  <div class="post-hero-overlay"></div>
+  <div class="post-hero-content">
+    <div class="container">
+      <div class="post-eyebrow">Business &nbsp;·&nbsp; Pricing</div>
+      <h1>What a Website Should Actually Cost You</h1>
+      <div class="post-meta">
+        <span><i class="bi bi-calendar3"></i> August 24, 2026</span>
+        <span><i class="bi bi-clock"></i> 5 min read</span>
+        <span><i class="bi bi-person"></i> czerwin.net</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="post-wrap">
+  <a href="/blog/" class="back-link"><i class="bi bi-arrow-left"></i> Back to blog</a>
+
+  <div class="post-body">
+  <p>Ask five people how much a website should cost and you'll get five different numbers — ₱1,500 from a template seller in a Facebook group, ₱15,000 from a freelancer you found on Carousell, a much bigger figure from an agency, or "free, my nephew knows this" from a relative at a family gathering. None of them are lying to you. They're just answering different questions than the one you actually asked.</p>
+
+  <p>The number people want is a single price tag. The number that actually matters is what's included, who's responsible for it after launch, and what happens the day something breaks or needs to change. Those three things move the price more than anything else, and almost nobody explains them upfront.</p>
+
+  <p>Here's what actually goes into that number — and why the cheapest quote on the table is often the most expensive choice you'll make this year.</p>
+
+  <h2>What You're Actually Paying For</h2>
+  <p>A website isn't one thing you buy once. It's a small stack of separate pieces, and a quote that only covers one of them isn't wrong — it's just incomplete.</p>
+
+  <h3>The domain and hosting</h3>
+  <p>The domain is the name people type — yourbusiness.com. Hosting is the server storing the actual files. These are ongoing, renewed yearly or monthly, and they exist whether you build the site yourself, hire someone, or inherit it from a previous developer. A quote that doesn't mention who owns these two accounts is missing the most important detail in the whole deal.</p>
+
+  <h3>The build itself</h3>
+  <p>This is the part everyone focuses on — the design, the pages, the checkout, the contact form. It's also the part that varies the most, because "a website" can mean a five-page template with your logo swapped in, or a custom build wired to GCash, Maya, and your inventory. Same word, wildly different amount of work.</p>
+
+  <h3>What happens after launch</h3>
+  <p>The build ends. The website doesn't. Software needs updates, forms break when a plugin changes, and someone needs to be reachable when something stops working three months from now. Almost no cheap quote includes this — and it's the part that ends up costing the most once you actually need it.</p>
+
+  <h2>Why the Cheapest Quote Usually Costs More Later</h2>
+  <p>A ₱1,500 template isn't a scam. For a lot of businesses, it's genuinely enough to start. The problem isn't the price — it's what usually isn't said out loud along with it.</p>
+
+  <div class="callout">
+    <p>The real cost of a website isn't what you pay to launch it. It's what you pay when nobody's around to fix it.</p>
+  </div>
+
+  <p>The template seller who built your site for a flat fee in a Facebook group chat is usually gone by the time something needs changing — no retainer, no support hours, sometimes no way to reach them at all. You're left holding a site you don't have the login for, built with tools you don't recognize, that nobody local wants to touch because untangling someone else's shortcuts takes longer than building fresh.</p>
+
+  <p>The same pattern shows up with "my nephew built it" sites — genuinely well-meant, genuinely functional at launch, and genuinely stuck the moment life gets in the way of a favor. Nobody's at fault. It's just what happens when "cheap" and "maintained" get treated as the same promise, when they're not.</p>
+
+  <h2>How I Actually Think About Pricing</h2>
+  <p>I don't run a fixed price list, and I'm not going to pretend one number fits every business — a landing page for a freelancer and a full store with payment integration for a Shopee seller aren't the same job, and quoting them the same would be dishonest in both directions.</p>
+
+  <p>What I do instead is walk through the same three pieces above before quoting anything: what you already own (domain, hosting, existing content), what actually needs building, and what kind of support makes sense once it's live — some businesses need almost none, others need someone on call. The quote follows from that conversation, not the other way around.</p>
+
+  <p>I'd rather lose a job to someone cheaper upfront than win one by leaving out what happens in month four.</p>
+
+  <h2>The Real Question to Ask</h2>
+  <p>Before comparing numbers, ask whoever's quoting you one thing: who owns the domain and hosting when this is done, and what happens if something breaks next year? The answer tells you more about the real price than the quote itself ever will.</p>
+
+  <p>If you're weighing a cheap template against a proper build and not sure which one actually fits your business, <a href="https://czerwin.net/#contact" style="color: var(--accent);">let's talk</a> — that's the part I can help with.</p>
+
+  <h2>Further reading</h2>
+  <ul>
+    <li><a href="/blog/blog-post-reliable-website-habits.html" style="color: var(--accent);">3 Quiet Habits Behind Every Reliable Website</a> — czerwin.net</li>
+    <li><a href="/blog/blog-post-own-your-website.html" style="color: var(--accent);">Own Your Website</a> — czerwin.net</li>
+  </ul>
+  </div>
+
+  <div class="rail">
+    <div class="rail-quote">The real cost of a website isn't what you pay to launch it. It's what you pay when nobody's around to fix it.</div>
+    <div class="rail-label">3 pieces<br>domain &amp; hosting &middot; the build &middot; after launch</div>
+    <div class="rail-quote" style="font-size: .95rem;">I'd rather lose a job to someone cheaper upfront than win one by leaving out what happens in month four.</div>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <p>© 2026 <a href="https://czerwin.net">czerwin.net</a> · Web Developer for Business Owners · Philippines</p>
+  <p style="margin-top:8px;"><a href="/blog/">← Back to blog</a></p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
