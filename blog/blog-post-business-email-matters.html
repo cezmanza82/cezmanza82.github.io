@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Why Your Business Email Address Matters More Than You Think — czerwin.net</title>
+  <meta name="description" content="A lot of business owners put real effort into their website, then leave the contact email as some old Yahoo or Gmail address from years ago. Here's why that quietly costs you customers." />
+  <meta property="og:title" content="Why Your Business Email Address Matters More Than You Think" />
+  <meta property="og:description" content="A lot of business owners put real effort into their website, then leave the contact email as some old Yahoo or Gmail address from years ago. Here's why that quietly costs you customers." />
+  <meta property="og:image"        content="https://czerwin.net/img/blog-post17.jpg" />
+  <meta property="og:image:width"  content="1200" />
+  <meta property="og:image:height" content="800" />
+  <meta property="og:url" content="https://czerwin.net/blog/blog-post-business-email-matters.html" />
+  <meta property="og:type" content="article" />
+  <link rel="canonical" href="https://czerwin.net/blog/blog-post-business-email-matters.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Lora:ital,wght@0,600;1,400&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet" />
+  <style>
+    :root {
+      --brand:    #2563eb;
+      --brand-h:  #1d4ed8;
+      --dark:     #060b14;
+      --bg:       #0f1117;
+      --surface:  #181c27;
+      --border:   #252a38;
+      --accent:   #4f8ef7;
+      --text:     #e8eaf0;
+      --muted:    #8891a8;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.75; -webkit-font-smoothing: antialiased; }
+
+    .navbar { background: rgba(6,11,20,.94); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(255,255,255,.06); padding: 14px 0; }
+    .navbar-brand { font-weight: 800; font-size: 1.22rem; color: #fff !important; letter-spacing: -.4px; }
+    .navbar-brand .b-accent { color: var(--brand); }
+    .navbar .nav-link { color: rgba(255,255,255,.72) !important; font-size: .88rem; font-weight: 500; transition: color .2s; }
+    .navbar .nav-link:hover { color: #fff !important; }
+    .btn-nav-cta { font-size: .85rem; font-weight: 700; background: var(--brand); color: #fff !important; border-radius: 7px; padding: 6px 18px; transition: background .2s; text-decoration: none; }
+    .btn-nav-cta:hover { background: var(--brand-h); }
+    .navbar-toggler { border-color: rgba(255,255,255,.2); }
+    .navbar-toggler-icon { filter: invert(1); }
+
+    .post-hero { position: relative; width: 100%; height: 480px; overflow: hidden; display: flex; align-items: flex-end; }
+    .post-hero-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; }
+    .post-hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(6,11,20,.15) 0%, rgba(6,11,20,.75) 60%, rgba(6,11,20,.97) 100%); }
+    .post-hero-content { position: relative; z-index: 2; width: 100%; padding: 0 0 40px; }
+    .post-eyebrow { font-size: .72rem; font-weight: 700; letter-spacing: 1.6px; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
+    .post-hero h1 { font-family: 'Lora', serif; font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 600; color: #fff; letter-spacing: -.5px; margin-bottom: 16px; line-height: 1.2; }
+    .post-meta { font-size: .85rem; color: rgba(255,255,255,.7); display: flex; gap: 20px; flex-wrap: wrap; }
+    .post-meta i { font-size: .8rem; }
+    .post-wrap { max-width: 1000px; margin: 0 auto; padding: 64px 24px 96px; display: grid; grid-template-columns: minmax(0,1fr) 220px; gap: 48px; align-items: start; }
+
+    .post-body > p:first-of-type::first-letter { font-family: 'Lora', serif; font-size: 3.6rem; font-weight: 600; float: left; line-height: .82; margin: 4px 10px 0 0; color: var(--accent); }
+    .post-body h2 { font-family: 'Lora', serif; font-size: 1.5rem; font-weight: 600; color: #fff; margin: 48px 0 16px; letter-spacing: -.2px; border-bottom: 1px solid var(--border); padding-bottom: 10px; }
+    .post-body h3 { font-size: 1.05rem; font-weight: 700; color: #fff; margin: 28px 0 10px; }
+    .post-body p { font-size: .97rem; color: #c8ccd8; line-height: 1.85; margin-bottom: 20px; }
+    .post-body strong { color: var(--text); }
+    .post-body ul { margin: 0 0 20px 20px; }
+    .post-body ul li { font-size: .97rem; color: #c8ccd8; line-height: 1.85; margin-bottom: 8px; }
+
+    .callout { background: var(--surface); border-left: 3px solid var(--accent); border-radius: 0 8px 8px 0; padding: 20px 24px; margin: 32px 0; }
+    .callout p { margin: 0; color: var(--text); }
+
+    .rail { border-left: 1px solid var(--border); padding-left: 24px; position: sticky; top: 100px; }
+    .rail-quote { font-family: 'Lora', serif; font-style: italic; font-size: 1.1rem; line-height: 1.5; color: #fff; margin-bottom: 32px; }
+    .rail-quote::before { content: '\201C'; display: block; font-size: 2.2rem; color: var(--accent); line-height: .5; margin-bottom: 8px; }
+    .rail-label { font-size: .68rem; font-weight: 700; letter-spacing: 1.4px; text-transform: uppercase; color: var(--muted); margin-bottom: 40px; }
+
+    .site-footer { background: #03060e; border-top: 1px solid rgba(255,255,255,.05); text-align: center; padding: 32px 24px; font-size: 13px; color: var(--muted); }
+    .site-footer a { color: var(--accent); text-decoration: none; }
+
+    .back-link { display: inline-flex; align-items: center; gap: 6px; font-size: .85rem; color: var(--muted); text-decoration: none; margin-bottom: 8px; grid-column: 1 / -1; transition: color .2s; }
+    .back-link:hover { color: var(--accent); }
+
+    @media (max-width: 780px) {
+      .post-wrap { grid-template-columns: 1fr; }
+      .rail { border-left: none; padding-left: 0; border-top: 1px solid var(--border); padding-top: 24px; position: static; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg sticky-top">
+  <div class="container">
+    <a class="navbar-brand" href="https://czerwin.net">czerwin<span class="b-accent">.</span></a>
+    <div class="ms-auto d-flex align-items-center gap-3">
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a href="https://czerwin.net/#contact" class="btn-nav-cta">Get a free quote →</a>
+    </div>
+    <div class="collapse navbar-collapse" id="nav">
+      <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+        <li class="nav-item"><a class="nav-link px-3" href="https://czerwin.net/#services">Services</a></li>
+        <li class="nav-item"><a class="nav-link px-3" href="https://czerwin.net/#pricing">Pricing</a></li>
+        <li class="nav-item"><a class="nav-link px-3" href="https://czerwin.net/#portfolio">Portfolio</a></li>
+        <li class="nav-item"><a class="nav-link px-3" href="https://czerwin.net/#faq">FAQ</a></li>
+        <li class="nav-item"><a class="nav-link px-3" href="https://czerwin.net/#about">About</a></li>
+        <li class="nav-item"><a class="nav-link px-3 active" href="/blog/">Blog</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<section class="post-hero">
+  <img class="post-hero-img" src="/img/blog-post17.jpg" alt="A 3D-rendered metallic @ symbol standing on a plain background" />
+  <div class="post-hero-overlay"></div>
+  <div class="post-hero-content">
+    <div class="container">
+      <div class="post-eyebrow">Business &nbsp;·&nbsp; Credibility</div>
+      <h1>Why Your Business Email Address Matters More Than You Think</h1>
+      <div class="post-meta">
+        <span><i class="bi bi-calendar3"></i> September 14, 2026</span>
+        <span><i class="bi bi-clock"></i> 5 min read</span>
+        <span><i class="bi bi-person"></i> czerwin.net</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="post-wrap">
+  <a href="/blog/" class="back-link"><i class="bi bi-arrow-left"></i> Back to blog</a>
+
+  <div class="post-body">
+  <p>A lot of business owners put real money and effort into their website — good photos, clear pricing, a proper "Contact Us" page — and then the actual email address sitting under it is still glennsteez_2009@yahoo.com, or some Gmail they made in college. Nobody plans it that way. It's just the address that was already there when the site went up, so it stayed.</p>
+
+  <p>It's an easy thing to miss, because the address itself still works. Messages arrive, replies go out, nothing looks broken. But a customer reading it sees something you don't: a business that built a real website and then quietly stopped one step short of finishing it.</p>
+
+  <p>The fix is smaller than most people expect, and it's worth understanding what it actually buys you before you spend anything on it.</p>
+
+  <h2>What a Mismatched Email Actually Costs You</h2>
+
+  <h3>It undercuts everything else on the page</h3>
+  <p>Your homepage, your logo, your product photos — all of it is doing one job: telling a stranger this is a real, established business. A contact address that ends in @gmail.com or @yahoo.com quietly undoes that work. It's the one detail on the page that still looks like a hobby, next to everything that doesn't.</p>
+
+  <h3>It's a harder sell for anything B2B</h3>
+  <p>If you're quoting a supplier, a corporate client, or anyone who deals with several vendors a week, a free-email address is a small but real flag. It's not disqualifying on its own, but next to a competitor's quote from name@theirbusiness.com, it's one more reason to hesitate that didn't need to exist.</p>
+
+  <h3>You can't hand out a second one later</h3>
+  <p>Once a business grows past one person, you eventually want sales@, support@, or a name per staff member — separate inboxes that still clearly belong to the same business. A personal Gmail account can't do that. You'd be starting the whole email setup over at the exact moment you're busiest, instead of it already being there.</p>
+
+  <p>A "business email" isn't anything exotic — it's simply an address that ends in your own domain, you@yourbusiness.com, usually run through a small monthly plan like Google Workspace or a mailbox your hosting already includes. The technical part is genuinely the easy half.</p>
+
+  <h2>Where It Gets More Complicated Than a Quick Fix</h2>
+  <p>The domain has to actually be yours first. If you don't have a domain — or worse, don't have login access to the one your site is already using — a matching email is one more thing you can't set up until that gets sorted. This is the same ownership gap I've written about before: <a href="/blog/blog-post-own-your-website.html" style="color: var(--accent);">the domain, the hosting, and the files all need to be things you can actually log into</a>, not just things that exist.</p>
+
+  <p>And a matching domain isn't proof of legitimacy by itself. Scam operations register domains too — it's cheap and takes minutes. What a real business email removes is one easy, obvious red flag, not every red flag. It's a floor, not a guarantee.</p>
+
+  <div class="callout">
+    <p>The address itself does nothing if no one's actually reading it. Forwarding it somewhere you check daily matters more than how professional it looks.</p>
+  </div>
+
+  <p>It's also easy to set up and then forget — a business address that quietly forwards to an inbox nobody opens is worse than an honest personal one, because now a customer thinks they've reached you and they haven't. If you set this up, actually check it, or forward it somewhere you already check.</p>
+
+  <h2>The Honest Model</h2>
+  <p>When you're setting up a site — even just for yourself — ask about the contact email early, right around when you're sorting out the domain, because both should get set up in the same sitting. Doing it later means going back and updating every business card, invoice template, and old email signature that still points at the Gmail address, which is more annoying the longer it waits.</p>
+
+  <p>It's a small line item next to the website itself, and it's one of the few things on this list that's genuinely a five-minute setup once the domain exists. It just needs to happen at the start, not get left for "later" the way it usually does.</p>
+
+  <h2>Closing</h2>
+  <p>Your website can look sharp, load fast, and say all the right things — and one leftover Yahoo address in the footer can still be the detail a cautious customer notices first. It's a small fix, and it's usually the last unfinished corner of an otherwise finished website.</p>
+
+  <p>If you're setting up a new site — or finally tidying up an old one — <a href="https://czerwin.net/#contact" style="color: var(--accent);">that's the part I can help with</a>.</p>
+
+  <h2>Further reading</h2>
+  <ul>
+    <li><a href="/blog/blog-post-own-your-website.html" style="color: var(--accent);">3 Things You Should Actually Own on Your Own Website</a> — czerwin.net</li>
+    <li><a href="/blog/blog-post-website-https-explained.html" style="color: var(--accent);">The Padlock Matters: What HTTPS Actually Does for Your Business</a> — czerwin.net</li>
+  </ul>
+  </div>
+
+  <div class="rail">
+    <div class="rail-label">3 costs<br>credibility · B2B trust · growth</div>
+    <div class="rail-quote">A customer reading it sees something you don't: a business that built a real website and then quietly stopped one step short of finishing it.</div>
+    <div class="rail-quote" style="font-size: .95rem;">A matching domain isn't proof of legitimacy by itself. What a real business email removes is one easy, obvious red flag, not every red flag.</div>
+    <div class="rail-quote" style="font-size: .95rem;">A small fix, and usually the last unfinished corner of an otherwise finished website.</div>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <p>© 2026 <a href="https://czerwin.net">czerwin.net</a> · Web Developer for Business Owners · Philippines</p>
+  <p style="margin-top:8px;"><a href="/blog/">← Back to blog</a></p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
