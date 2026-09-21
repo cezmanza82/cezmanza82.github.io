@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shadow AI: The Tools Running in Your Business That You Don't Know About — czerwin.net</title>
+  <meta name="description" content="Your staff, your VA, your part-time bookkeeper — chances are someone's already pasting customer data into ChatGPT without asking you. Here's what shadow AI actually looks like in a small business, and what's realistic to do about it." />
+  <meta property="og:title" content="Shadow AI: The Tools Running in Your Business That You Don't Know About" />
+  <meta property="og:description" content="Your staff, your VA, your part-time bookkeeper — chances are someone's already pasting customer data into ChatGPT without asking you. Here's what shadow AI actually looks like in a small business, and what's realistic to do about it." />
+  <meta property="og:image"        content="https://czerwin.net/img/blog-post18.jpg" />
+  <meta property="og:image:width"  content="1200" />
+  <meta property="og:image:height" content="800" />
+  <meta property="og:url" content="https://czerwin.net/blog/blog-post-shadow-ai.html" />
+  <meta property="og:type" content="article" />
+  <link rel="canonical" href="https://czerwin.net/blog/blog-post-shadow-ai.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Lora:ital,wght@0,600;1,400&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet" />
+  <style>
+    :root {
+      --brand:    #2563eb;
+      --brand-h:  #1d4ed8;
+      --dark:     #060b14;
+      --bg:       #0f1117;
+      --surface:  #181c27;
+      --border:   #252a38;
+      --accent:   #4f8ef7;
+      --text:     #e8eaf0;
+      --muted:    #8891a8;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.75; -webkit-font-smoothing: antialiased; }
+
+    .navbar { background: rgba(6,11,20,.94); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(255,255,255,.06); padding: 14px 0; }
+    .navbar-brand { font-weight: 800; font-size: 1.22rem; color: #fff !important; letter-spacing: -.4px; }
+    .navbar-brand .b-accent { color: var(--brand); }
+    .navbar .nav-link { color: rgba(255,255,255,.72) !important; font-size: .88rem; font-weight: 500; transition: color .2s; }
+    .navbar .nav-link:hover { color: #fff !important; }
+    .btn-nav-cta { font-size: .85rem; font-weight: 700; background: var(--brand); color: #fff !important; border-radius: 7px; padding: 6px 18px; transition: background .2s; text-decoration: none; }
+    .btn-nav-cta:hover { background: var(--brand-h); }
+    .navbar-toggler { border-color: rgba(255,255,255,.2); }
+    .navbar-toggler-icon { filter: invert(1); }
+
+    .post-hero { position: relative; width: 100%; height: 480px; overflow: hidden; display: flex; align-items: flex-end; }
+    .post-hero-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; }
+    .post-hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(6,11,20,.15) 0%, rgba(6,11,20,.75) 60%, rgba(6,11,20,.97) 100%); }
+    .post-hero-content { position: relative; z-index: 2; width: 100%; padding: 0 0 40px; }
+    .post-eyebrow { font-size: .72rem; font-weight: 700; letter-spacing: 1.6px; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
+    .post-hero h1 { font-family: 'Lora', serif; font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 600; color: #fff; letter-spacing: -.5px; margin-bottom: 16px; line-height: 1.2; }
+    .post-meta { font-size: .85rem; color: rgba(255,255,255,.7); display: flex; gap: 20px; flex-wrap: wrap; }
+    .post-meta i { font-size: .8rem; }
+    .post-wrap { max-width: 1000px; margin: 0 auto; padding: 64px 24px 96px; display: grid; grid-template-columns: minmax(0,1fr) 220px; gap: 48px; align-items: start; }
+
+    .post-body > p:first-of-type::first-letter { font-family: 'Lora', serif; font-size: 3.6rem; font-weight: 600; float: left; line-height: .82; margin: 4px 10px 0 0; color: var(--accent); }
+    .post-body h2 { font-family: 'Lora', serif; font-size: 1.5rem; font-weight: 600; color: #fff; margin: 48px 0 16px; letter-spacing: -.2px; border-bottom: 1px solid var(--border); padding-bottom: 10px; }
+    .post-body h3 { font-size: 1.05rem; font-weight: 700; color: #fff; margin: 28px 0 10px; }
+    .post-body p { font-size: .97rem; color: #c8ccd8; line-height: 1.85; margin-bottom: 20px; }
+    .post-body strong { color: var(--text); }
+    .post-body ul { margin: 0 0 20px 20px; }
+    .post-body ul li { font-size: .97rem; color: #c8ccd8; line-height: 1.85; margin-bottom: 8px; }
+
+    .callout { background: var(--surface); border-left: 3px solid var(--accent); border-radius: 0 8px 8px 0; padding: 20px 24px; margin: 32px 0; }
+    .callout p { margin: 0; color: var(--text); }
+
+    .rail { border-left: 1px solid var(--border); padding-left: 24px; position: sticky; top: 100px; }
+    .rail-quote { font-family: 'Lora', serif; font-style: italic; font-size: 1.1rem; line-height: 1.5; color: #fff; margin-bottom: 32px; }
+    .rail-quote::before { content: '\201C'; display: block; font-size: 2.2rem; color: var(--accent); line-height: .5; margin-bottom: 8px; }
+    .rail-label { font-size: .68rem; font-weight: 700; letter-spacing: 1.4px; text-transform: uppercase; color: var(--muted); margin-bottom: 40px; }
+
+    .site-footer { background: #03060e; border-top: 1px solid rgba(255,255,255,.05); text-align: center; padding: 32px 24px; font-size: 13px; color: var(--muted); }
+    .site-footer a { color: var(--accent); text-decoration: none; }
+
+    .back-link { display: inline-flex; align-items: center; gap: 6px; font-size: .85rem; color: var(--muted); text-decoration: none; margin-bottom: 8px; grid-column: 1 / -1; transition: color .2s; }
+    .back-link:hover { color: var(--accent); }
+
+    @media (max-width: 780px) {
+      .post-wrap { grid-template-columns: 1fr; }
+      .rail { border-left: none; padding-left: 0; border-top: 1px solid var(--border); padding-top: 24px; position: static; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg sticky-top">
+  <div class="container">
+    <a class="navbar-brand" href="https://czerwin.net">czerwin<span class="b-accent">.</span></a>
+    <div class="ms-auto d-flex align-items-center gap-3">
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a href="https://czerwin.net/#contact" class="btn-nav-cta">Get a free quote →</a>
+    </div>
+    <div class="collapse navbar-collapse" id="nav">
+      <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+        <li class="nav-item"><a class="nav-link px-3" href="https://czerwin.net/#services">Services</a></li>
+        <li class="nav-item"><a class="nav-link px-3" href="https://czerwin.net/#pricing">Pricing</a></li>
+        <li class="nav-item"><a class="nav-link px-3" href="https://czerwin.net/#portfolio">Portfolio</a></li>
+        <li class="nav-item"><a class="nav-link px-3" href="https://czerwin.net/#faq">FAQ</a></li>
+        <li class="nav-item"><a class="nav-link px-3" href="https://czerwin.net/#about">About</a></li>
+        <li class="nav-item"><a class="nav-link px-3 active" href="/blog/">Blog</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<section class="post-hero">
+  <img class="post-hero-img" src="/img/blog-post18.jpg" alt="A 3D-rendered glowing 'AI' text against a dark technology background" />
+  <div class="post-hero-overlay"></div>
+  <div class="post-hero-content">
+    <div class="container">
+      <div class="post-eyebrow">Technology &nbsp;·&nbsp; Security</div>
+      <h1>Shadow AI: The Tools Running in Your Business That You Don't Know About</h1>
+      <div class="post-meta">
+        <span><i class="bi bi-calendar3"></i> September 21, 2026</span>
+        <span><i class="bi bi-clock"></i> 5 min read</span>
+        <span><i class="bi bi-person"></i> czerwin.net</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="post-wrap">
+  <a href="/blog/" class="back-link"><i class="bi bi-arrow-left"></i> Back to blog</a>
+
+  <div class="post-body">
+  <p>Ask most small business owners if AI is being used in their business, and the honest answer is usually "not really, we haven't gotten into that yet." Then you find out the VA has been pasting customer messages into ChatGPT to draft replies for months, the bookkeeper ran last quarter's sales numbers through an AI spreadsheet tool to save time, and somebody's phone has three different AI chat apps installed that nobody asked about. Nobody hid this on purpose. It just never came up.</p>
+
+  <p>That gap — between the AI you know is running in your business and the AI that's actually running in your business — has a name: shadow AI. It's not staff going behind your back. It's staff solving their own workload problem with whatever free tool got the job done fastest, without it ever occurring to them that it was something to ask permission for.</p>
+
+  <p>It's worth understanding what this actually looks like day to day, because "ban AI tools" isn't the answer, and neither is ignoring it.</p>
+
+  <h2>What Shadow AI Actually Looks Like in a Small Business</h2>
+
+  <h3>Customer replies drafted outside your systems</h3>
+  <p>A VA or support person copies a customer's message — name, order number, sometimes an address or payment reference — into ChatGPT or a similar tool to get a quick draft reply, then pastes the answer back into Messenger or email. Faster for them, but that customer's information just left whatever system you actually control and landed on a third-party server you never agreed to.</p>
+
+  <h3>"Free AI tools" installed without a second thought</h3>
+  <p>Browser extensions that "summarize your emails," phone apps that "translate customer messages," AI note-taking tools bolted onto a video call — most ask for broad permissions during setup, and most staff tap "allow" without reading it, the same way anyone does. Each one is a small, real access point into whatever it's connected to.</p>
+
+  <h3>Spreadsheets and numbers run through AI for a shortcut</h3>
+  <p>Sales totals, supplier lists, sometimes even payroll figures, pasted into an AI tool to "clean this up" or "make a summary" faster than doing it by hand. Convenient in the moment — and now sitting somewhere outside your business with no record of it ever having left.</p>
+
+  <div class="callout">
+    <p>None of this is staff being careless on purpose. It's someone with a task to finish, a free tool that clearly helps, and no reason to think twice — because nobody ever framed this as a decision that needed thinking about.</p>
+  </div>
+
+  <h2>Where It Gets Genuinely Hard</h2>
+  <p>A small business doesn't have an IT department watching network traffic, and you're not going to install monitoring software on your VA's personal phone. Realistically, you can't see most of this happening, and you can't fully stop someone determined to use a tool that makes their day easier.</p>
+
+  <p>Banning AI tools outright usually just pushes the same behavior further out of sight — people don't stop finding shortcuts, they just stop mentioning them. And plenty of AI tools genuinely do save time; the goal isn't zero AI use, it's knowing where customer and business data is actually going.</p>
+
+  <h2>The Honest Model</h2>
+  <p>You don't need a security policy document nobody will read. You need one short conversation with anyone who touches customer data — staff, VA, freelancer, contractor — that covers three things: which tools are fine to use for this work, what should never get pasted into an AI tool (full names with order details, payment references, anything a customer would be upset to see land somewhere else), and a simple "just ask me first" default for anything new. That's it. It fits on half a page, and it works better than a policy nobody reads because someone actually said it out loud.</p>
+
+  <p>This isn't about distrust. It's the same reason a shop has a policy for handling cash, even with staff you trust completely — not because you expect a problem, but because a clear default means nobody has to guess.</p>
+
+  <h2>Closing</h2>
+  <p>Shadow AI isn't a future risk to plan for eventually — for most small businesses with even one other person helping out, some version of it is probably already happening quietly in the background. The fix isn't surveillance or a ban. It's one plain conversation about what's fine, what isn't, and asking first when in doubt.</p>
+
+  <p>If you're setting up systems for your business and want customer data handled the right way from the start, <a href="https://czerwin.net/#contact" style="color: var(--accent);">that's the part I can help with</a>.</p>
+
+  <h2>Further reading</h2>
+  <ul>
+    <li><a href="/blog/blog-post-using-ai-well.html" style="color: var(--accent);">Using AI Well: The Habits That Actually Matter</a> — czerwin.net</li>
+    <li><a href="/blog/blog-post-ai-tools-for-business.html" style="color: var(--accent);">AI Tools That Actually Save Filipino Business Owners Time</a> — czerwin.net</li>
+  </ul>
+  </div>
+
+  <div class="rail">
+    <div class="rail-label">3 places it hides<br>replies · apps · spreadsheets</div>
+    <div class="rail-quote">The gap between the AI you know is running in your business and the AI that's actually running in your business — has a name: shadow AI.</div>
+    <div class="rail-quote" style="font-size: .95rem;">Banning AI tools outright usually just pushes the same behavior further out of sight.</div>
+    <div class="rail-quote" style="font-size: .95rem;">A clear default means nobody has to guess.</div>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <p>© 2026 <a href="https://czerwin.net">czerwin.net</a> · Web Developer for Business Owners · Philippines</p>
+  <p style="margin-top:8px;"><a href="/blog/">← Back to blog</a></p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
