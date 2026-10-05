@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DIY Website Builders: When They're Enough, and When They Start Costing You More — czerwin.net</title>
+  <meta name="description" content="Wix, Squarespace, Shopify, WordPress.com — DIY website builders are genuinely fine for some businesses and a slow trap for others. Here's how to tell which one you are." />
+  <meta property="og:title" content="DIY Website Builders: When They're Enough, and When They Start Costing You More" />
+  <meta property="og:description" content="Wix, Squarespace, Shopify, WordPress.com — DIY website builders are genuinely fine for some businesses and a slow trap for others. Here's how to tell which one you are." />
+  <meta property="og:image"        content="https://czerwin.net/img/blog-post20.jpg" />
+  <meta property="og:image:width"  content="1200" />
+  <meta property="og:image:height" content="800" />
+  <meta property="og:url" content="https://czerwin.net/blog/blog-post-diy-website-builders.html" />
+  <meta property="og:type" content="article" />
+  <link rel="canonical" href="https://czerwin.net/blog/blog-post-diy-website-builders.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Lora:ital,wght@0,600;1,400&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet" />
+  <style>
+    :root {
+      --brand:    #2563eb;
+      --brand-h:  #1d4ed8;
+      --dark:     #060b14;
+      --bg:       #0f1117;
+      --surface:  #181c27;
+      --border:   #252a38;
+      --accent:   #4f8ef7;
+      --text:     #e8eaf0;
+      --muted:    #8891a8;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.75; -webkit-font-smoothing: antialiased; }
+
+    .navbar { background: rgba(6,11,20,.94); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(255,255,255,.06); padding: 14px 0; }
+    .navbar-brand { font-weight: 800; font-size: 1.22rem; color: #fff !important; letter-spacing: -.4px; }
+    .navbar-brand .b-accent { color: var(--brand); }
+    .navbar .nav-link { color: rgba(255,255,255,.72) !important; font-size: .88rem; font-weight: 500; transition: color .2s; }
+    .navbar .nav-link:hover { color: #fff !important; }
+    .btn-nav-cta { font-size: .85rem; font-weight: 700; background: var(--brand); color: #fff !important; border-radius: 7px; padding: 6px 18px; transition: background .2s; text-decoration: none; }
+    .btn-nav-cta:hover { background: var(--brand-h); }
+    .navbar-toggler { border-color: rgba(255,255,255,.2); }
+    .navbar-toggler-icon { filter: invert(1); }
+
+    .post-hero { position: relative; width: 100%; height: 480px; overflow: hidden; display: flex; align-items: flex-end; }
+    .post-hero-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; }
+    .post-hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(6,11,20,.15) 0%, rgba(6,11,20,.75) 60%, rgba(6,11,20,.97) 100%); }
+    .post-hero-content { position: relative; z-index: 2; width: 100%; padding: 0 0 40px; }
+    .post-eyebrow { font-size: .72rem; font-weight: 700; letter-spacing: 1.6px; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
+    .post-hero h1 { font-family: 'Lora', serif; font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 600; color: #fff; letter-spacing: -.5px; margin-bottom: 16px; line-height: 1.2; }
+    .post-meta { font-size: .85rem; color: rgba(255,255,255,.7); display: flex; gap: 20px; flex-wrap: wrap; }
+    .post-meta i { font-size: .8rem; }
+    .post-wrap { max-width: 1000px; margin: 0 auto; padding: 64px 24px 96px; display: grid; grid-template-columns: minmax(0,1fr) 220px; gap: 48px; align-items: start; }
+
+    .post-body > p:first-of-type::first-letter { font-family: 'Lora', serif; font-size: 3.6rem; font-weight: 600; float: left; line-height: .82; margin: 4px 10px 0 0; color: var(--accent); }
+    .post-body h2 { font-family: 'Lora', serif; font-size: 1.5rem; font-weight: 600; color: #fff; margin: 48px 0 16px; letter-spacing: -.2px; border-bottom: 1px solid var(--border); padding-bottom: 10px; }
+    .post-body h3 { font-size: 1.05rem; font-weight: 700; color: #fff; margin: 28px 0 10px; }
+    .post-body p { font-size: .97rem; color: #c8ccd8; line-height: 1.85; margin-bottom: 20px; }
+    .post-body strong { color: var(--text); }
+    .post-body ul { margin: 0 0 20px 20px; }
+    .post-body ul li { font-size: .97rem; color: #c8ccd8; line-height: 1.85; margin-bottom: 8px; }
+
+    .callout { background: var(--surface); border-left: 3px solid var(--accent); border-radius: 0 8px 8px 0; padding: 20px 24px; margin: 32px 0; }
+    .callout p { margin: 0; color: var(--text); }
+
+    .rail { border-left: 1px solid var(--border); padding-left: 24px; position: sticky; top: 100px; }
+    .rail-quote { font-family: 'Lora', serif; font-style: italic; font-size: 1.1rem; line-height: 1.5; color: #fff; margin-bottom: 32px; }
+    .rail-quote::before { content: '\201C'; display: block; font-size: 2.2rem; color: var(--accent); line-height: .5; margin-bottom: 8px; }
+    .rail-label { font-size: .68rem; font-weight: 700; letter-spacing: 1.4px; text-transform: uppercase; color: var(--muted); margin-bottom: 40px; }
+
+    .site-footer { background: #03060e; border-top: 1px solid rgba(255,255,255,.05); text-align: center; padding: 32px 24px; font-size: 13px; color: var(--muted); }
+    .site-footer a { color: var(--accent); text-decoration: none; }
+
+    .back-link { display: inline-flex; align-items: center; gap: 6px; font-size: .85rem; color: var(--muted); text-decoration: none; margin-bottom: 8px; grid-column: 1 / -1; transition: color .2s; }
+    .back-link:hover { color: var(--accent); }
+
+    @media (max-width: 780px) {
+      .post-wrap { grid-template-columns: 1fr; }
+      .rail { border-left: none; padding-left: 0; border-top: 1px solid var(--border); padding-top: 24px; position: static; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg sticky-top">
+  <div class="container">
+    <a class="navbar-brand" href="https://czerwin.net">czerwin<span class="b-accent">.</span></a>
+    <div class="ms-auto d-flex align-items-center gap-3">
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a href="https://czerwin.net/#contact" class="btn-nav-cta">Get a free quote →</a>
+    </div>
+    <div class="collapse navbar-collapse" id="nav">
+      <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+        <li class="nav-item"><a class="nav-link px-3" href="https://czerwin.net/#services">Services</a></li>
+        <li class="nav-item"><a class="nav-link px-3" href="https://czerwin.net/#pricing">Pricing</a></li>
+        <li class="nav-item"><a class="nav-link px-3" href="https://czerwin.net/#portfolio">Portfolio</a></li>
+        <li class="nav-item"><a class="nav-link px-3" href="https://czerwin.net/#faq">FAQ</a></li>
+        <li class="nav-item"><a class="nav-link px-3" href="https://czerwin.net/#about">About</a></li>
+        <li class="nav-item"><a class="nav-link px-3 active" href="/blog/">Blog</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<section class="post-hero">
+  <img class="post-hero-img" src="/img/blog-post20.jpg" alt="Close-up of a laptop screen showing the WordPress.com 'Build a website' homepage" />
+  <div class="post-hero-overlay"></div>
+  <div class="post-hero-content">
+    <div class="container">
+      <div class="post-eyebrow">Business &nbsp;·&nbsp; Web Dev</div>
+      <h1>DIY Website Builders: When They're Enough, and When They Start Costing You More</h1>
+      <div class="post-meta">
+        <span><i class="bi bi-calendar3"></i> October 5, 2026</span>
+        <span><i class="bi bi-clock"></i> 5 min read</span>
+        <span><i class="bi bi-person"></i> czerwin.net</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="post-wrap">
+  <a href="/blog/" class="back-link"><i class="bi bi-arrow-left"></i> Back to blog</a>
+
+  <div class="post-body">
+  <p>Every business owner setting up a website today gets pulled in two directions at once. One side says just use Wix or Shopify — it's cheap, it's fast, you don't need to pay a developer for something you can drag and drop yourself. The other side says a real business needs a real developer, and anything else looks amateur. Both are giving you advice as if it applies to everyone, and it doesn't.</p>
+
+  <p>The honest answer depends entirely on what your site actually needs to do, not on which option sounds more "official." A one-page site for a local service business and a multi-location store with inventory syncing across three sales channels are not the same problem, and they don't belong on the same tool.</p>
+
+  <p>Here's how to actually tell which side of that line you're on.</p>
+
+  <h2>When a DIY Builder Is Genuinely Fine</h2>
+
+  <h3>You're testing whether the idea works at all</h3>
+  <p>If you don't yet know whether there's real demand for what you're selling, spending real money on custom development before you've sold a single thing is backwards. A builder gets something live in a weekend, for the cost of a monthly plan, so you can find out if anyone's actually interested before committing further.</p>
+
+  <h3>Your site is mostly information, not a system</h3>
+  <p>A menu, a service list, hours, a location, a contact form, some photos — a page that tells people what you do and how to reach you doesn't need custom code behind it. That's the exact use case these tools were built for, and they do it well.</p>
+
+  <h3>You're the one who'll be updating it</h3>
+  <p>If you're going to be the person changing prices, swapping photos, or adding a new product every week with no one else to call, a builder's editor is genuinely easier to live with day to day than asking a developer to log a ticket for every small change.</p>
+
+  <p>None of this is a consolation prize. For a huge number of small businesses, a well-set-up Wix, Squarespace, or Shopify site is the correct tool, not a placeholder until "the real website" happens.</p>
+
+  <h2>Where It Starts Costing You More Than It Saves</h2>
+
+  <p>The problems don't usually show up on day one. They show up eight or twelve months in, once the business has grown past what the platform was built for.</p>
+
+  <div class="callout">
+    <p>A builder's monthly fee looks like the whole cost. The real cost shows up later, in what it takes to leave.</p>
+  </div>
+
+  <p>A few specific ways this plays out:</p>
+  <ul>
+    <li><strong>App and plugin fees stack up quietly.</strong> The base plan is cheap, but the moment you need a booking calendar, email marketing sync, or a review widget, each one is its own monthly add-on. A lot of stores end up paying more in apps than in the platform fee itself.</li>
+    <li><strong>You're renting the template, not owning the design.</strong> Customization only goes as deep as the builder allows. Once you want something the drag-and-drop editor genuinely can't do, you're stuck waiting on the platform's roadmap, not your own.</li>
+    <li><strong>Migrating out is harder than migrating in.</strong> Moving off a builder later — because you've outgrown it, or the pricing changed, or you want your own hosting — usually means rebuilding from scratch, not exporting a clean copy. Content, layout, and sometimes years of SEO ranking don't come with you cleanly.</li>
+    <li><strong>Performance has a ceiling you don't control.</strong> These platforms serve thousands of sites off the same shared infrastructure. You can optimize images and text all you want; you can't fix what's happening underneath the builder itself.</li>
+  </ul>
+
+  <p>None of this means the tools are bad. It means they were built for a certain size and shape of business, and businesses don't stay the same size and shape forever.</p>
+
+  <h2>The Honest Model</h2>
+  <p>The question worth asking isn't "builder or developer" as a permanent identity for your business — it's "what does this website need to do in the next year." If the answer is still information and a simple contact path, a builder remains the right call, and paying for custom development would be solving a problem you don't have yet.</p>
+
+  <p>But if you're running into the platform's ceiling — paying for five different apps to patch gaps, waiting on page speed that never improves, or wanting something specific the editor just won't let you build — that's the actual signal to move, not a vague feeling that you've "outgrown" DIY. The tell is concrete: a real limitation you can name, not a sense that a custom site would look more serious.</p>
+
+  <p>A developer isn't a better tool in general. A developer is the right tool once your needs stop fitting inside someone else's template.</p>
+
+  <h2>Closing</h2>
+  <p>There's no prize for having "a real website" if a builder was already doing the job. And there's no prize for staying on a builder out of habit once it's visibly costing you more in app fees and workarounds than a proper build would. The right call is whichever one actually matches what your business needs to do right now.</p>
+
+  <p>If you're not sure which side of that line you're on, that's the part I can help with.</p>
+
+  <h2>Further reading</h2>
+  <ul>
+    <li><a href="/blog/blog-post-website-pricing-reality.html" style="color: var(--accent);">What a Website Should Actually Cost You</a> — czerwin.net</li>
+    <li><a href="/blog/blog-post-own-your-website.html" style="color: var(--accent);">3 Things You Should Actually Own on Your Own Website</a> — czerwin.net</li>
+  </ul>
+  </div>
+
+  <div class="rail">
+    <div class="rail-quote">The honest answer depends entirely on what your site actually needs to do, not on which option sounds more "official."</div>
+    <div class="rail-label">The real test<br>what it needs to do next year</div>
+    <div class="rail-quote" style="font-size: .95rem;">A developer isn't a better tool in general. A developer is the right tool once your needs stop fitting inside someone else's template.</div>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <p>© 2026 <a href="https://czerwin.net">czerwin.net</a> · Web Developer for Business Owners · Philippines</p>
+  <p style="margin-top:8px;"><a href="/blog/">← Back to blog</a></p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
