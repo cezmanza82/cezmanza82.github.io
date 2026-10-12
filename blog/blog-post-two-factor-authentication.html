@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Two-Factor Authentication Isn't Optional Anymore — czerwin.net</title>
+  <meta name="description" content="One stolen password shouldn't be enough to take over your business accounts. Here's what two-factor authentication actually does, where to turn it on first, and where it still falls short." />
+  <meta property="og:title" content="Two-Factor Authentication Isn't Optional Anymore" />
+  <meta property="og:description" content="One stolen password shouldn't be enough to take over your business accounts. Here's what two-factor authentication actually does, where to turn it on first, and where it still falls short." />
+  <meta property="og:image"        content="https://czerwin.net/img/blog-post21.jpg" />
+  <meta property="og:image:width"  content="1200" />
+  <meta property="og:image:height" content="800" />
+  <meta property="og:url" content="https://czerwin.net/blog/blog-post-two-factor-authentication.html" />
+  <meta property="og:type" content="article" />
+  <link rel="canonical" href="https://czerwin.net/blog/blog-post-two-factor-authentication.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Lora:ital,wght@0,600;1,400&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet" />
+  <style>
+    :root {
+      --brand:    #2563eb;
+      --brand-h:  #1d4ed8;
+      --dark:     #060b14;
+      --bg:       #0f1117;
+      --surface:  #181c27;
+      --border:   #252a38;
+      --accent:   #4f8ef7;
+      --text:     #e8eaf0;
+      --muted:    #8891a8;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.75; -webkit-font-smoothing: antialiased; }
+
+    .navbar { background: rgba(6,11,20,.94); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(255,255,255,.06); padding: 14px 0; }
+    .navbar-brand { font-weight: 800; font-size: 1.22rem; color: #fff !important; letter-spacing: -.4px; }
+    .navbar-brand .b-accent { color: var(--brand); }
+    .navbar .nav-link { color: rgba(255,255,255,.72) !important; font-size: .88rem; font-weight: 500; transition: color .2s; }
+    .navbar .nav-link:hover { color: #fff !important; }
+    .btn-nav-cta { font-size: .85rem; font-weight: 700; background: var(--brand); color: #fff !important; border-radius: 7px; padding: 6px 18px; transition: background .2s; text-decoration: none; }
+    .btn-nav-cta:hover { background: var(--brand-h); }
+    .navbar-toggler { border-color: rgba(255,255,255,.2); }
+    .navbar-toggler-icon { filter: invert(1); }
+
+    .post-hero { position: relative; width: 100%; height: 480px; overflow: hidden; display: flex; align-items: flex-end; }
+    .post-hero-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; }
+    .post-hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(6,11,20,.15) 0%, rgba(6,11,20,.75) 60%, rgba(6,11,20,.97) 100%); }
+    .post-hero-content { position: relative; z-index: 2; width: 100%; padding: 0 0 40px; }
+    .post-eyebrow { font-size: .72rem; font-weight: 700; letter-spacing: 1.6px; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
+    .post-hero h1 { font-family: 'Lora', serif; font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 600; color: #fff; letter-spacing: -.5px; margin-bottom: 16px; line-height: 1.2; }
+    .post-meta { font-size: .85rem; color: rgba(255,255,255,.7); display: flex; gap: 20px; flex-wrap: wrap; }
+    .post-meta i { font-size: .8rem; }
+    .post-wrap { max-width: 1000px; margin: 0 auto; padding: 64px 24px 96px; display: grid; grid-template-columns: minmax(0,1fr) 220px; gap: 48px; align-items: start; }
+
+    .post-body > p:first-of-type::first-letter { font-family: 'Lora', serif; font-size: 3.6rem; font-weight: 600; float: left; line-height: .82; margin: 4px 10px 0 0; color: var(--accent); }
+    .post-body h2 { font-family: 'Lora', serif; font-size: 1.5rem; font-weight: 600; color: #fff; margin: 48px 0 16px; letter-spacing: -.2px; border-bottom: 1px solid var(--border); padding-bottom: 10px; }
+    .post-body h3 { font-size: 1.05rem; font-weight: 700; color: #fff; margin: 28px 0 10px; }
+    .post-body p { font-size: .97rem; color: #c8ccd8; line-height: 1.85; margin-bottom: 20px; }
+    .post-body strong { color: var(--text); }
+    .post-body ul { margin: 0 0 20px 20px; }
+    .post-body ul li { font-size: .97rem; color: #c8ccd8; line-height: 1.85; margin-bottom: 8px; }
+
+    .callout { background: var(--surface); border-left: 3px solid var(--accent); border-radius: 0 8px 8px 0; padding: 20px 24px; margin: 32px 0; }
+    .callout p { margin: 0; color: var(--text); }
+
+    .rail { border-left: 1px solid var(--border); padding-left: 24px; position: sticky; top: 100px; }
+    .rail-quote { font-family: 'Lora', serif; font-style: italic; font-size: 1.1rem; line-height: 1.5; color: #fff; margin-bottom: 32px; }
+    .rail-quote::before { content: '\201C'; display: block; font-size: 2.2rem; color: var(--accent); line-height: .5; margin-bottom: 8px; }
+    .rail-label { font-size: .68rem; font-weight: 700; letter-spacing: 1.4px; text-transform: uppercase; color: var(--muted); margin-bottom: 40px; }
+
+    .site-footer { background: #03060e; border-top: 1px solid rgba(255,255,255,.05); text-align: center; padding: 32px 24px; font-size: 13px; color: var(--muted); }
+    .site-footer a { color: var(--accent); text-decoration: none; }
+
+    .back-link { display: inline-flex; align-items: center; gap: 6px; font-size: .85rem; color: var(--muted); text-decoration: none; margin-bottom: 8px; grid-column: 1 / -1; transition: color .2s; }
+    .back-link:hover { color: var(--accent); }
+
+    @media (max-width: 780px) {
+      .post-wrap { grid-template-columns: 1fr; }
+      .rail { border-left: none; padding-left: 0; border-top: 1px solid var(--border); padding-top: 24px; position: static; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg sticky-top">
+  <div class="container">
+    <a class="navbar-brand" href="https://czerwin.net">czerwin<span class="b-accent">.</span></a>
+    <div class="ms-auto d-flex align-items-center gap-3">
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a href="https://czerwin.net/#contact" class="btn-nav-cta">Get a free quote →</a>
+    </div>
+    <div class="collapse navbar-collapse" id="nav">
+      <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+        <li class="nav-item"><a class="nav-link px-3" href="https://czerwin.net/#services">Services</a></li>
+        <li class="nav-item"><a class="nav-link px-3" href="https://czerwin.net/#pricing">Pricing</a></li>
+        <li class="nav-item"><a class="nav-link px-3" href="https://czerwin.net/#portfolio">Portfolio</a></li>
+        <li class="nav-item"><a class="nav-link px-3" href="https://czerwin.net/#faq">FAQ</a></li>
+        <li class="nav-item"><a class="nav-link px-3" href="https://czerwin.net/#about">About</a></li>
+        <li class="nav-item"><a class="nav-link px-3 active" href="/blog/">Blog</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<section class="post-hero">
+  <img class="post-hero-img" src="/img/blog-post21.jpg" alt="Smartphone showing a security lock icon on a desk" />
+  <div class="post-hero-overlay"></div>
+  <div class="post-hero-content">
+    <div class="container">
+      <div class="post-eyebrow">Technology &nbsp;·&nbsp; Security</div>
+      <h1>Two-Factor Authentication Isn't Optional Anymore</h1>
+      <div class="post-meta">
+        <span><i class="bi bi-calendar3"></i> October 12, 2026</span>
+        <span><i class="bi bi-clock"></i> 5 min read</span>
+        <span><i class="bi bi-person"></i> czerwin.net</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="post-wrap">
+  <a href="/blog/" class="back-link"><i class="bi bi-arrow-left"></i> Back to blog</a>
+
+  <div class="post-body">
+  <p>Most business accounts don't get broken into by someone cleverly guessing a password. They get broken into because a password that was already floating around from some unrelated breach — a forum, an old app, a shopping site — still works, because it's the same one you used for your email, your hosting, your payment processor. One password reused in enough places is really just one lock on every door you own.</p>
+
+  <p>Two-factor authentication is the fix for that exact problem, and it's one of the few security habits that's both free and genuinely effective. It's also one of the most commonly skipped, usually because it sounds like a hassle before you've actually turned it on.</p>
+
+  <p>Here's what it actually does, where to turn it on first, and where it still isn't enough on its own.</p>
+
+  <h2>What It Actually Is</h2>
+  <p>Two-factor authentication (2FA) means logging in takes two things instead of one: your password, plus a second proof that it's really you — a code from an app, a tap on your phone, or a physical key. If someone else has your password but not that second thing, they're stopped at the door.</p>
+
+  <h3>The three common forms</h3>
+  <ul>
+    <li><strong>Authenticator app</strong> (Google Authenticator, Authy, or similar) — generates a fresh 6-digit code every 30 seconds, works offline, tied to your phone specifically.</li>
+    <li><strong>SMS code</strong> — a text message with a code each time you log in. Better than nothing, but the weakest of the three (more on that below).</li>
+    <li><strong>Security key</strong> — a physical USB or NFC key you tap or plug in. The strongest option, but most small business owners won't need to go this far unless they're handling something particularly sensitive.</li>
+  </ul>
+
+  <p>For almost every small business, an authenticator app is the right default — stronger than SMS, and no extra hardware to buy or lose.</p>
+
+  <h2>Where to Turn It On First</h2>
+  <p>You don't need to do this everywhere at once. Start with the accounts that, if lost, would take everything else down with them:</p>
+
+  <ul>
+    <li><strong>Your email</strong> — almost every other account resets its password through email. This is the one account that protects all the others.</li>
+    <li><strong>Your domain registrar</strong> — whoever you bought your domain name from. Losing this means someone can point your domain anywhere they want.</li>
+    <li><strong>Your hosting account</strong> — where your website's files actually live.</li>
+    <li><strong>Payment and banking logins</strong> — anywhere money moves.</li>
+    <li><strong>Your business's social media pages</strong> — Facebook, Instagram, anywhere customers reach you directly.</li>
+  </ul>
+
+  <div class="callout">
+    <p>If you only do one thing from this list today, do your email. Everything else resets through it.</p>
+  </div>
+
+  <h2>Where It Still Falls Short</h2>
+  <p>2FA is a real improvement, not a magic fix, and it's worth knowing honestly where its limits are.</p>
+
+  <p><strong>SMS can be hijacked.</strong> A "SIM swap" scam tricks your mobile carrier into moving your number to an attacker's phone, which hands them your text codes too. It's not common, but it's the reason an authenticator app is the better default wherever a site offers the choice.</p>
+
+  <p><strong>It doesn't stop every kind of phishing.</strong> A convincing fake login page can capture your code the moment you type it in, same as it captures your password. 2FA stops the far more common case — a stolen or reused password used on its own — but it's not a reason to stop checking that a login page is actually the real one.</p>
+
+  <p><strong>Losing your phone can lock you out.</strong> This is the part that scares people off the most, and it's a fair concern. The fix is simple: every service that offers 2FA also gives you a set of one-time backup codes when you turn it on. Save them somewhere durable — a password manager, or written down somewhere physical — before you need them, not after.</p>
+
+  <h2>What This Actually Comes Down To</h2>
+  <p>None of this needs to happen in one sitting. Turn it on for your email today, add the next account tomorrow, and you've closed off the single most common way business accounts actually get taken over — not a dramatic hack, just one old reused password finally getting used against you. The backup codes are the part people skip and regret; save them the same day you turn 2FA on, not the day you lose your phone.</p>
+
+  <h2>Closing</h2>
+  <p>A password alone was never meant to be the only thing standing between your business and whoever finds it in a breach list somewhere. Two-factor authentication is free, takes a few minutes per account, and closes off the most common way in. It's one of the few security habits that's actually this simple.</p>
+
+  <p>If you're not sure which of your business accounts still only have a password protecting them, that's the part I can help with.</p>
+
+  <h2>Further reading</h2>
+  <ul>
+    <li><a href="/blog/blog-post-business-email-matters.html" style="color: var(--accent);">Why Your Business Email Address Matters More Than You Think</a> — czerwin.net</li>
+    <li><a href="/blog/blog-post-website-https-explained.html" style="color: var(--accent);">The Padlock Matters: What HTTPS Actually Does for Your Business</a> — czerwin.net</li>
+  </ul>
+  </div>
+
+  <div class="rail">
+    <div class="rail-quote">One password reused in enough places is really just one lock on every door you own.</div>
+    <div class="rail-label">Start here<br>email · registrar · hosting · payments</div>
+    <div class="rail-quote" style="font-size: .95rem;">A password alone was never meant to be the only thing standing between your business and whoever finds it in a breach list somewhere.</div>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <p>© 2026 <a href="https://czerwin.net">czerwin.net</a> · Web Developer for Business Owners · Philippines</p>
+  <p style="margin-top:8px;"><a href="/blog/">← Back to blog</a></p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
