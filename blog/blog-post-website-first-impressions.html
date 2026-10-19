@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>What Your Website Says Before Anyone Reads a Word — czerwin.net</title>
+  <meta name="description" content="Visitors decide whether to trust your site in seconds, before reading anything. Here's what actually shapes that first impression, and what good design still can't fix." />
+  <meta property="og:title" content="What Your Website Says Before Anyone Reads a Word" />
+  <meta property="og:description" content="Visitors decide whether to trust your site in seconds, before reading anything. Here's what actually shapes that first impression, and what good design still can't fix." />
+  <meta property="og:image"        content="https://czerwin.net/img/blog-post22.jpg" />
+  <meta property="og:image:width"  content="1200" />
+  <meta property="og:image:height" content="800" />
+  <meta property="og:url" content="https://czerwin.net/blog/blog-post-website-first-impressions.html" />
+  <meta property="og:type" content="article" />
+  <link rel="canonical" href="https://czerwin.net/blog/blog-post-website-first-impressions.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Lora:ital,wght@0,600;1,400&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet" />
+  <style>
+    :root {
+      --brand:    #2563eb;
+      --brand-h:  #1d4ed8;
+      --dark:     #060b14;
+      --bg:       #0f1117;
+      --surface:  #181c27;
+      --border:   #252a38;
+      --accent:   #4f8ef7;
+      --text:     #e8eaf0;
+      --muted:    #8891a8;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.75; -webkit-font-smoothing: antialiased; }
+
+    .navbar { background: rgba(6,11,20,.94); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(255,255,255,.06); padding: 14px 0; }
+    .navbar-brand { font-weight: 800; font-size: 1.22rem; color: #fff !important; letter-spacing: -.4px; }
+    .navbar-brand .b-accent { color: var(--brand); }
+    .navbar .nav-link { color: rgba(255,255,255,.72) !important; font-size: .88rem; font-weight: 500; transition: color .2s; }
+    .navbar .nav-link:hover { color: #fff !important; }
+    .btn-nav-cta { font-size: .85rem; font-weight: 700; background: var(--brand); color: #fff !important; border-radius: 7px; padding: 6px 18px; transition: background .2s; text-decoration: none; }
+    .btn-nav-cta:hover { background: var(--brand-h); }
+    .navbar-toggler { border-color: rgba(255,255,255,.2); }
+    .navbar-toggler-icon { filter: invert(1); }
+
+    .post-hero { position: relative; width: 100%; height: 480px; overflow: hidden; display: flex; align-items: flex-end; }
+    .post-hero-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; }
+    .post-hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(6,11,20,.15) 0%, rgba(6,11,20,.75) 60%, rgba(6,11,20,.97) 100%); }
+    .post-hero-content { position: relative; z-index: 2; width: 100%; padding: 0 0 40px; }
+    .post-eyebrow { font-size: .72rem; font-weight: 700; letter-spacing: 1.6px; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
+    .post-hero h1 { font-family: 'Lora', serif; font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 600; color: #fff; letter-spacing: -.5px; margin-bottom: 16px; line-height: 1.2; }
+    .post-meta { font-size: .85rem; color: rgba(255,255,255,.7); display: flex; gap: 20px; flex-wrap: wrap; }
+    .post-meta i { font-size: .8rem; }
+    .post-wrap { max-width: 1000px; margin: 0 auto; padding: 64px 24px 96px; display: grid; grid-template-columns: minmax(0,1fr) 220px; gap: 48px; align-items: start; }
+
+    .post-body > p:first-of-type::first-letter { font-family: 'Lora', serif; font-size: 3.6rem; font-weight: 600; float: left; line-height: .82; margin: 4px 10px 0 0; color: var(--accent); }
+    .post-body h2 { font-family: 'Lora', serif; font-size: 1.5rem; font-weight: 600; color: #fff; margin: 48px 0 16px; letter-spacing: -.2px; border-bottom: 1px solid var(--border); padding-bottom: 10px; }
+    .post-body h3 { font-size: 1.05rem; font-weight: 700; color: #fff; margin: 28px 0 10px; }
+    .post-body p { font-size: .97rem; color: #c8ccd8; line-height: 1.85; margin-bottom: 20px; }
+    .post-body strong { color: var(--text); }
+    .post-body ul { margin: 0 0 20px 20px; }
+    .post-body ul li { font-size: .97rem; color: #c8ccd8; line-height: 1.85; margin-bottom: 8px; }
+
+    .callout { background: var(--surface); border-left: 3px solid var(--accent); border-radius: 0 8px 8px 0; padding: 20px 24px; margin: 32px 0; }
+    .callout p { margin: 0; color: var(--text); }
+
+    .rail { border-left: 1px solid var(--border); padding-left: 24px; position: sticky; top: 100px; }
+    .rail-quote { font-family: 'Lora', serif; font-style: italic; font-size: 1.1rem; line-height: 1.5; color: #fff; margin-bottom: 32px; }
+    .rail-quote::before { content: '\201C'; display: block; font-size: 2.2rem; color: var(--accent); line-height: .5; margin-bottom: 8px; }
+    .rail-label { font-size: .68rem; font-weight: 700; letter-spacing: 1.4px; text-transform: uppercase; color: var(--muted); margin-bottom: 40px; }
+
+    .site-footer { background: #03060e; border-top: 1px solid rgba(255,255,255,.05); text-align: center; padding: 32px 24px; font-size: 13px; color: var(--muted); }
+    .site-footer a { color: var(--accent); text-decoration: none; }
+
+    .back-link { display: inline-flex; align-items: center; gap: 6px; font-size: .85rem; color: var(--muted); text-decoration: none; margin-bottom: 8px; grid-column: 1 / -1; transition: color .2s; }
+    .back-link:hover { color: var(--accent); }
+
+    @media (max-width: 780px) {
+      .post-wrap { grid-template-columns: 1fr; }
+      .rail { border-left: none; padding-left: 0; border-top: 1px solid var(--border); padding-top: 24px; position: static; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg sticky-top">
+  <div class="container">
+    <a class="navbar-brand" href="https://czerwin.net">czerwin<span class="b-accent">.</span></a>
+    <div class="ms-auto d-flex align-items-center gap-3">
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a href="https://czerwin.net/#contact" class="btn-nav-cta">Get a free quote →</a>
+    </div>
+    <div class="collapse navbar-collapse" id="nav">
+      <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+        <li class="nav-item"><a class="nav-link px-3" href="https://czerwin.net/#services">Services</a></li>
+        <li class="nav-item"><a class="nav-link px-3" href="https://czerwin.net/#pricing">Pricing</a></li>
+        <li class="nav-item"><a class="nav-link px-3" href="https://czerwin.net/#portfolio">Portfolio</a></li>
+        <li class="nav-item"><a class="nav-link px-3" href="https://czerwin.net/#faq">FAQ</a></li>
+        <li class="nav-item"><a class="nav-link px-3" href="https://czerwin.net/#about">About</a></li>
+        <li class="nav-item"><a class="nav-link px-3 active" href="/blog/">Blog</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<section class="post-hero">
+  <img class="post-hero-img" src="/img/blog-post22.jpg" alt="A design system style guide with color swatches and UI components shown on a monitor, with a plant leaf in the foreground" />
+  <div class="post-hero-overlay"></div>
+  <div class="post-hero-content">
+    <div class="container">
+      <div class="post-eyebrow">Web Dev &nbsp;·&nbsp; Design</div>
+      <h1>What Your Website Says Before Anyone Reads a Word</h1>
+      <div class="post-meta">
+        <span><i class="bi bi-calendar3"></i> October 19, 2026</span>
+        <span><i class="bi bi-clock"></i> 5 min read</span>
+        <span><i class="bi bi-person"></i> czerwin.net</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="post-wrap">
+  <a href="/blog/" class="back-link"><i class="bi bi-arrow-left"></i> Back to blog</a>
+
+  <div class="post-body">
+  <p>You don't get a second chance to make a first impression — the cliché exists because it's true, and online it happens faster than almost anywhere else. A visitor lands on your homepage, and before they've read a single word, some part of them has already started deciding whether to trust you.</p>
+
+  <p>That reaction isn't really about your logo, your color palette, or how much the project cost. It comes down to a handful of specific, checkable things — most of which have nothing to do with how good your business actually is, and everything to do with whether the page in front of them looks like it was cared for.</p>
+
+  <p>Here's what's actually doing the talking, and what good design still can't make up for.</p>
+
+  <h2>What Actually Shapes That First Impression</h2>
+
+  <h3>A Navigation Menu That Doesn't Make Them Think</h3>
+  <p>The menu at the top is the first thing a visitor's eyes go to, whether they realize it or not. If it takes more than a second to figure out where "Services" or "Contact" is, that's already friction — and friction this early reads as disorganization, even if the rest of the site is fine. A handful of plain, obvious labels beats a clever one every time.</p>
+
+  <h3>Visual Consistency, Not Visual Variety</h3>
+  <p>The sites that feel put-together almost always use the same two or three fonts throughout, the same handful of colors, and buttons that look and behave the same way on every page. The sites that feel patched together usually got that way one addition at a time — a new section here, a different plugin there — until nothing quite matches anymore. Nobody decided to make it inconsistent; it just accumulated.</p>
+
+  <h3>Photos That Look Like They're Actually Yours</h3>
+  <p>A visitor can usually tell a generic stock photo on sight, even without naming why — the lighting is a little too perfect, the smile a little too posed. The moment that happens, the page quietly reads as a template with your name dropped in, not a real business. An ordinary, honestly-lit photo of your own product, your own space, or you, almost always reads as more trustworthy than a polished stock image of someone else's.</p>
+
+  <h3>A Way to Reach a Real Person, Without Hunting</h3>
+  <p>A visible email, phone number, or address — somewhere in the header, footer, or a dedicated page — tells a visitor there's someone actually behind the site. A contact form buried three clicks deep, with no other way to reach anyone, reads the opposite way, even when the business behind it is completely legitimate.</p>
+
+  <div class="callout">
+    <p>None of these four things require a redesign budget. They require someone to look at the homepage the way a stranger would, and actually notice what's there.</p>
+  </div>
+
+  <h2>Where Design Alone Runs Out</h2>
+  <p>It's worth being honest about the limits here too.</p>
+
+  <p>A good-looking page that takes several seconds to load undoes its own first impression before a visitor sees any of it — the design never gets the chance to make its case. First impressions aren't just visual; they're felt in how quickly the page responds.</p>
+
+  <p>There's also a point where "polished" tips into "generic." A site built entirely from a popular template, with the stock layout and default spacing left untouched, can look impressive in isolation and still feel indistinguishable from thousands of other sites using the same template with different colors swapped in. Ironically, that sameness is its own kind of first impression — just not the one anyone intended.</p>
+
+  <p>And looking professional was never the same thing as being trustworthy. Accurate pricing, a contact form that actually sends, information that's current rather than left over from two years ago — a visitor who gets past the first impression and finds any of that missing loses more trust than if the design had looked plain from the start. Design opens the door. It doesn't replace what's behind it.</p>
+
+  <h2>What This Actually Comes Down To</h2>
+  <p>You don't need a redesign budget to fix most of what's working against a site's first impression. A homepage can look amateur for reasons that have nothing to do with money — a navigation label nobody questioned, three different fonts because sections got added over different years, a stock photo that was never really looked at twice. Walking through your own homepage pretending you're a stranger seeing it for the first time catches most of it, and it costs nothing but ten honest minutes.</p>
+
+  <h2>Closing</h2>
+  <p>A first impression isn't a design problem you solve once — it's a standard you keep meeting every time the page loads. The good news is that most of what shapes it is small, specific, and entirely within reach, whether you built the site yourself or hired someone to.</p>
+
+  <p>If you're not sure what your own homepage is actually telling a new visitor in those first few seconds, that's the part I can help with.</p>
+
+  <h2>Further reading</h2>
+  <ul>
+    <li><a href="/blog/blog-post-mobile-friendly-tips.html" style="color: var(--accent);">Small Things That Make Your Website Easier to Use on a Phone</a> — czerwin.net</li>
+    <li><a href="/blog/blog-post-website-speed.html" style="color: var(--accent);">Why Your Website Feels Slow — And What Actually Makes It Faster</a> — czerwin.net</li>
+  </ul>
+  </div>
+
+  <div class="rail">
+    <div class="rail-quote">Before they've read a single word, some part of them has already started deciding whether to trust you.</div>
+    <div class="rail-label">4 signals<br>navigation &middot; consistency &middot; photos &middot; contact info</div>
+    <div class="rail-quote" style="font-size: .95rem;">A first impression isn't a design problem you solve once — it's a standard you keep meeting every time the page loads.</div>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <p>© 2026 <a href="https://czerwin.net">czerwin.net</a> · Web Developer for Business Owners · Philippines</p>
+  <p style="margin-top:8px;"><a href="/blog/">← Back to blog</a></p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
