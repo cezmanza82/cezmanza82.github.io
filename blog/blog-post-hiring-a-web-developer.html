@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>What to Ask Before You Hire a Web Developer — czerwin.net</title>
+  <meta name="description" content="A good quote isn't the same as a good hire. Here are the questions that tell you whether a developer is set up to protect your business, not just build you a site." />
+  <meta property="og:title" content="What to Ask Before You Hire a Web Developer" />
+  <meta property="og:description" content="A good quote isn't the same as a good hire. Here are the questions that tell you whether a developer is set up to protect your business, not just build you a site." />
+  <meta property="og:image"        content="https://czerwin.net/img/blog-post23.jpg" />
+  <meta property="og:image:width"  content="1200" />
+  <meta property="og:image:height" content="800" />
+  <meta property="og:url" content="https://czerwin.net/blog/blog-post-hiring-a-web-developer.html" />
+  <meta property="og:type" content="article" />
+  <link rel="canonical" href="https://czerwin.net/blog/blog-post-hiring-a-web-developer.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Lora:ital,wght@0,600;1,400&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet" />
+  <style>
+    :root {
+      --brand:    #2563eb;
+      --brand-h:  #1d4ed8;
+      --dark:     #060b14;
+      --bg:       #0f1117;
+      --surface:  #181c27;
+      --border:   #252a38;
+      --accent:   #4f8ef7;
+      --text:     #e8eaf0;
+      --muted:    #8891a8;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.75; -webkit-font-smoothing: antialiased; }
+
+    .navbar { background: rgba(6,11,20,.94); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(255,255,255,.06); padding: 14px 0; }
+    .navbar-brand { font-weight: 800; font-size: 1.22rem; color: #fff !important; letter-spacing: -.4px; }
+    .navbar-brand .b-accent { color: var(--brand); }
+    .navbar .nav-link { color: rgba(255,255,255,.72) !important; font-size: .88rem; font-weight: 500; transition: color .2s; }
+    .navbar .nav-link:hover { color: #fff !important; }
+    .btn-nav-cta { font-size: .85rem; font-weight: 700; background: var(--brand); color: #fff !important; border-radius: 7px; padding: 6px 18px; transition: background .2s; text-decoration: none; }
+    .btn-nav-cta:hover { background: var(--brand-h); }
+    .navbar-toggler { border-color: rgba(255,255,255,.2); }
+    .navbar-toggler-icon { filter: invert(1); }
+
+    .post-hero { position: relative; width: 100%; height: 480px; overflow: hidden; display: flex; align-items: flex-end; }
+    .post-hero-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; }
+    .post-hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(6,11,20,.15) 0%, rgba(6,11,20,.75) 60%, rgba(6,11,20,.97) 100%); }
+    .post-hero-content { position: relative; z-index: 2; width: 100%; padding: 0 0 40px; }
+    .post-eyebrow { font-size: .72rem; font-weight: 700; letter-spacing: 1.6px; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
+    .post-hero h1 { font-family: 'Lora', serif; font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 600; color: #fff; letter-spacing: -.5px; margin-bottom: 16px; line-height: 1.2; }
+    .post-meta { font-size: .85rem; color: rgba(255,255,255,.7); display: flex; gap: 20px; flex-wrap: wrap; }
+    .post-meta i { font-size: .8rem; }
+    .post-wrap { max-width: 1000px; margin: 0 auto; padding: 64px 24px 96px; display: grid; grid-template-columns: minmax(0,1fr) 220px; gap: 48px; align-items: start; }
+
+    .post-body > p:first-of-type::first-letter { font-family: 'Lora', serif; font-size: 3.6rem; font-weight: 600; float: left; line-height: .82; margin: 4px 10px 0 0; color: var(--accent); }
+    .post-body h2 { font-family: 'Lora', serif; font-size: 1.5rem; font-weight: 600; color: #fff; margin: 48px 0 16px; letter-spacing: -.2px; border-bottom: 1px solid var(--border); padding-bottom: 10px; }
+    .post-body h3 { font-size: 1.05rem; font-weight: 700; color: #fff; margin: 28px 0 10px; }
+    .post-body p { font-size: .97rem; color: #c8ccd8; line-height: 1.85; margin-bottom: 20px; }
+    .post-body strong { color: var(--text); }
+    .post-body ul { margin: 0 0 20px 20px; }
+    .post-body ul li { font-size: .97rem; color: #c8ccd8; line-height: 1.85; margin-bottom: 8px; }
+
+    .callout { background: var(--surface); border-left: 3px solid var(--accent); border-radius: 0 8px 8px 0; padding: 20px 24px; margin: 32px 0; }
+    .callout p { margin: 0; color: var(--text); }
+
+    .rail { border-left: 1px solid var(--border); padding-left: 24px; position: sticky; top: 100px; }
+    .rail-quote { font-family: 'Lora', serif; font-style: italic; font-size: 1.1rem; line-height: 1.5; color: #fff; margin-bottom: 32px; }
+    .rail-quote::before { content: '\201C'; display: block; font-size: 2.2rem; color: var(--accent); line-height: .5; margin-bottom: 8px; }
+    .rail-label { font-size: .68rem; font-weight: 700; letter-spacing: 1.4px; text-transform: uppercase; color: var(--muted); margin-bottom: 40px; }
+
+    .site-footer { background: #03060e; border-top: 1px solid rgba(255,255,255,.05); text-align: center; padding: 32px 24px; font-size: 13px; color: var(--muted); }
+    .site-footer a { color: var(--accent); text-decoration: none; }
+
+    .back-link { display: inline-flex; align-items: center; gap: 6px; font-size: .85rem; color: var(--muted); text-decoration: none; margin-bottom: 8px; grid-column: 1 / -1; transition: color .2s; }
+    .back-link:hover { color: var(--accent); }
+
+    @media (max-width: 780px) {
+      .post-wrap { grid-template-columns: 1fr; }
+      .rail { border-left: none; padding-left: 0; border-top: 1px solid var(--border); padding-top: 24px; position: static; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg sticky-top">
+  <div class="container">
+    <a class="navbar-brand" href="https://czerwin.net">czerwin<span class="b-accent">.</span></a>
+    <div class="ms-auto d-flex align-items-center gap-3">
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a href="https://czerwin.net/#contact" class="btn-nav-cta">Get a free quote →</a>
+    </div>
+    <div class="collapse navbar-collapse" id="nav">
+      <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+        <li class="nav-item"><a class="nav-link px-3" href="https://czerwin.net/#services">Services</a></li>
+        <li class="nav-item"><a class="nav-link px-3" href="https://czerwin.net/#pricing">Pricing</a></li>
+        <li class="nav-item"><a class="nav-link px-3" href="https://czerwin.net/#portfolio">Portfolio</a></li>
+        <li class="nav-item"><a class="nav-link px-3" href="https://czerwin.net/#faq">FAQ</a></li>
+        <li class="nav-item"><a class="nav-link px-3" href="https://czerwin.net/#about">About</a></li>
+        <li class="nav-item"><a class="nav-link px-3 active" href="/blog/">Blog</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<section class="post-hero">
+  <img class="post-hero-img" src="/img/blog-post23.jpg" alt="A business owner and a developer reviewing a laptop together at a café table" />
+  <div class="post-hero-overlay"></div>
+  <div class="post-hero-content">
+    <div class="container">
+      <div class="post-eyebrow">Business &nbsp;·&nbsp; Hiring</div>
+      <h1>What to Ask Before You Hire a Web Developer</h1>
+      <div class="post-meta">
+        <span><i class="bi bi-calendar3"></i> October 26, 2026</span>
+        <span><i class="bi bi-clock"></i> 5 min read</span>
+        <span><i class="bi bi-person"></i> czerwin.net</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="post-wrap">
+  <a href="/blog/" class="back-link"><i class="bi bi-arrow-left"></i> Back to blog</a>
+
+  <div class="post-body">
+  <p>Most people hiring a web developer for the first time focus on exactly one thing: the quote. Whoever comes in cheapest, or whoever has the nicest portfolio, gets the job. That's not an unreasonable way to shop for most things — but a website isn't most things. It's the one piece of your business where the person you hire can quietly control whether you own what you're paying for.</p>
+
+  <p>A good price and a good developer aren't the same thing, and a slick portfolio doesn't tell you what happens six months after launch when something breaks, or two years from now when you want to switch providers. The questions that protect you are rarely the ones people think to ask up front.</p>
+
+  <p>Here's what's worth asking before you say yes to anyone.</p>
+
+  <h2>The Questions That Actually Matter</h2>
+
+  <h3>"Will the domain and hosting be in my name?"</h3>
+  <p>This is the single most important question on the list, and the one most people skip. If a developer registers your domain or sets up your hosting under their own account "to make it easier," the site stays tied to their account, and every change, renewal, or move depends on them. Ask for it in writing: domain registrar account in your name, hosting account in your name, you holding the login for both before the project even starts.</p>
+
+  <h3>"What happens after launch?"</h3>
+  <p>A site going live isn't the end of the relationship — something will eventually need a fix, an update, or a password reset. Ask whether that's covered, for how long, and what it costs once it isn't. A developer who can't answer this clearly probably hasn't thought past delivery day.</p>
+
+  <h3>"Can I get the actual source files, not just a login?"</h3>
+  <p>A login to a site builder or CMS isn't the same as owning the code behind it. If the build is custom, ask for a copy of the source files and database as part of the handoff — not as a favor, as a standard deliverable. A developer who builds this way will usually offer it before you even ask.</p>
+
+  <h3>"What if you become unavailable?"</h3>
+  <p>Freelancers get busy, change careers, or simply stop responding. Ask what documentation you'd be left with if that happened tomorrow — admin credentials, a list of what plugins or services the site depends on, anything another developer would need to pick up where it left off. A one-page handoff document costs the developer almost nothing to write and saves you from starting over blind.</p>
+
+  <div class="callout">
+    <p>None of these four questions is about distrust. They're about making sure the answer to "who controls my website" is you, by default, from day one.</p>
+  </div>
+
+  <h2>What These Questions Won't Protect You From</h2>
+  <p>It's worth being honest about the limits here too.</p>
+
+  <p>Asking the right questions doesn't guarantee good answers, and a confident answer isn't the same as a true one. Someone can tell you "of course it'll be in your name" and still set things up under their own account out of habit, not malice — the only way to actually confirm it is to check the registrar and hosting panel yourself once the project is live, not just take the verbal answer at face value.</p>
+
+  <p>These questions also won't fix a mismatch in scope or expectations. A developer can answer every one of them perfectly and still not be the right fit if what you need is a quick one-page site and they only build complex custom systems, or the reverse. Ownership and communication are table stakes — they don't replace checking that the work itself fits what you're trying to build.</p>
+
+  <p>And price still matters. These questions aren't a reason to ignore your budget — they're a filter for what a given price includes. The cheapest quote and the most expensive one can both come with full ownership and a clear handoff plan, or neither. Asking tells you which one you're getting.</p>
+
+  <h2>What This Comes Down To</h2>
+  <p>A good developer answers these questions without flinching, because the answers were never a secret — ownership, documentation, and a plan for "what if" are just part of doing the work properly. Someone who's never been asked before might need a second to think about it, and that's fine. What you're looking for is a clear, specific answer — that's usually a good sign of how the rest of the project will go.</p>
+
+  <h2>Closing</h2>
+  <p>Hiring a developer isn't just buying a website — it's deciding who gets to hold the keys to it. The quote tells you what it costs. These four questions tell you what you actually get. Ask them before you sign anything, not after something's already gone wrong.</p>
+
+  <p>If you're about to hire someone for your site and aren't sure what to ask, that's the part I can help with.</p>
+
+  <h2>Further reading</h2>
+  <ul>
+    <li><a href="/blog/blog-post-own-your-website.html" style="color: var(--accent);">3 Things You Should Actually Own on Your Own Website</a> — czerwin.net</li>
+    <li><a href="/blog/blog-post-website-pricing-reality.html" style="color: var(--accent);">What a Website Should Actually Cost You</a> — czerwin.net</li>
+  </ul>
+  </div>
+
+  <div class="rail">
+    <div class="rail-quote">A good price and a good developer aren't the same thing.</div>
+    <div class="rail-label">4 questions<br>ownership &middot; after launch &middot; source files &middot; if they disappear</div>
+    <div class="rail-quote" style="font-size: .95rem;">The quote tells you what it costs. These four questions tell you what you actually get.</div>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <p>© 2026 <a href="https://czerwin.net">czerwin.net</a> · Web Developer for Business Owners · Philippines</p>
+  <p style="margin-top:8px;"><a href="/blog/">← Back to blog</a></p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
